@@ -1,62 +1,29 @@
-import stores from "../data/bureau-en-gros/stores.json";
+import stores from '../data/bureau-en-gros/stores.json';
 
 export type BureauEnGrosStore = {
   id: string;
-  slug: string;
   name: string;
-  city: string;
   address: string;
-  store?: string;
+  store: string;
 };
 
-type RawStore = {
-  id: string;
-  name: string;
-  address?: string;
-  store?: string;
-};
+const typedStores = stores as BureauEnGrosStore[];
 
-function slugify(value: string): string {
-  return value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+export function getBureauEnGrosStores(): BureauEnGrosStore[] {
+  return typedStores;
+}
+
+export function getBureauEnGrosStoreById(id: string): BureauEnGrosStore | undefined {
+  return typedStores.find((s) => s.id === id);
+}
+
+export function getBureauEnGrosStoreSlug(store: BureauEnGrosStore): string {
+  // Same slug pattern as outputs/bureauengros: "{id}-bureau-en-gros-{city-province-lowercase-with-dashes}"
+  const namePart = store.name
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
+    .replace('bureau en gros – ', '')
+    .replace(/[^\p{Letter}\p{Number}]+/gu, '-')
+    .replace(/^-+|-+$/g, '');
 
-function mapToStore(entry: RawStore): BureauEnGrosStore {
-  const cityLabel = entry.name.split("–")[1]?.trim() ?? entry.name;
-  const slug = `${entry.id}-${slugify(entry.name)}`;
-
-  return {
-    id: entry.id,
-    slug,
-    name: entry.name,
-    city: cityLabel,
-    address: entry.address ?? "",
-    store: entry.store,
-  };
-}
-
-const BUREAU_EN_GROS_STORES: BureauEnGrosStore[] = (stores as RawStore[]).map(
-  mapToStore
-);
-
-export function listBureauEnGrosStores(): BureauEnGrosStore[] {
-  return BUREAU_EN_GROS_STORES;
-}
-
-export function findBureauEnGrosStoreBySlug(
-  slug: string
-): BureauEnGrosStore | undefined {
-  return BUREAU_EN_GROS_STORES.find((store) => store.slug === slug);
-}
-
-export function listBureauEnGrosStoreSlugs(): string[] {
-  return BUREAU_EN_GROS_STORES.map((store) => store.slug);
-}
-
-export function getDefaultBureauEnGrosStoreSlug(): string | null {
-  return BUREAU_EN_GROS_STORES[0]?.slug ?? null;
+  return `${store.id}-bureau-en-gros-${namePart}`;
 }
