@@ -1,47 +1,34 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-page="pricing">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EconoDeal — Forfaits</title>
-  <style>
-    :root{
-      --bg:#0f172a; --panel:#111827; --panel-2:#1f2937; --text:#e5e7eb;
-      --muted:#9ca3af; --accent:#22c55e; --border:#2b3446; --radius:14px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#0b1020 50%,#0a0f1a);color:var(--text)}
-    header{position:sticky;top:0;z-index:20;background:rgba(15,23,42,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-    .container{max-width:1100px;margin:0 auto;padding:18px}
-    .row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-    h1{margin:0;font-size:18px}
-    .nav-button{display:inline-flex;align-items:center;justify-content:center;background:var(--panel-2);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:10px 12px;text-decoration:none;transition:background .2s ease,color .2s ease}
-    .nav-button:hover{background:var(--panel);color:#fff}
-    .nav-button:focus{outline:2px solid var(--accent);outline-offset:1px}
-    .nav-button.current{background:linear-gradient(120deg,rgba(34,197,94,.25),rgba(59,130,246,.25));border-color:rgba(34,197,94,.6)}
-    .section{padding:36px 0}
-    .muted{color:var(--muted)}
-    .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
-    .pricing-card{background:linear-gradient(180deg,var(--panel),#111a2a);border:1px solid var(--border);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
-    .pricing-card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(59,130,246,.6));opacity:.6}
-    .pricing-card h4{margin:0;font-size:18px}
-    .pricing-price{font-size:26px;font-weight:700;color:#86efac}
-    .pricing-features{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px;color:var(--muted)}
-    .pricing-tag{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-    .pricing-highlight{outline:2px solid rgba(34,197,94,.4);outline-offset:4px;transition:outline-color .3s ease}
-    .footer{border-top:1px solid var(--border);padding:20px 0;color:var(--muted);text-align:center}
-  </style>
+  <link rel="stylesheet" href="dist/assets/main.css" />
 </head>
 <body>
   <header>
     <div class="container row" style="justify-content:space-between">
       <div class="row" style="gap:10px;align-items:center">
-        <a class="nav-button" href="index.html" style="padding:8px 12px">Accueil</a>
-        <h1>EconoDeal</h1>
+        <a class="brand" href="index.html">
+          <img src="assets/logo.svg" alt="EconoDeal – accélérateur de revendeurs" />
+          <span class="brand-text">
+            <span class="brand-title">EconoDeal</span>
+            <span class="brand-tagline">Revendeur gagnant</span>
+          </span>
+        </a>
       </div>
       <div class="row" style="gap:12px;align-items:center">
+        <a class="nav-button" href="best-deals.html" style="white-space:nowrap">Meilleurs rabais</a>
         <a class="nav-button current" href="pricing.html" style="white-space:nowrap">Forfaits / prix</a>
         <a class="nav-button" href="roadmap.html" style="white-space:nowrap">Roadmap / vision</a>
+        <div class="lang-switch" aria-label="Sélecteur de langue">
+          <span class="active" aria-current="true">FR</span>
+          <a href="pricing-en.html">EN</a>
+          <a href="pricing-es.html">ES</a>
+          <a href="pricing-de.html">DE</a>
+          <a href="pricing-it.html">IT</a>
+        </div>
         <div class="muted">© <span id="year"></span></div>
       </div>
     </div>
@@ -61,6 +48,9 @@
             <li>3 alertes courriel par semaine</li>
             <li>Historique de prix sur 30 jours</li>
           </ul>
+          <div class="action-stack">
+            <button class="btn btn-primary" type="button" data-stripe-plan="essential" data-plan-name="Forfait Essentiel" data-plan-description="Accès de base aux liquidations populaires">Démarrer l'essai</button>
+          </div>
         </article>
         <article class="pricing-card pricing-highlight">
           <div class="pricing-tag">Le plus populaire</div>
@@ -71,6 +61,9 @@
             <li>Alertes personnalisées en temps réel</li>
             <li>Listes partagées avec votre équipe</li>
           </ul>
+          <div class="action-stack">
+            <button class="btn btn-primary" type="button" data-stripe-plan="advanced" data-plan-name="Forfait Avancé" data-plan-description="Accès illimité avec alertes temps réel">Lancer mon essai</button>
+          </div>
         </article>
         <article class="pricing-card">
           <div class="pricing-tag">Premium</div>
@@ -80,6 +73,40 @@
             <li>Alertes illimitées multicanal</li>
             <li>Analyse des prix assistée par IA</li>
             <li>Prévisions de tendances du marché</li>
+          </ul>
+          <div class="action-stack">
+            <button class="btn btn-primary" type="button" data-stripe-plan="premium" data-plan-name="Forfait Premium" data-plan-description="Analyse IA complète pour les revendeurs">Activer le plan Premium</button>
+          </div>
+        </article>
+      </div>
+      <div class="checkout-message" id="checkout-message" role="status" aria-live="polite" hidden></div>
+    </section>
+    <section class="section value-section">
+      <h3 style="margin:0">Une montée en valeur planifiée</h3>
+      <p class="muted" style="margin:0;max-width:680px">Chaque palier tarifaire débloque des capacités concrètes supplémentaires pour soutenir la croissance des opérations Amazon, de la prospection manuelle à une orchestration complète pilotée par l'IA.</p>
+      <div class="value-grid">
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">🧭</span>
+          <h4>Démarrage éclair</h4>
+          <ul>
+            <li>Essentiel condense les meilleures liquidations, idéal pour valider rapidement la valeur du flux.</li>
+            <li>Alertes courriel guidées qui permettent de tester les routines de sourcing sans complexité.</li>
+          </ul>
+        </article>
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">🤝</span>
+          <h4>Collaboration avancée</h4>
+          <ul>
+            <li>Le forfait Avancé ajoute les exports Seller Central et les listes partagées pour structurer l'équipe.</li>
+            <li>Notifications temps réel pour capter la Buy Box avant les concurrents.</li>
+          </ul>
+        </article>
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">🤖</span>
+          <h4>Optimisation IA avancée</h4>
+          <ul>
+            <li>Le plan Premium active les scénarios IA, les prévisions de tendances et les alertes multicanal illimitées.</li>
+            <li>Simulation FBA avancée pour sécuriser la marge et planifier les réapprovisionnements.</li>
           </ul>
         </article>
       </div>
@@ -97,5 +124,7 @@
       document.getElementById('yearFooter').textContent = y;
     });
   </script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="assets/js/stripe-checkout.js" defer></script>
 </body>
 </html>

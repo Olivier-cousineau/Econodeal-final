@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="it" data-page="best-deals">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EconoDeal — Offerte top</title>
+  <link rel="stylesheet" href="dist/assets/main.css" />
+</head>
+<body class="overlay-active">
+  <div id="registrationOverlay" role="dialog" aria-modal="true" aria-labelledby="registrationTitle">
+    <div class="registration-card">
+      <button type="button" class="registration-close" data-overlay-dismiss aria-label="Chiudi la finestra di registrazione">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h2 id="registrationTitle">Accesso riservato ai membri</h2>
+      <p class="muted" style="margin:0">Unisciti a <strong><span data-client-count>0</span></strong> cacciatori di offerte e sblocca la classifica delle migliori promozioni.</p>
+      <form id="registrationForm">
+        <div>
+          <label for="fullName">Nome completo</label>
+          <input id="fullName" name="fullName" type="text" placeholder="Inserisci il tuo nome" autocomplete="name" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="nome@esempio.com" autocomplete="email" required />
+        </div>
+        <div class="checkbox-row">
+          <input id="regulationCheckbox" name="regulation" type="checkbox" required />
+          <label for="regulationCheckbox" style="margin:0">Confermo di aver letto e accettato le linee guida di utilizzo del sito.</label>
+        </div>
+        <button id="registrationSubmit" type="submit" disabled>Registrati e sblocca l'accesso</button>
+      </form>
+    </div>
+  </div>
+  <header>
+    <div class="container row" style="justify-content:space-between">
+      <div class="row" style="gap:10px;align-items:center">
+        <a class="brand" href="index-it.html">
+          <img src="assets/logo.svg" alt="EconoDeal – acceleratore per rivenditori" />
+          <span class="brand-text">
+            <span class="brand-title">EconoDeal</span>
+            <span class="brand-tagline">Rivenditore vincente</span>
+          </span>
+        </a>
+      </div>
+      <div class="row" style="gap:12px;align-items:center">
+        <a class="nav-button current" href="best-deals-it.html" style="white-space:nowrap">Migliori offerte</a>
+        <a class="nav-button" href="pricing-it.html" style="white-space:nowrap">Piani / prezzi</a>
+        <a class="nav-button" href="roadmap-it.html" style="white-space:nowrap">Roadmap / visione</a>
+        <div class="lang-switch" aria-label="Selettore lingua">
+          <a href="best-deals.html">FR</a>
+          <a href="best-deals-en.html">EN</a>
+          <a href="best-deals-es.html">ES</a>
+          <a href="best-deals-de.html">DE</a>
+          <span class="active" aria-current="true">IT</span>
+        </div>
+        <div class="muted" style="white-space:nowrap">Clienti registrati:&nbsp; <span data-client-count>0</span></div>
+        <div class="muted">© <span id="year"></span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section" style="padding-bottom:10px">
+      <div class="hero">
+        <div class="badge">Aggiornato dopo ogni crawl</div>
+        <h2>Classifica delle migliori liquidazioni</h2>
+        <p class="muted" style="max-width:720px">Scopri gli sconti più aggressivi individuati dai nostri bot in tutti i rivenditori monitorati. La classifica viene aggiornata al termine di ogni crawl. Ricarica la pagina per vedere le offerte più recenti e rivedere le prime 1&nbsp;000&nbsp;000 liquidazioni ordinate per tasso di sconto.</p>
+        <div class="status-banner" id="statusBanner" role="status">
+          <span id="statusText">Analisi degli ultimi crawl in corso...</span>
+        </div>
+        <div class="filters">
+          <div>
+            <label for="storeFilter" class="muted" style="font-size:12px;display:block;margin-bottom:4px">Filtra per rivenditore</label>
+            <select id="storeFilter">
+              <option value="">Tutti i rivenditori</option>
+            </select>
+          </div>
+          <div style="margin-left:auto" class="muted">Totale:&nbsp;<span id="dealCount">0</span> offerte</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:12px">
+      <div id="cards" class="grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty" style="display:none">Nessuna offerta in liquidazione trovata al momento. Riprova più tardi!</div>
+      <div id="paginationControls" class="load-more" hidden>
+        <button id="showMoreButton" type="button" class="nav-button show-more-button">Mostra di più</button>
+        <div class="load-more-status">
+          <div class="load-more-track" aria-hidden="true">
+            <div id="paginationProgress" class="load-more-fill" style="width:0%"></div>
+          </div>
+          <div id="paginationLabel" class="muted load-more-label">Visualizzazione di 0 su 0 offerte.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="container footer">
+    © <span id="yearFooter"></span> EconoDeal · Tutti i diritti riservati
+  </div>
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const overlay = document.getElementById('registrationOverlay');
+      const form = document.getElementById('registrationForm');
+      const submitBtn = document.getElementById('registrationSubmit');
+      const regulationCheckbox = document.getElementById('regulationCheckbox');
+      const clientCountDisplays = Array.from(document.querySelectorAll('[data-client-count]'));
+      const overlayDismissTriggers = Array.from(document.querySelectorAll('[data-overlay-dismiss]'));
+      const OVERLAY_DISMISSED_KEY = 'econodealOverlayDismissed';
+      const statusBanner = document.getElementById('statusBanner');
+      const statusText = document.getElementById('statusText');
+      const cardsEl = document.getElementById('cards');
+      const emptyState = document.getElementById('emptyState');
+      const storeFilter = document.getElementById('storeFilter');
+      const dealCount = document.getElementById('dealCount');
+      const paginationControls = document.getElementById('paginationControls');
+      const showMoreButton = document.getElementById('showMoreButton');
+      const paginationLabel = document.getElementById('paginationLabel');
+      const paginationProgress = document.getElementById('paginationProgress');
+      const year = document.getElementById('year');
+      const yearFooter = document.getElementById('yearFooter');
+      const DEFAULT_REMOTE_DATA_BASE = 'https://raw.githubusercontent.com/Olivier-cousineau/Econo-econo111/main';
+      const MAX_TOP_DEALS = 1_000_000;
+      const PAGE_SIZE = 36;
+
+      function detectRemoteDataBase(){
+        const globalBase = window.ECONODEAL_DATA_BASE_URL || window.__ECONODEAL_DATA_BASE_URL__;
+        const htmlBase = document.documentElement?.getAttribute?.('data-data-base-url');
+        const bodyBase = document.body?.getAttribute?.('data-data-base-url');
+        const metaBase = document.querySelector('meta[name="econodeal-data-base"]')?.getAttribute('content');
+        const explicit = [globalBase, htmlBase, bodyBase, metaBase].find(value => typeof value === 'string' && value.trim());
+        if(explicit) return explicit.trim().replace(/\/+$/, '');
+        const host = window.location?.hostname || '';
+        if(host.endsWith('.vercel.app')) return DEFAULT_REMOTE_DATA_BASE;
+        return '';
+      }
+
+      const DATA_REMOTE_BASE = detectRemoteDataBase();
+
+      function buildDataFetchUrls(path){
+        if(!path) return [];
+        if(/^https?:\/\//i.test(path)) return [path];
+        const normalized = path.replace(/^\.?\//, '').replace(/^\/+/, '');
+        const encoded = normalized.split('/').map(segment => encodeURIComponent(segment)).join('/');
+        const urls = [];
+        if(DATA_REMOTE_BASE){
+          urls.push(`${DATA_REMOTE_BASE}/${encoded}`);
+        }
+        const original = path;
+        if(!urls.includes(original)) urls.push(original);
+        if(normalized !== original && !urls.includes(normalized)) urls.push(normalized);
+        return urls;
+      }
+
+      async function fetchDataJson(path, init){
+        const urls = buildDataFetchUrls(path);
+        if(!urls.length) return null;
+        let lastError = null;
+        for(const url of urls){
+          try{
+            const options = {...(init || {})};
+            if(options.cache === undefined) options.cache = 'no-store';
+            const res = await fetch(url, options);
+            if(res && res.ok) return res;
+            lastError = new Error(`Richiesta fallita (${res?.status}) per ${url}`);
+          }catch(err){
+            lastError = err;
+          }
+        }
+        if(lastError) throw lastError;
+        return null;
+      }
+
+      const CANADIAN_TIRE_LOCATIONS_PATH = 'data/canadian-tire/branches.json';
+      const CANADIAN_TIRE_FALLBACK_PATH = 'data/canadian-tire/stores_raw.txt';
+      const CANADIAN_TIRE_DATA_AVAILABILITY_PATH = 'data/canadian-tire/stores_with_data.json';
+      const CANADIAN_TIRE_SLUG_OVERRIDES = {
+        '271':'saint-jerome',
+        '649':'blainville',
+        '300':'laval',
+        '231':'laval-robert-bourassa',
+        '155':'laval-chomedey'
+      };
+      const CANADIAN_TIRE_LABEL_OVERRIDES = {
+        '271':'Saint-Jérôme — 700, boul. Monseigneur-Dubois',
+        '649':'Blainville — 500, boul. de la Seigneurie Ouest',
+        '300':'Laval — 1450, boul. le Corbusier',
+        '231':'Laval — 4975, boul. Robert-Bourassa',
+        '155':'Laval — 500, Chomedey (A-13) Ouest'
+      };
+      const CANADIAN_TIRE_CITY_OVERRIDES = {
+        '271':'Saint-Jérôme',
+        '649':'Blainville',
+        '300':'Laval',
+        '231':'Laval',
+        '155':'Laval'
+      };
+      async function loadCanadianTireDataAvailability(){
+        if(window.__ECONODEAL_CANADIAN_TIRE_DATA_AVAILABILITY__){
+          return window.__ECONODEAL_CANADIAN_TIRE_DATA_AVAILABILITY__;
+        }
+        let entries = [];
+        try{
+          const response = await fetchDataJson(CANADIAN_TIRE_DATA_AVAILABILITY_PATH);
+          if(response){
+            const parsed = await response.clone().json();
+            if(Array.isArray(parsed)){
+              entries = parsed;
+            }
+          }
+        }catch(err){
+          console.warn('Failed to load Canadian Tire data availability', err);
+        }
+        const normalized = Array.isArray(entries) ? entries.map(entry => {
+          if(!entry) return null;
+          if(typeof entry === 'string'){
+            const slug = canonicalizeCanadianTireSlug(entry);
+            return slug ? { slug, storeNumber: '' } : null;
+          }
+          const slugSource = entry.slug ?? entry.city ?? entry.label ?? entry;
+          const slug = canonicalizeCanadianTireSlug(slugSource);
+          if(!slug) return null;
+          const storeNumber = String(entry.storeNumber ?? entry.store ?? entry.id ?? '').trim();
+          return { slug, storeNumber };
+        }).filter(Boolean) : [];
+        const slugSet = new Set(normalized.map(entry => entry.slug));
+        const storeToSlug = new Map();
+        normalized.forEach(entry => {
+          if(entry.storeNumber){
+            storeToSlug.set(entry.storeNumber, entry.slug);
+          }
+        });
+        const availability = { entries: normalized, slugSet, storeToSlug };
+        window.__ECONODEAL_CANADIAN_TIRE_DATA_AVAILABILITY__ = availability;
+        return availability;
+      }
+
+      function canonicalizeCanadianTireSlug(value){
+        if(value === undefined || value === null) return '';
+        return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').replace(/--+/g,'-');
+      }
+
+      async function loadCanadianTireLocations(){
+        if(window.__ECONODEAL_CANADIAN_TIRE_LOCATIONS__){
+          return window.__ECONODEAL_CANADIAN_TIRE_LOCATIONS__;
+        }
+        let entries = [];
+        try{
+          const response = await fetchDataJson(CANADIAN_TIRE_LOCATIONS_PATH);
+          if(response){
+            try{
+              const parsed = await response.clone().json();
+              if(Array.isArray(parsed)){
+                entries = parsed;
+              }
+            }catch(err){
+              console.warn('Failed to parse Canadian Tire locations JSON', err);
+            }
+          }
+        }catch(err){
+          console.warn('Failed to load Canadian Tire locations', err);
+        }
+        if(!entries.length){
+          try{
+            const fallbackResponse = await fetchDataJson(CANADIAN_TIRE_FALLBACK_PATH);
+            if(fallbackResponse){
+              const text = await fallbackResponse.clone().text();
+              const lines = text.split(/\r?\n/);
+              const parsedEntries = [];
+              for(const rawLine of lines.slice(1)){
+                const line = rawLine.trim();
+                if(!line) continue;
+                const parts = line.split(/\t+/);
+                if(parts.length < 2) continue;
+                const [idPart, namePart, addressPart=''] = parts;
+                const normalizedId = (idPart || '').trim();
+                const normalizedName = (namePart || '').trim();
+                const normalizedAddress = (addressPart || '').trim();
+                if(!normalizedId || !normalizedName) continue;
+                parsedEntries.push({ id: normalizedId, name: normalizedName, address: normalizedAddress });
+              }
+              if(parsedEntries.length){
+                entries = parsedEntries;
+              }
+            }
+          }catch(err){
+            console.warn('Failed to parse fallback Canadian Tire locations', err);
+          }
+        }
+        const normalized = Array.isArray(entries) ? entries.map(entry => ({
+          id: String(entry.id ?? '').trim(),
+          name: String(entry.name ?? entry.city ?? '').trim(),
+          address: String(entry.address ?? '').trim()
+        })).filter(entry => entry.id && entry.name) : [];
+        window.__ECONODEAL_CANADIAN_TIRE_LOCATIONS__ = normalized;
+        return normalized;
+      }
+
+      function buildCanadianTireBranchesFromLocations(locations, availability){
+        if(!Array.isArray(locations)) return [];
+        const seen = new Set();
+        const branches = [];
+        const slugSet = availability?.slugSet instanceof Set ? availability.slugSet : new Set();
+        const storeToSlug = availability?.storeToSlug instanceof Map ? availability.storeToSlug : new Map();
+        for(const entry of locations){
+          if(!entry) continue;
+          const id = String(entry.id ?? '').trim();
+          const name = String(entry.name ?? '').trim();
+          const address = String(entry.address ?? '').trim();
+          if(!id || !name) continue;
+          const availabilitySlug = storeToSlug.get(id);
+          const slug = availabilitySlug || CANADIAN_TIRE_SLUG_OVERRIDES[id] || canonicalizeCanadianTireSlug(name);
+          const label = CANADIAN_TIRE_LABEL_OVERRIDES[id] || `${name} (#${id})`;
+          const citySource = CANADIAN_TIRE_CITY_OVERRIDES[id] || name.split(',')[0] || name;
+          const city = String(citySource).trim();
+          const key = `${slug}#${id}`;
+          if(seen.has(key)) continue;
+          seen.add(key);
+          branches.push({
+            label,
+            slug,
+            city,
+            address,
+            storeNumber: id,
+            hasData: slug ? slugSet.has(slug) : false
+          });
+        }
+        return branches;
+      }
+
+      const CANADIAN_TIRE_LOCATIONS = await loadCanadianTireLocations();
+      const CANADIAN_TIRE_AVAILABILITY = await loadCanadianTireDataAvailability();
+      const BUILT_CANADIAN_TIRE_BRANCHES = buildCanadianTireBranchesFromLocations(CANADIAN_TIRE_LOCATIONS, CANADIAN_TIRE_AVAILABILITY);
+      CANADIAN_TIRE_BRANCHES.splice(0, CANADIAN_TIRE_BRANCHES.length, ...BUILT_CANADIAN_TIRE_BRANCHES);
+
+      const currentYear = new Date().getFullYear();
+      if(year) year.textContent = currentYear;
+      if(yearFooter) yearFooter.textContent = currentYear;
+
+      function parseJson(value){
+        if(!value) return null;
+        try{ return JSON.parse(value); }
+        catch(err){ console.warn('Unable to read existing data', err); return null; }
+      }
+      const memoryStorage = new Map();
+      function safeGet(key){
+        if(!key) return null;
+        try{
+          const value = localStorage.getItem(key);
+          if(value !== null && value !== undefined){
+            memoryStorage.set(key, value);
+          }
+          return value;
+        }
+        catch(err){
+          console.warn('Archivio locale non disponibile', err);
+          return memoryStorage.has(key) ? memoryStorage.get(key) : null;
+        }
+      }
+      function safeSet(key, value){
+        if(!key) return false;
+        try{
+          localStorage.setItem(key, value);
+          memoryStorage.set(key, value);
+          return true;
+        }
+        catch(err){
+          console.warn('Impossibile salvare i dati', err);
+          memoryStorage.set(key, value);
+          return false;
+        }
+      }
+      function cleanText(value){ return typeof value === 'string' ? value.trim() : ''; }
+      function getRegistrations(){
+        const parsed = parseJson(safeGet('econodealRegistrations'));
+        if(!Array.isArray(parsed)) return [];
+        return parsed
+          .filter(item => item && typeof item === 'object')
+          .map(item => ({
+            name: cleanText(item.name),
+            email: cleanText(item.email).toLowerCase(),
+            registeredAt: cleanText(item.registeredAt)
+          }))
+          .filter(item => item.email);
+      }
+      function saveRegistrations(items){ safeSet('econodealRegistrations', JSON.stringify(items)); }
+      function upsertRegistration(entry){
+        const collection = getRegistrations();
+        const email = cleanText(entry.email).toLowerCase();
+        if(!email) return;
+        const normalized = {
+          name: cleanText(entry.name),
+          email,
+          registeredAt: cleanText(entry.registeredAt)
+        };
+        const existingIndex = collection.findIndex(item => item.email === email);
+        if(existingIndex >= 0){ collection[existingIndex] = {...collection[existingIndex], ...normalized}; }
+        else{ collection.push(normalized); }
+        saveRegistrations(collection);
+      }
+      function parseCount(value){
+        const parsed = parseInt(value ?? '0', 10);
+        return Number.isFinite(parsed) && parsed >= 0 ? parsed : 0;
+      }
+      function setClientCount(value){
+        const normalized = Math.max(0, value);
+        safeSet('econodealClientCount', String(normalized));
+        return normalized;
+      }
+      function deriveClientCountFromRegistrations(){
+        const registrations = getRegistrations();
+        if(!registrations.length) return 0;
+        const uniqueEmails = new Set();
+        registrations.forEach(item => {
+          if(item?.email) uniqueEmails.add(item.email);
+        });
+        return uniqueEmails.size;
+      }
+      function resolveClientCount(){
+        const stored = parseCount(safeGet('econodealClientCount'));
+        const derived = deriveClientCountFromRegistrations();
+        const resolved = Math.max(stored, derived);
+        if(resolved !== stored){ setClientCount(resolved); }
+        return resolved;
+      }
+      function updateClientCountDisplays(){
+        const formatter = new Intl.NumberFormat('en-CA');
+        const count = resolveClientCount();
+        clientCountDisplays.forEach(el => { el.textContent = formatter.format(count); });
+      }
+      function hideOverlay(){ if(!overlay) return; overlay.classList.add('hidden'); overlay.setAttribute('aria-hidden','true'); document.body.classList.remove('overlay-active'); }
+      function showOverlay(){ if(!overlay) return; overlay.classList.remove('hidden'); overlay.removeAttribute('aria-hidden'); document.body.classList.add('overlay-active'); updateClientCountDisplays(); }
+      resolveClientCount();
+      updateClientCountDisplays();
+      const alreadyRegistered = safeGet('econodealClientRegistered') === 'true';
+      const overlayDismissed = safeGet(OVERLAY_DISMISSED_KEY) === 'true';
+      if(alreadyRegistered || overlayDismissed){ hideOverlay(); }
+      else{ showOverlay(); }
+      if(submitBtn && regulationCheckbox){
+        submitBtn.disabled = !regulationCheckbox.checked;
+        regulationCheckbox.addEventListener('change', () => { submitBtn.disabled = !regulationCheckbox.checked; });
+      }
+      if(form){
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const rawName = (form.fullName?.value ?? '').trim();
+          const rawEmail = (form.email?.value ?? '').trim();
+          const hasReport = typeof form.reportValidity === 'function';
+          const hasCheck = typeof form.checkValidity === 'function';
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          const nameValid = rawName.length > 0;
+          const emailValid = emailPattern.test(rawEmail);
+          if(hasReport){
+            if(!form.reportValidity()) return;
+          }else if(hasCheck){
+            if(!form.checkValidity()){
+              alert('Inserisci un nome completo e un indirizzo email validi.');
+              return;
+            }
+          }else if(!nameValid || !emailValid){
+            alert('Inserisci un nome completo e un indirizzo email validi.');
+            return;
+          }
+          const payload = {
+            name: rawName,
+            email: rawEmail,
+            consent: true,
+            registeredAt: new Date().toISOString()
+          };
+          safeSet('econodealUser', JSON.stringify(payload));
+          upsertRegistration(payload);
+          resolveClientCount();
+          safeSet('econodealClientRegistered', 'true');
+          safeSet(OVERLAY_DISMISSED_KEY, 'true');
+          updateClientCountDisplays();
+          hideOverlay();
+        });
+      }
+
+      overlayDismissTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          safeSet(OVERLAY_DISMISSED_KEY, 'true');
+          hideOverlay();
+        });
+      });
+
+      window.addEventListener('storage', (event) => {
+        if(!event) return;
+        if(event.key === 'econodealRegistrations' || event.key === 'econodealClientCount'){
+          updateClientCountDisplays();
+        }
+        if(event.key === 'econodealClientRegistered' || event.key === OVERLAY_DISMISSED_KEY){
+          const registered = safeGet('econodealClientRegistered') === 'true';
+          const dismissed = safeGet(OVERLAY_DISMISSED_KEY) === 'true';
+          if(registered || dismissed){ hideOverlay(); }
+          else{ showOverlay(); }
+        }
+      });
+
+      function baseBranches(){
+        return [
+          {label:'Montréal', slug:'montreal', city:'Montréal'},
+          {label:'Laval', slug:'laval', city:'Laval'},
+          {label:'Saint-Jérôme', slug:'saint-jerome', city:'Saint-Jérôme'},
+          {label:'Sainte-Agathe-des-Monts', slug:'sainte-agathe-des-monts', city:'Sainte-Agathe-des-Monts'},
+          {label:'Blainville', slug:'blainville', city:'Blainville'},
+          {label:'Sainte-Thérèse', slug:'sainte-therese', city:'Sainte-Thérèse'},
+          {label:'Mascouche', slug:'mascouche', city:'Mascouche'}
+        ];
+      }
+
+      function sportingLifeBranches(){
+        return [
+          {label:'Laval', slug:'laval', city:'Laval'}
+        ];
+      }
+      function patrickMorinBranches(){
+        return [
+          {label:'Prévost', slug:'prevost', city:'Prévost'},
+          {label:'Laval', slug:'laval', city:'Laval'}
+        ];
+      }
+      function fullBestBuyBranches(){
+        return [
+          {label:'En ligne (Canada)', slug:'en-ligne', city:'En ligne', hasData:true},
+          {label:'St. Jerome', slug:'st-jerome', city:'Saint-Jerome', address:'1040 Boul. du Grand-Heron, Saint-Jerome, QC', storeNumber:'658', hasData:true},
+          {label:'Rosemere', slug:'rosemere-978', city:'Rosemere', address:'401 Boul. Labelle, Unit M-20, Rosemere, QC', storeNumber:'978', hasData:false},
+          {label:'Mascouche', slug:'mascouche-663', city:'Mascouche', address:'113 Monte Masson, Bldg. C Unit 2, Mascouche, QC', storeNumber:'663', hasData:false},
+          {label:'Best Buy Mobile Kiosk Laval', slug:'best-buy-mobile-kiosk-laval-543', city:'Laval', address:'3035 Boul. Le Carrefour, Unit ZD03, Laval, QC', storeNumber:'543', hasData:false},
+          {label:'Laval', slug:'laval-968', city:'Laval', address:'1450 Boul. le Corbusier, Laval, QC', storeNumber:'968', hasData:false},
+          {label:'Pointe Claire', slug:'pointe-claire-970', city:'Pointe-Claire', address:'6815 Autoroute Transcanadienne, Local #Y009, Pointe-Claire, QC', storeNumber:'970', hasData:false},
+          {label:'Best Buy Mobile Kiosk Fairview Pointe-Claire', slug:'best-buy-mobile-kiosk-fairview-pointe-claire-541', city:'Pointe-Claire', address:'6815 Trans Canada Hwy, Unit Z040, Pointe-Claire, QC', storeNumber:'541', hasData:false},
+          {label:'Marche Central', slug:'marche-central-962', city:'Montreal', address:'8871 Boul de L\'acadie, Montreal, QC', storeNumber:'962', hasData:false},
+          {label:'Best Buy Express Kiosk Montreal-Pierre Elliott Trudeau International Airport', slug:'best-buy-express-kiosk-montreal-pierre-elliott-trudeau-international-airport-857', city:'Dorval', address:'975 Romeo-Vachon Blvd N, Dorval, QC', storeNumber:'857', hasData:false},
+          {label:'Best Buy Express Kiosk Montreal-Pierre Elliott Trudeau International Airport', slug:'best-buy-express-kiosk-montreal-pierre-elliott-trudeau-international-airport-855', city:'Dorval', address:'975 Romeo-Vachon Blvd N, Dorval, QC', storeNumber:'855', hasData:false},
+          {label:'Best Buy Express Kiosk Montreal-Pierre Elliott Trudeau International Airport', slug:'best-buy-express-kiosk-montreal-pierre-elliott-trudeau-international-airport-856', city:'Dorval', address:'975 Romeo-Vachon Blvd N, Dorval, QC', storeNumber:'856', hasData:false},
+          {label:'Best Buy Mobile Place Versailles', slug:'best-buy-mobile-place-versailles-251', city:'Montreal', address:'7275 Rue Sherbrooke E, Unit 121, Montreal, QC', storeNumber:'251', hasData:false},
+          {label:'Vaudreuil', slug:'vaudreuil-674', city:'Vaudreuil-Dorion', address:'3090 Boul. de la Gare, Vaudreuil-Dorion, QC', storeNumber:'674', hasData:false},
+          {label:'Centreville', slug:'centreville-651', city:'Montreal', address:'470 Rue Ste. Catherine O, Montreal, QC', storeNumber:'651', hasData:false},
+          {label:'Best Buy Mobile Montreal Eaton Centre', slug:'best-buy-mobile-montreal-eaton-centre-252', city:'Montreal', address:'705 Rue Sainte-Catharine O, Unit 2114A, Montreal, QC', storeNumber:'252', hasData:false},
+          {label:'LaSalle', slug:'lasalle-967', city:'LaSalle', address:'7077 Boul. Newman, LaSalle, QC', storeNumber:'967', hasData:true},
+          {label:'Taschereau', slug:'taschereau-82', city:'Greenfield Park', address:'1800 Rue Auguste, Greenfield Park, QC', storeNumber:'82', hasData:false},
+          {label:'Brossard', slug:'brossard-969', city:'Brossard', address:'8480 Boul. Leduc, Unit 100, Brossard, QC', storeNumber:'969', hasData:false},
+          {label:'St. Bruno', slug:'st-bruno-971', city:'Saint-Bruno', address:'1235 Boul. des Promenades, Saint-Bruno, QC', storeNumber:'971', hasData:false},
+          {label:'Saint Jean', slug:'saint-jean-681', city:'Saint-Jean-sur-Richelieu', address:'600 Rue Pierre-Caisse, Unit 4000, Saint-Jean-sur-Richelieu, QC', storeNumber:'681', hasData:false},
+          {label:'Cornwall', slug:'cornwall-637', city:'Cornwall', address:'501 Tollgate Rd. W, Unit 6, Cornwall, ON', storeNumber:'637', hasData:false},
+          {label:'Granby', slug:'granby-673', city:'Granby', address:'90 Rue Simonds N, Granby, QC', storeNumber:'673', hasData:false},
+          {label:'Drummondville', slug:'drummondville-680', city:'Drummondville', address:'850 Rue Hains, Drummondville, QC', storeNumber:'680', hasData:false},
+          {label:'Orleans', slug:'orleans-627', city:'Orleans', address:'2020 Mer Bleue Rd., Unit C2, Orleans, ON', storeNumber:'627', hasData:false},
+          {label:'Best Buy Mobile Place d\'Orleans', slug:'best-buy-mobile-place-d-orleans-224', city:'Ottawa', address:'110 Place d\' Orleans Dr., Unit 0200, Ottawa, ON', storeNumber:'224', hasData:false},
+          {label:'Trois-Rivieres', slug:'trois-rivieres-668', city:'Trois-Rivieres', address:'4520 Boul. des Recollets, Unit 900A, Trois-Rivieres, QC', storeNumber:'668', hasData:false},
+          {label:'Ottawa East', slug:'ottawa-east-940', city:'Ottawa', address:'380 Coventry Rd., Ottawa, ON', storeNumber:'940', hasData:false},
+          {label:'Gatineau', slug:'gatineau-972', city:'Gatineau', address:'920 Maloney Blvd. W, Gatineau, QC', storeNumber:'972', hasData:false},
+          {label:'Best Buy Express Kiosk Ottawa International Airport', slug:'best-buy-express-kiosk-ottawa-international-airport-858', city:'Ottawa', address:'1000 Airport Parkway Private, Ottawa, ON', storeNumber:'858', hasData:false},
+          {label:'Best Buy Express Kiosk Ottawa International Airport', slug:'best-buy-express-kiosk-ottawa-international-airport-859', city:'Ottawa', address:'1000 Airport Parkway Private, Ottawa, ON', storeNumber:'859', hasData:false},
+          {label:'Ottawa West', slug:'ottawa-west-928', city:'Nepean', address:'1701 Merivale Rd., Nepean, ON', storeNumber:'928', hasData:false},
+          {label:'Barrhaven', slug:'barrhaven-639', city:'Nepean', address:'3777 Strandherd Dr., Nepean, ON', storeNumber:'639', hasData:false},
+          {label:'Kanata', slug:'kanata-975', city:'Kanata', address:'745 Kanata Ave., Kanata, ON', storeNumber:'975', hasData:false},
+          {label:'Sherbrooke', slug:'sherbrooke-659', city:'Sherbrooke', address:'3450 Boul. de Portland, Sherbrooke, QC', storeNumber:'659', hasData:false},
+          {label:'Place Laurier', slug:'place-laurier-906', city:'Quebec', address:'2700 Boul. Laurier, Unit 2290, Quebec, QC', storeNumber:'906', hasData:false},
+          {label:'La Capitale', slug:'la-capitale-907', city:'Quebec', address:'5401 Boul. des Galeries, Quebec, QC', storeNumber:'907', hasData:false},
+          {label:'Best Buy Mobile Cataraqui Town Centre', slug:'best-buy-mobile-cataraqui-town-centre-236', city:'Kingston', address:'945 Gardiners Rd., Unit L30A, Kingston, ON', storeNumber:'236', hasData:false},
+          {label:'Kingston', slug:'kingston-964', city:'Kingston', address:'A009-770 Gardiners Rd., Kingston, ON', storeNumber:'964', hasData:false},
+          {label:'Best Buy Mobile Quinte', slug:'best-buy-mobile-quinte-210', city:'Belleville', address:'390 North Front St., Unit P6, Belleville, ON', storeNumber:'210', hasData:false},
+          {label:'Belleville', slug:'belleville-989', city:'Belleville', address:'202 Bell Blvd., Belleville, ON', storeNumber:'989', hasData:false},
+          {label:'Chicoutimi', slug:'chicoutimi-653', city:'Chicoutimi', address:'1401 Boul. Talbot, Chicoutimi, QC', storeNumber:'653', hasData:false},
+          {label:'Best Buy Mobile Lansdowne Place', slug:'best-buy-mobile-lansdowne-place-218', city:'Peterborough', address:'645 Lansdowne St. W, Unit 136B, Peterborough, ON', storeNumber:'218', hasData:false},
+          {label:'Peterborough', slug:'peterborough-621', city:'Peterborough', address:'1101 Lansdowne St. W, Peterborough, ON', storeNumber:'621', hasData:false},
+          {label:'North Bay', slug:'north-bay-632', city:'North Bay', address:'1500 Fisher St., North Bay, ON', storeNumber:'632', hasData:false},
+          {label:'Oshawa', slug:'oshawa-613', city:'Oshawa', address:'1421 Harmony Rd. N, Oshawa, ON', storeNumber:'613', hasData:false},
+          {label:'Whitby', slug:'whitby-959', city:'Whitby', address:'1751 Victoria St. E, Whitby, ON', storeNumber:'959', hasData:false},
+          {label:'Orillia', slug:'orillia-626', city:'Orillia', address:'3200 Monarch Dr., Unit 1, Orillia, ON', storeNumber:'626', hasData:false},
+          {label:'Ajax', slug:'ajax-925', city:'Ajax', address:'20 Kingston Rd. W, Ajax, ON', storeNumber:'925', hasData:false},
+          {label:'Best Buy Mobile Pickering', slug:'best-buy-mobile-pickering-223', city:'Pickering', address:'1355 Kingston Rd., Unit 78, Pickering, ON', storeNumber:'223', hasData:false},
+          {label:'Markham', slug:'markham-937', city:'Markham', address:'5000 Hwy 7 E, Unit 2070L, Markham, ON', storeNumber:'937', hasData:false},
+          {label:'Aurora', slug:'aurora-985', city:'Aurora', address:'52 First Commerce Dr., Unit 2, Aurora, ON', storeNumber:'985', hasData:false},
+          {label:'Scarborough', slug:'scarborough-943', city:'Scarborough', address:'480 Progress Ave., Scarborough, ON', storeNumber:'943', hasData:false},
+          {label:'Newmarket', slug:'newmarket-949', city:'East Gwillimbury', address:'175 Green Lane E, East Gwillimbury, ON', storeNumber:'949', hasData:false},
+          {label:'Best Buy Mobile Georgian Mall', slug:'best-buy-mobile-georgian-mall-225', city:'Barrie', address:'509 Bayfield St., Unit B005, Barrie, ON', storeNumber:'225', hasData:false},
+          {label:'Barrie', slug:'barrie-953', city:'Barrie', address:'80 Concert Way, Unit 2, Barrie, ON', storeNumber:'953', hasData:false},
+          {label:'Warden', slug:'warden-965', city:'Scarborough', address:'50 Ashtonbee Rd., Unit 2, Scarborough, ON', storeNumber:'965', hasData:false},
+          {label:'Richmond Hill', slug:'richmond-hill-956', city:'Richmond Hill', address:'225 High Tech Rd., Unit 3, Richmond Hill, ON', storeNumber:'956', hasData:false},
+          {label:'Best Buy Mobile Centrepoint Mall', slug:'best-buy-mobile-centrepoint-mall-237', city:'North York', address:'6464 Yonge St., Unit 106, North York, ON', storeNumber:'237', hasData:false},
+          {label:'Leaside', slug:'leaside-931', city:'East York', address:'147 Laird Dr., East York, ON', storeNumber:'931', hasData:false},
+          {label:'Yonge & Eglinton', slug:'yonge-eglinton-62', city:'Toronto', address:'2400 Yonge St., Toronto, ON', storeNumber:'62', hasData:false},
+          {label:'Bay & Dundas', slug:'bay-dundas-977', city:'Toronto', address:'65 Dundas St. W, Toronto, ON', storeNumber:'977', hasData:false},
+          {label:'Downsview', slug:'downsview-927', city:'North York', address:'695 Wilson Ave., North York, ON', storeNumber:'927', hasData:false},
+          {label:'Best Buy Mobile Vaughan Mills', slug:'best-buy-mobile-vaughan-mills-200', city:'Vaughan', address:'1 Bass Pro Mills Dr., Unit 327, Vaughan, ON', storeNumber:'200', hasData:false},
+          {label:'Best Buy Mobile Dufferin Mall', slug:'best-buy-mobile-dufferin-mall-203', city:'Toronto', address:'900 Dufferin St., Unit 0455, Toronto, ON', storeNumber:'203', hasData:false},
+          {label:'Woodbridge', slug:'woodbridge-932', city:'Woodbridge', address:'7850 Weston Rd. , Bldg. E Unit 1, Woodbridge, ON', storeNumber:'932', hasData:false},
+          {label:'Keele & St. Clair', slug:'keele-st-clair-617', city:'Toronto', address:'10 Old Stock Yards Rd., Toronto, ON', storeNumber:'617', hasData:false},
+          {label:'Weston & HWY', slug:'weston-hwy-57', city:'North York', address:'4012625A Weston Rd., North York, ON', storeNumber:'57', hasData:false},
+          {label:'Sherway', slug:'sherway-938', city:'Etobicoke', address:'167 North Queen St., Etobicoke, ON', storeNumber:'938', hasData:false},
+          {label:'Best Buy Express Kiosk Niagara Falls', slug:'best-buy-express-kiosk-niagara-falls-823', city:'Niagara Falls', address:'6455 Fallsview Blvd., Niagara Falls, ON', storeNumber:'823', hasData:false},
+          {label:'Distribution Centre East', slug:'distribution-centre-east-795', city:'Brampton', address:'9250 Airport Road, Brampton, ON', storeNumber:'795', hasData:false},
+          {label:'Appliance Clearance Centre Brampton', slug:'appliance-clearance-centre-brampton-916', city:'Brampton', address:'9200 Airport Rd, Brampton, ON', storeNumber:'916', hasData:false},
+          {label:'Brampton Distribution Centre', slug:'brampton-distribution-centre-544', city:'Brampton', address:'9250 Airport Road, Brampton, ON', storeNumber:'544', hasData:false},
+          {label:'Brampton Warehouse Pick-up', slug:'brampton-warehouse-pick-up-910', city:'Brampton', address:'Door # 22 - 9200 Airport Rd, Brampton, ON', storeNumber:'910', hasData:false},
+          {label:'Brampton', slug:'brampton-954', city:'Brampton', address:'25 Peel Centre Dr., Unit 451, Brampton, ON', storeNumber:'954', hasData:false},
+          {label:'Best Buy Mobile Bramalea City Centre', slug:'best-buy-mobile-bramalea-city-centre-207', city:'Brampton', address:'25 Peel Centre Dr., Unit 506, Brampton, ON', storeNumber:'207', hasData:false},
+          {label:'Best Buy Mobile Square One', slug:'best-buy-mobile-square-one-202', city:'Mississauga', address:'100 City Centre Dr., Unit 1-839, Mississauga, ON', storeNumber:'202', hasData:false},
+          {label:'Best Buy Mobile Pen Centre', slug:'best-buy-mobile-pen-centre-208', city:'St. Catharines', address:'221 Glendale Ave., Unit 146, St. Catharines, ON', storeNumber:'208', hasData:false},
+          {label:'St Catharines', slug:'st-catharines-950', city:'St Catharines', address:'420 Vansickle Rd. Unit L1, St Catharines, ON', storeNumber:'950', hasData:false},
+          {label:'Heartland', slug:'heartland-926', city:'Mississauga', address:'6075 Mavis Rd., Unit 1, Mississauga, ON', storeNumber:'926', hasData:false},
+          {label:'Best Buy Mobile Woodbine Centre', slug:'best-buy-mobile-woodbine-centre-233', city:'Etobicoke', address:'500 Rexdale Blvd., Unit F006, Etobicoke, ON', storeNumber:'233', hasData:false},
+          {label:'Oakville', slug:'oakville-930', city:'Oakville', address:'2500 Winston Park Dr., Unit A, Oakville, ON', storeNumber:'930', hasData:false},
+          {label:'Winston Churchill', slug:'winston-churchill-622', city:'Mississauga', address:'2975 Argentia Rd., Mississauga, ON', storeNumber:'622', hasData:false},
+          {label:'Best Buy Mobile Oakville Place', slug:'best-buy-mobile-oakville-place-245', city:'Oakville', address:'240 Leighland Ave., Unit 210A, Oakville, ON', storeNumber:'245', hasData:false},
+          {label:'Orangeville', slug:'orangeville-615', city:'Orangeville', address:'95 First St., Orangeville, ON', storeNumber:'615', hasData:false},
+          {label:'Milton', slug:'milton-990', city:'Milton', address:'1195 Maple Ave., Milton, ON', storeNumber:'990', hasData:false},
+          {label:'Best Buy Mobile Burlington Mall', slug:'best-buy-mobile-burlington-mall-206', city:'Burlington', address:'777 Guelph Line, Unit H7A, Burlington, ON', storeNumber:'206', hasData:false},
+          {label:'Burlington', slug:'burlington-942', city:'Burlington', address:'1200 Brant St., Unit 1, Burlington, ON', storeNumber:'942', hasData:false},
+          {label:'Sudbury', slug:'sudbury-901', city:'Sudbury', address:'1099 Marcus Dr., Sudbury, ON', storeNumber:'901', hasData:false},
+          {label:'Hamilton', slug:'hamilton-984', city:'Stoney Creek', address:'1779 Stone Church Rd. E, Stoney Creek, ON', storeNumber:'984', hasData:false},
+          {label:'Best Buy Mobile Lime Ridge', slug:'best-buy-mobile-lime-ridge-213', city:'Hamilton', address:'999 Upper Wentworth St., Unit 0450, Hamilton, ON', storeNumber:'213', hasData:false},
+          {label:'Ancaster', slug:'ancaster-982', city:'Ancaster', address:'14 Martindale Cres., Unit 1, Ancaster, ON', storeNumber:'982', hasData:false},
+          {label:'Guelph', slug:'guelph-631', city:'Guelph', address:'151 Stone Rd. West, Guelph, ON', storeNumber:'631', hasData:false},
+          {label:'Cambridge', slug:'cambridge-995', city:'Cambridge', address:'28 Pinebush Rd., Cambridge, ON', storeNumber:'995', hasData:false},
+          {label:'Best Buy Mobile Cambridge Centre', slug:'best-buy-mobile-cambridge-centre-247', city:'Cambridge', address:'355 Hespeler Rd., Unit 301, Cambridge, ON', storeNumber:'247', hasData:false},
+          {label:'Fredericton', slug:'fredericton-669', city:'Fredericton', address:'1220 Prospect St., Fredericton, NB', storeNumber:'669', hasData:false},
+          {label:'Best Buy Mobile Fairview Park', slug:'best-buy-mobile-fairview-park-235', city:'Kitchener', address:'2960 Kingsway Dr., Unit G005A, Kitchener, ON', storeNumber:'235', hasData:false},
+          {label:'Kitchener', slug:'kitchener-935', city:'Kitchener', address:'215 Fairway Rd. S, Kitchener, ON', storeNumber:'935', hasData:false},
+          {label:'Brantford', slug:'brantford-620', city:'Brantford', address:'61 Lynden Rd., Unit A, Brantford, ON', storeNumber:'620', hasData:false},
+          {label:'Best Buy Mobile Conestoga', slug:'best-buy-mobile-conestoga-219', city:'Waterloo', address:'550 King St. N, Unit H16, Waterloo, ON', storeNumber:'219', hasData:false},
+          {label:'Waterloo', slug:'waterloo-608', city:'Waterloo', address:'580 King St. N, Bldg. B, Waterloo, ON', storeNumber:'608', hasData:false},
+          {label:'Saint John', slug:'saint-john-661', city:'Saint John', address:'80 Consumers Dr., Saint John, NB', storeNumber:'661', hasData:false},
+          {label:'Timmins', slug:'timmins-634', city:'Timmins', address:'1390 Riverside Dr., Timmins, ON', storeNumber:'634', hasData:false},
+          {label:'Best Buy Mobile Masonville Place', slug:'best-buy-mobile-masonville-place-246', city:'London', address:'1680 Richmond St. N, Unit L027A, London, ON', storeNumber:'246', hasData:false},
+          {label:'North London', slug:'north-london-980', city:'London', address:'1735 Richmond St., Unit 1, London, ON', storeNumber:'980', hasData:false},
+          {label:'London (South)', slug:'london-south-936', city:'London', address:'1080 Wellington Rd., London, ON', storeNumber:'936', hasData:false},
+          {label:'Moncton', slug:'moncton-81', city:'Moncton', address:'50 Plaza Blvd., Moncton, NB', storeNumber:'81', hasData:false},
+          {label:'Sarnia', slug:'sarnia-610', city:'Sarnia', address:'1380 Exmouth St., Sarnia, ON', storeNumber:'610', hasData:false},
+          {label:'Chatham', slug:'chatham-624', city:'Chatham', address:'802 St. Claire St., Chatham, ON', storeNumber:'624', hasData:false},
+          {label:'Sault Ste. Marie', slug:'sault-ste-marie-625', city:'Sault Ste. Marie', address:'548 Great Northern Rd., Sault Ste. Marie, ON', storeNumber:'625', hasData:false},
+          {label:'Windsor', slug:'windsor-944', city:'Windsor', address:'4379 Walker Rd., Windsor, ON', storeNumber:'944', hasData:false},
+          {label:'Best Buy Mobile Devonshire', slug:'best-buy-mobile-devonshire-211', city:'Windsor', address:'3100 Howard Ave., Unit SS7, Windsor, ON', storeNumber:'211', hasData:false},
+          {label:'Halifax', slug:'halifax-912', city:'Halifax', address:'11 Washmill Lake Dr., Halifax, NS', storeNumber:'912', hasData:false},
+          {label:'Best Buy Express Kiosk Dalhousie University Bookstore', slug:'best-buy-express-kiosk-dalhousie-university-bookstore-820', city:'Halifax', address:'6136 University Ave, Halifax, NS', storeNumber:'820', hasData:false},
+          {label:'Best Buy Express Kiosk Halifax Stanfield International Airport', slug:'best-buy-express-kiosk-halifax-stanfield-international-airport-833', city:'Enfield', address:'1 Bell Blvd., Enfield, NS', storeNumber:'833', hasData:false},
+          {label:'Dartmouth', slug:'dartmouth-979', city:'Dartmouth', address:'119 Gale Terrace, Bldg. 1K-4, Dartmouth, NS', storeNumber:'979', hasData:false},
+          {label:'Charlottetown', slug:'charlottetown-660', city:'Charlottetown', address:'191 Buchanan Dr., Charlottetown, PE', storeNumber:'660', hasData:false},
+          {label:'Best Buy Mobile Mayflower Mall', slug:'best-buy-mobile-mayflower-mall-238', city:'Sydney', address:'800 Grand Lake Rd., Unit E63, Sydney, NS', storeNumber:'238', hasData:false},
+          {label:'Sydney', slug:'sydney-672', city:'Sydney', address:'800 Grand Lake Rd., Unit E60, Sydney, NS', storeNumber:'672', hasData:false},
+          {label:'Thunder Bay', slug:'thunder-bay-79', city:'Thunder Bay', address:'767 Memorial Ave., Unit 1, Thunder Bay, ON', storeNumber:'79', hasData:false},
+          {label:'St. Johns', slug:'st-johns-909', city:'St. Johns', address:'3 Stavanger Dr., St. Johns, NL', storeNumber:'909', hasData:false},
+          {label:'Regent', slug:'regent-948', city:'Winnipeg', address:'1580 Regent Ave. W, Unit 10, Winnipeg, MB', storeNumber:'948', hasData:false},
+          {label:'Pembina', slug:'pembina-32', city:'Winnipeg', address:'1910 Pembina Hwy., Unit 6, Winnipeg, MB', storeNumber:'32', hasData:false},
+          {label:'St James', slug:'st-james-946', city:'Winnipeg', address:'810 St. James St., Unit A, Winnipeg, MB', storeNumber:'946', hasData:false},
+          {label:'Best Buy Express Kiosk Winnipeg James Armstrong Richardson International Airport', slug:'best-buy-express-kiosk-winnipeg-james-armstrong-richardson-international-airport-824', city:'Winnipeg', address:'9070 Wellington Ave., Winnipeg, MB', storeNumber:'824', hasData:false},
+          {label:'Brandon', slug:'brandon-744', city:'Brandon', address:'901A 18th St. N, Brandon, MB', storeNumber:'744', hasData:false},
+          {label:'Regina', slug:'regina-955', city:'Regina', address:'2125 Prince of Wales Dr., Regina, SK', storeNumber:'955', hasData:false},
+          {label:'Best Buy Express Kiosk Regina International Airport', slug:'best-buy-express-kiosk-regina-international-airport-861', city:'Regina', address:'5201 Regina Av., Regina, SK', storeNumber:'861', hasData:false},
+          {label:'Prince Albert', slug:'prince-albert-742', city:'Prince Albert', address:'800 15th St. E, Unit 300, Prince Albert, SK', storeNumber:'742', hasData:false},
+          {label:'Saskatoon', slug:'saskatoon-974', city:'Saskatoon', address:'3310 8th St. E, Unit 20A, Saskatoon, SK', storeNumber:'974', hasData:false},
+          {label:'Preston Crossing', slug:'preston-crossing-39', city:'Saskatoon', address:'1723 Preston Ave. N, Unit 221, Saskatoon, SK', storeNumber:'39', hasData:false},
+          {label:'Best Buy Express Kiosk Saskatoon International Airport', slug:'best-buy-express-kiosk-saskatoon-international-airport-822', city:'Saskatoon', address:'2625 Airport Fr., Saskatoon, SK', storeNumber:'822', hasData:false},
+          {label:'Best Buy Express Kiosk Pharmasave Swift Current', slug:'best-buy-express-kiosk-pharmasave-swift-current-816', city:'Swift Current', address:'390 Central Ave. N, Swift Current, SK', storeNumber:'816', hasData:false},
+          {label:'Lloydminster', slug:'lloydminster-749', city:'Lloydminster', address:'7501 44th St., Unit 101, Lloydminster, AB', storeNumber:'749', hasData:false},
+          {label:'Medicine Hat', slug:'medicine-hat-23', city:'Medicine Hat', address:'3292 Dunmore Rd. SE, Unit 600, Medicine Hat, AB', storeNumber:'23', hasData:false},
+          {label:'Best Buy Express Kiosk Fort McMurray Airport', slug:'best-buy-express-kiosk-fort-mcmurray-airport-864', city:'Fort McMurray', address:'100 Snowbird Way, Unit 300, Fort McMurray, AB', storeNumber:'864', hasData:false},
+          {label:'Lethbridge', slug:'lethbridge-904', city:'Lethbridge', address:'3734 Mayor Magrath Dr. S, Unit 1C, Lethbridge, AB', storeNumber:'904', hasData:false},
+          {label:'SE Edmonton', slug:'se-edmonton-988', city:'Edmonton', address:'2040 38 Ave. NW, Edmonton, AB', storeNumber:'988', hasData:false},
+          {label:'NE Edmonton', slug:'ne-edmonton-34', city:'Edmonton', address:'4250 137 Ave., Edmonton, AB', storeNumber:'34', hasData:false},
+          {label:'Best Buy Mobile Londonderry', slug:'best-buy-mobile-londonderry-214', city:'Edmonton', address:'149 - 1 Londonderry Mall NW, Edmonton, AB', storeNumber:'214', hasData:false},
+          {label:'Best Buy Mobile Kiosk West Ed Mall', slug:'best-buy-mobile-kiosk-west-ed-mall-545', city:'Edmonton', address:'2172 - 8882 170 Street NW, Edmonton, AB', storeNumber:'545', hasData:false},
+          {label:'Edmonton South', slug:'edmonton-south-934', city:'Edmonton', address:'9931 19 Ave. NW, Edmonton, AB', storeNumber:'934', hasData:false},
+          {label:'Downtown Edmonton', slug:'downtown-edmonton-33', city:'Edmonton', address:'10304 109th St. NW, Edmonton, AB', storeNumber:'33', hasData:false},
+          {label:'Edmonton North', slug:'edmonton-north-951', city:'Edmonton', address:'13924 137 Ave. NW, Edmonton, AB', storeNumber:'951', hasData:false},
+          {label:'Best Buy Express Kiosk Edmonton International Airport', slug:'best-buy-express-kiosk-edmonton-international-airport-863', city:'Edmonton', address:'1000 Airport Rd., Edmonton, AB', storeNumber:'863', hasData:false},
+          {label:'Best Buy Mobile West Ed Mall', slug:'best-buy-mobile-west-ed-mall-249', city:'Edmonton', address:'1340 - 8882 170 Street NW, Edmonton, AB', storeNumber:'249', hasData:false},
+          {label:'Edmonton West', slug:'edmonton-west-933', city:'Edmonton', address:'17539 Stony Plain Rd. NW, Edmonton, AB', storeNumber:'933', hasData:false},
+          {label:'Best Buy Mobile Parkland Mall', slug:'best-buy-mobile-parkland-mall-230', city:'Red Deer', address:'4747 67th St., Unit 221, Red Deer, AB', storeNumber:'230', hasData:false},
+          {label:'Red Deer', slug:'red-deer-960', city:'Red Deer', address:'5001 19th St., Unit 800, Red Deer, AB', storeNumber:'960', hasData:false},
+          {label:'Best Buy Mobile Marlborough', slug:'best-buy-mobile-marlborough-209', city:'Calgary', address:'3800 Memorial Drive NE, Unit 1237, Calgary, AB', storeNumber:'209', hasData:false},
+          {label:'Best Buy Mobile Sunridge Mall', slug:'best-buy-mobile-sunridge-mall-205', city:'Calgary', address:'2525 36th St. NE, Unit 120, Calgary, AB', storeNumber:'205', hasData:false},
+          {label:'Sunridge', slug:'sunridge-945', city:'Calgary', address:'3319-26th Avenue NE, Calgary, AB', storeNumber:'945', hasData:false},
+          {label:'Best Buy Express Kiosk Calgary International Airport', slug:'best-buy-express-kiosk-calgary-international-airport-862', city:'Calgary', address:'2000 Airport Rd. NE, Calgary, AB', storeNumber:'862', hasData:false},
+          {label:'Deerfoot Meadows', slug:'deerfoot-meadows-947', city:'Calgary', address:'8180 11th St. SE,Unit 300, Calgary, AB', storeNumber:'947', hasData:false},
+          {label:'Best Buy Mobile Southcentre Mall', slug:'best-buy-mobile-southcentre-mall-231', city:'Calgary', address:'100 Anderson Rd. SE, Unit 346, Calgary, AB', storeNumber:'231', hasData:false},
+          {label:'Best Buy Mobile Chinook Centre', slug:'best-buy-mobile-chinook-centre-204', city:'Calgary', address:'6455 Macleod Trail SW, Unit 0155, Calgary, AB', storeNumber:'204', hasData:false},
+          {label:'Shawnessy', slug:'shawnessy-741', city:'Calgary', address:'350R Shawville Blvd. SE, Unit 110, Calgary, AB', storeNumber:'741', hasData:false},
+          {label:'Calgary 17th Avenue', slug:'calgary-17th-avenue-998', city:'Calgary', address:'901 17th Ave. SW, Calgary, AB', storeNumber:'998', hasData:false},
+          {label:'Northland', slug:'northland-976', city:'Calgary', address:'5111 Northland Dr. NW, Unit 350, Calgary, AB', storeNumber:'976', hasData:false},
+          {label:'Beacon Hill', slug:'beacon-hill-746', city:'Calgary', address:'11810 Sarcee Trail NW, Calgary, AB', storeNumber:'746', hasData:false},
+          {label:'Best Buy Mobile Kiosk Market Mall', slug:'best-buy-mobile-kiosk-market-mall-542', city:'Calgary', address:'3625 Shaganappi Trail NW, Unit Z029, Calgary, AB', storeNumber:'542', hasData:false},
+          {label:'Westhills Calgary', slug:'westhills-calgary-902', city:'Calgary', address:'350 Stewart Green SW, Calgary, AB', storeNumber:'902', hasData:false},
+          {label:'Grande Prairie', slug:'grande-prairie-986', city:'Grande Prairie', address:'9817 116th St., Grande Prairie, AB', storeNumber:'986', hasData:false},
+          {label:'Vernon', slug:'vernon-704', city:'Vernon', address:'5600 24th St., Vernon, BC', storeNumber:'704', hasData:false},
+          {label:'Best Buy Mobile Village Green Mall', slug:'best-buy-mobile-village-green-mall-232', city:'Vernon', address:'4900 27th St., Unit 205, Vernon, BC', storeNumber:'232', hasData:false},
+          {label:'Best Buy Express Kiosk Kelowna International Airport', slug:'best-buy-express-kiosk-kelowna-international-airport-832', city:'Kelowna', address:'5533 Airport Way, Unit 1, Kelowna, BC', storeNumber:'832', hasData:false},
+          {label:'Kelowna', slug:'kelowna-914', city:'Kelowna', address:'2271 Harvey Ave., Unit 1403, Kelowna, BC', storeNumber:'914', hasData:false},
+          {label:'Kamloops', slug:'kamloops-14', city:'Kamloops', address:'1320 West Trans Canada Hwy., Unit Y700, Kamloops, BC', storeNumber:'14', hasData:false},
+          {label:'Best Buy Mobile Aberdeen', slug:'best-buy-mobile-aberdeen-215', city:'Kamloops', address:'1320 Trans Canada Hwy. W, Unit 261A, Kamloops, BC', storeNumber:'215', hasData:false},
+          {label:'Prince George', slug:'prince-george-700', city:'Prince George', address:'3900 Walls Ave., Unit 201, Prince George, BC', storeNumber:'700', hasData:false},
+          {label:'Chilliwack', slug:'chilliwack-703', city:'Chilliwack', address:'45805 Luckakuck Way, Unit 109, Chilliwack, BC', storeNumber:'703', hasData:false},
+          {label:'Abbotsford', slug:'abbotsford-992', city:'Abbotsford', address:'32900 South Fraser Way, Unit 4, Abbotsford, BC', storeNumber:'992', hasData:false},
+          {label:'Distribution Centre West', slug:'distribution-centre-west-796', city:'Langley', address:'19890 92A Ave, Langley, BC', storeNumber:'796', hasData:false},
+          {label:'Appliance Clearance Centre Langley', slug:'appliance-clearance-centre-langley-915', city:'Langley', address:'Door # 19 - 19890 92A Ave, Langley, BC', storeNumber:'915', hasData:false},
+          {label:'Langley', slug:'langley-929', city:'Langley', address:'20202 66th Ave., Unit F3, Langley, BC', storeNumber:'929', hasData:false},
+          {label:'Coquitlam', slug:'coquitlam-958', city:'Coquitlam', address:'2929 Barnet Hwy., Unit 2140, Coquitlam, BC', storeNumber:'958', hasData:false},
+          {label:'South Surrey', slug:'south-surrey-701', city:'Surrey', address:'2267 160th St., Surrey, BC', storeNumber:'701', hasData:false},
+          {label:'Best Buy Mobile Central City', slug:'best-buy-mobile-central-city-226', city:'Surrey', address:'13450 102nd Ave., Unit 142, Surrey, BC', storeNumber:'226', hasData:false},
+          {label:'Surrey', slug:'surrey-961', city:'Surrey', address:'10153 King George Boulevard, Unit 3200, Surrey, BC', storeNumber:'961', hasData:false},
+          {label:'Scott Road', slug:'scott-road-600', city:'Surrey', address:'12048 80th Ave., Surrey, BC', storeNumber:'600', hasData:false},
+          {label:'Station Square', slug:'station-square-973', city:'Burnaby', address:'6200 McKay Ave., Unit 200, Burnaby, BC', storeNumber:'973', hasData:false},
+          {label:'Best Buy Mobile Pacific Centre', slug:'best-buy-mobile-pacific-centre-242', city:'Vancouver', address:'PO Box 10306 701 West Georgia St., Unit D038C, Vancouver, BC', storeNumber:'242', hasData:false},
+          {label:'Robson & Granville', slug:'robson-granville-705', city:'Vancouver', address:'798 Granville St. , Suite 200, Vancouver, BC', storeNumber:'705', hasData:false},
+          {label:'Cambie', slug:'cambie-952', city:'Vancouver', address:'2220 Cambie St., Vancouver, BC', storeNumber:'952', hasData:false},
+          {label:'West Vancouver', slug:'west-vancouver-13', city:'West Vancouver', address:'2100 Park Royal S, West Vancouver, BC', storeNumber:'13', hasData:false},
+          {label:'South Vancouver', slug:'south-vancouver-994', city:'Vancouver', address:'8133 Ontario St., Vancouver, BC', storeNumber:'994', hasData:false},
+          {label:'Richmond', slug:'richmond-941', city:'Richmond', address:'5300 No. 3 Rd., Unit 700, Richmond, BC', storeNumber:'941', hasData:false},
+          {label:'Best Buy Mobile Richmond Centre', slug:'best-buy-mobile-richmond-centre-228', city:'Richmond', address:'6551 No. 3 Rd., Unit 1111B, Richmond, BC', storeNumber:'228', hasData:false},
+          {label:'Best Buy Express Kiosk Vancouver International Airport', slug:'best-buy-express-kiosk-vancouver-international-airport-850', city:'Richmond', address:'3211 Grant McConachie Way, Richmond, BC', storeNumber:'850', hasData:false},
+          {label:'Best Buy Express Kiosk Vancouver International Airport', slug:'best-buy-express-kiosk-vancouver-international-airport-852', city:'Richmond', address:'3211 Grant McConachie Way, Richmond, BC', storeNumber:'852', hasData:false},
+          {label:'Best Buy Express Kiosk Vancouver International Airport', slug:'best-buy-express-kiosk-vancouver-international-airport-853', city:'Richmond', address:'3211 Grant McConachie Way, Richmond, BC', storeNumber:'853', hasData:false},
+          {label:'Best Buy Express Kiosk Vancouver International Airport', slug:'best-buy-express-kiosk-vancouver-international-airport-854', city:'Richmond', address:'3211 Grant McConachie Way, Richmond, BC', storeNumber:'854', hasData:false},
+          {label:'Best Buy Express Kiosk Tsawwassen Marketplace', slug:'best-buy-express-kiosk-tsawwassen-marketplace-826', city:'Delta', address:'1 Ferry Causeway, Delta, BC', storeNumber:'826', hasData:false},
+          {label:'Best Buy Express Kiosk BC Ferries - Spirit of BC', slug:'best-buy-express-kiosk-bc-ferries-spirit-of-bc-829', city:'Delta', address:'1 Ferry Causeway, Delta, BC', storeNumber:'829', hasData:false},
+          {label:'Best Buy Express Kiosk UBC AMS Student Nest', slug:'best-buy-express-kiosk-ubc-ams-student-nest-825', city:'Vancouver', address:'6133 University Blvd., Vancouver, BC', storeNumber:'825', hasData:false},
+          {label:'UBC Best Buy Mobile Pop-Up', slug:'ubc-best-buy-mobile-pop-up-911', city:'Vancouver', address:'6200 University Boulevard, Vancouver, BC', storeNumber:'911', hasData:false},
+          {label:'Best Buy Express Kiosk BC Ferries - Spirit of Vancouver Island', slug:'best-buy-express-kiosk-bc-ferries-spirit-of-vancouver-island-828', city:'North Saanich', address:'Patricia Bay Highway, North Saanich, BC', storeNumber:'828', hasData:false},
+          {label:'Best Buy Mobile Mayfair Shopping Centre', slug:'best-buy-mobile-mayfair-shopping-centre-239', city:'Victoria', address:'3147 Douglas St., Unit 344, Victoria, BC', storeNumber:'239', hasData:false},
+          {label:'Victoria', slug:'victoria-10', city:'Victoria', address:'3450 Uptown Blvd., Suite 200, Victoria, BC', storeNumber:'10', hasData:false},
+          {label:'Langford', slug:'langford-702', city:'Victoria', address:'779 McCallum Dr., Victoria, BC', storeNumber:'702', hasData:false},
+          {label:'Cowichan', slug:'cowichan-708', city:'Duncan', address:'2900 Drinkwater Rd. , Unit 101, Duncan, BC', storeNumber:'708', hasData:false},
+          {label:'Nanaimo', slug:'nanaimo-9', city:'Nanaimo', address:'3200 North Island Hwy, Unit 87, Nanaimo, BC', storeNumber:'9', hasData:false},
+          {label:'Best Buy Mobile Woodgrove Centre', slug:'best-buy-mobile-woodgrove-centre-240', city:'Nanaimo', address:'6631 Island Hwy. N, Unit 52, Nanaimo, BC', storeNumber:'240', hasData:false},
+          {label:'Courtenay', slug:'courtenay-706', city:'Courtenay', address:'3245 Cliffe Ave., Bldg. D Unit 1, Courtenay, BC', storeNumber:'706', hasData:false}
+        ];
+      }
+      const WALMART_QUEBEC_BRANCHES = [
+        {label: 'ST JEROME — Walmart #7147', slug: 'saint-jerome', city: 'St. Jerome', address: '1045 boul du grand heron, St. Jerome, QC, J7Y 3P2', distanceKm: 3.0, hasData: true},
+        {label: 'SAINTE-AGATHE-DES-MONTS — Walmart Supercentre', slug: 'sainte-agathe-des-monts', city: 'Sainte-Agathe-des-Monts', address: '50 Rue Pépin, Sainte-Agathe-des-Monts, QC, J8C 1S1', distanceKm: 52.0, hasData: true},
+        {label: 'BLAINVILLE — Walmart Supercentre', slug: 'blainville', city: 'Blainville', address: '1313 boul Michèle-Bohec, Blainville, QC, J7C 0M4', distanceKm: 0.0, hasData: true},
+        {label: 'LAVAL — Walmart Supercentre (2075 Boul. Chomedey)', slug: 'laval-2075-bd-chomedey', city: 'Laval', address: '2075 Boul. Chomedey, Laval, QC, H7T 0G5', distanceKm: 12.0, hasData: true},
+      {label: 'MONTRÉAL (VILLE ST-LAURENT) — Walmart Supercentre', slug: 'montreal', city: 'Montréal', address: '5400 Rue Jean-Talon O, Montréal, QC, H4P 2M2', distanceKm: 46.0, hasData: true},
+        {label: 'POINTE-CLAIRE — Walmart Supercentre', slug: 'pointe-claire', city: 'Pointe-Claire', address: '195 Hymus Blvd, Pointe-Claire, QC, H9R 1E9', distanceKm: 32.0, hasData: true},
+        {label: 'LACHUTE — Walmart Supercentre', slug: 'lachute', city: 'Lachute', address: '540 Rue Berry, Lachute, QC, J8H 4N5', distanceKm: 34.0, hasData: true},
+        {label: 'VAUDREUIL-DORION — Walmart Supercentre', slug: 'vaudreuil', city: 'Vaudreuil-Dorion', address: '3090 Boul. de la Gare, Vaudreuil-Dorion, QC', distanceKm: 45.0, hasData: true},
+        {label: 'SALABERRY-DE-VALLEYFIELD — Walmart Supercentre', slug: 'valleyfield', city: 'Salaberry-de-Valleyfield', address: '40 Boul. Monseigneur-Langlois, Salaberry-de-Valleyfield, QC, J6S 1C1', distanceKm: 72.0, hasData: true}
+      ];
+
+      const HOME_DEPOT_CANADA_BRANCHES = WALMART_QUEBEC_BRANCHES.filter(branch => branch.slug !== 'online-7274').map(branch => {
+      const hasData = ['saint-jerome'].includes(branch.slug);
+      return {
+        ...branch,
+        label: branch.label.replace('Walmart', 'Home Depot'),
+        hasData
+      };
+    });
+
+    const CANADIAN_TIRE_BRANCHES = [];
+
+    const STORES = [
+      {label:'Walmart', slug:'walmart', branches: WALMART_QUEBEC_BRANCHES},
+      {label:'Best Buy', slug:'best-buy', branches: fullBestBuyBranches()},
+      {label:'Canadian Tire', slug:'canadian-tire', branches: CANADIAN_TIRE_BRANCHES},
+      {label:'Patrick Morin', slug:'patrick-morin', branches: patrickMorinBranches()},
+      {label:'Home Depot', slug:'home-depot', branches: HOME_DEPOT_CANADA_BRANCHES},
+      {label:'Rona', slug:'rona', branches: baseBranches()},
+      {label:'Sporting Life', slug:'sporting-life', branches: sportingLifeBranches()}
+    ];
+
+      const PLACEHOLDER_IMAGE = 'https://via.placeholder.com/400x300?text=Liquidation';
+      const AMAZON_DAILY_PATH = 'data/amazon_ca_daily.json';
+      const AMAZON_FALLBACK_PATH = 'data/amazon/canada.json';
+      const BEST_BUY_AGGREGATE_PATH = 'data/best-buy/liquidations.json';
+
+      function slugify(value){
+        if(value === undefined || value === null) return '';
+        const text = String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        return text.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').replace(/--+/g,'-');
+      }
+      function firstDefined(...values){
+        for(const value of values){ if(value !== undefined && value !== null && value !== '') return value; }
+        return null;
+      }
+      function toNumber(value){
+        if(typeof value === 'number' && Number.isFinite(value)) return value;
+        if(typeof value === 'string' && value.trim()){
+          const parsed = Number(value.replace(/[^0-9,.-]/g,'').replace(',','.'));
+          return Number.isFinite(parsed) ? parsed : null;
+        }
+        return null;
+      }
+      function collectNumbers(...values){
+        const results = [];
+        for(const value of values){
+          if(Array.isArray(value)){
+            value.forEach(entry => {
+              const parsed = toNumber(entry);
+              if(Number.isFinite(parsed) && parsed > 0) results.push(parsed);
+            });
+            continue;
+          }
+          if(value && typeof value === 'object'){
+            const objectCandidates = [value.value, value.amount, value.price, value.salePrice, value.current, value.lowest, value.highest];
+            objectCandidates.forEach(candidate => {
+              const parsed = toNumber(candidate);
+              if(Number.isFinite(parsed) && parsed > 0) results.push(parsed);
+            });
+            continue;
+          }
+          const parsed = toNumber(value);
+          if(Number.isFinite(parsed) && parsed > 0) results.push(parsed);
+        }
+        return results;
+      }
+      function normalizeImageCandidate(value){
+        if(!value) return null;
+        if(Array.isArray(value)){
+          for(const entry of value){
+            const normalized = normalizeImageCandidate(entry);
+            if(normalized) return normalized;
+          }
+          return null;
+        }
+        if(typeof value === 'object'){
+          const potentialKeys = ['url','href','src','image','large','medium','small','default'];
+          for(const key of potentialKeys){
+            if(value[key]){
+              const normalized = normalizeImageCandidate(value[key]);
+              if(normalized) return normalized;
+            }
+          }
+          return null;
+        }
+        const stringValue = String(value).trim();
+        if(!stringValue || stringValue === '#' || stringValue.toLowerCase() === 'null' || stringValue.toLowerCase() === 'n/a') return null;
+        if(stringValue.startsWith('//')) return `https:${stringValue}`;
+        if(/^https?:\/\//i.test(stringValue) || stringValue.startsWith('data:image')) return stringValue;
+        return null;
+      }
+      function resolveImage(item){
+        const candidates = [
+          item.image,
+          item.image_url,
+          item.imageUrl,
+          item.img,
+          item.primary_image,
+          item.primaryImage,
+          item.image_link,
+          item.imageLink,
+          item.thumbnail,
+          item.thumbnail_url,
+          item.thumbnailUrl,
+          item.product_image,
+          item.productImage,
+          item['product-tile__image src'],
+          item.images,
+          item.media
+        ];
+        for(const candidate of candidates){
+          const normalized = normalizeImageCandidate(candidate);
+          if(normalized) return normalized;
+        }
+        return PLACEHOLDER_IMAGE;
+      }
+      function resolvePrices(item){
+        const regularCandidates = collectNumbers(
+          item.original_price,
+          item.originalPrice,
+          item.regular_price,
+          item.regularPrice,
+          item.price_before,
+          item.priceBefore,
+          item.list_price,
+          item.listPrice,
+          item.compare_at_price,
+          item.compareAtPrice,
+          item.msrp,
+          item.previous_price,
+          item.previousPrice,
+          item.was_price,
+          item.wasPrice,
+          item.strike,
+          item.Strike,
+          item.price
+        );
+        const saleCandidates = collectNumbers(
+          item.salePrice,
+          item.sale_price,
+          item.discount_price,
+          item.discountPrice,
+          item.current_price,
+          item.currentPrice,
+          item.offer_price,
+          item.offerPrice,
+          item.deal_price,
+          item.dealPrice,
+          item.sale,
+          item.current,
+          item.deal,
+          item.offer,
+          item.mr1,
+          item.now_price,
+          item.nowPrice,
+          item.price
+        );
+        const ronaRegular = toNumber(item['price-box__regularPrice']);
+        const ronaSale = toNumber(item['price-box__price__amount__integer']);
+        const ronaDiscount = toNumber(item['price-box__rebate__amount']);
+        if(Number.isFinite(ronaRegular) && ronaRegular > 0){
+          regularCandidates.push(ronaRegular);
+        }
+        if(Number.isFinite(ronaSale) && ronaSale > 0){
+          saleCandidates.push(ronaSale);
+        }
+        if(Number.isFinite(ronaRegular) && Number.isFinite(ronaDiscount) && ronaRegular > 0 && ronaDiscount > 0){
+          const computed = ronaRegular - ronaDiscount;
+          if(Number.isFinite(computed) && computed > 0){
+            saleCandidates.push(computed);
+          }
+        }
+        let regular = regularCandidates.length ? Math.max(...regularCandidates) : null;
+        let sale = saleCandidates.length ? Math.min(...saleCandidates) : null;
+        if(regular === null && sale !== null){
+          regular = saleCandidates.length > 1 ? Math.max(...saleCandidates) : sale;
+        }
+        if(sale === null && regular !== null){
+          sale = regularCandidates.length > 1 ? Math.min(...regularCandidates) : regular;
+        }
+        if(regular !== null && sale !== null && sale > regular){
+          const combined = [...regularCandidates, ...saleCandidates].filter(n => Number.isFinite(n));
+          if(combined.length){
+            combined.sort((a,b) => a - b);
+            sale = combined[0];
+            regular = combined[combined.length - 1];
+          }else{
+            const swap = sale;
+            sale = regular;
+            regular = swap;
+          }
+        }
+        return {
+          regular: regular ?? 0,
+          sale: sale ?? (regular ?? 0)
+        };
+      }
+      function normalizeDeal(item, storeLabel, branch){
+        const branchLabel = typeof branch === 'object' && branch ? branch.label : branch;
+        const branchSlug = typeof branch === 'object' && branch && branch.slug ? branch.slug : slugify(branchLabel || item.city || storeLabel);
+        const cityLabel = typeof branch === 'object' && branch && branch.city ? branch.city : firstDefined(item.city, branchLabel, storeLabel);
+        const citySlug = slugify(cityLabel);
+        const {regular: finalRegular, sale: finalSale} = resolvePrices(item);
+        return {
+          title: firstDefined(item['product-tile__title'], item.title, item.name, item.product_name, item.productName, 'Article en liquidation'),
+          image: resolveImage(item),
+          price: finalRegular,
+          salePrice: finalSale,
+          store: item.store ?? storeLabel,
+          city: item.city ?? cityLabel,
+          branch: branchLabel ?? cityLabel,
+          branchSlug,
+          citySlug,
+          url: firstDefined(item['product-tile__image-link href'], item['button href'], item.url, item.link, item.product_link, item.productLink, '#')
+        };
+      }
+
+      function hasRealImage(deal){
+        return Boolean(deal && deal.image && deal.image !== PLACEHOLDER_IMAGE);
+      }
+      function discount(p,s){
+        const price = Number(p);
+        const sale = Number(s);
+        if(!Number.isFinite(price) || price <= 0) return 0;
+        if(!Number.isFinite(sale)) return 0;
+        const clampedSale = Math.max(0, sale);
+        const pct = Math.round((1 - (clampedSale / price)) * 100);
+        return Number.isFinite(pct) ? Math.max(pct, 0) : 0;
+      }
+      function currency(n){ return Number.isFinite(n) ? n.toLocaleString('en-CA',{style:'currency',currency:'CAD'}) : '—'; }
+
+      const paginationNumberFormatter = new Intl.NumberFormat('it-IT');
+
+      function formatPaginationLabel(shown, total){
+        return `Visualizzazione di ${paginationNumberFormatter.format(shown)} su ${paginationNumberFormatter.format(total)} offerte.`;
+      }
+
+      function renderDealCard(deal){
+        return `
+          <article class="card">
+            <img src="${deal.image}" alt="${deal.title}" loading="lazy" />
+            <div class="body">
+              <div class="badge">-${deal.discountPct}% Rabais</div>
+              <h3>${deal.title}</h3>
+              <div class="muted">${deal.store} · ${deal.branch ?? deal.city ?? ''}</div>
+              <div class="price"><div class="old">${currency(deal.price)}</div><div>${currency(deal.salePrice)}</div></div>
+              <a class="nav-button" href="${deal.url || '#'}" target="_blank" rel="noopener" style="justify-content:center;width:100%">Voir l'offre</a>
+            </div>
+          </article>`;
+      }
+
+      function updatePaginationControls(total){
+        if(!paginationControls) return;
+        if(!total || total <= PAGE_SIZE){
+          paginationControls.hidden = true;
+          return;
+        }
+        paginationControls.hidden = false;
+        const shown = Math.min(visibleCount, total);
+        if(paginationLabel){
+          paginationLabel.textContent = formatPaginationLabel(shown, total);
+        }
+        if(paginationProgress){
+          const ratio = total > 0 ? Math.min(shown / total, 1) : 0;
+          paginationProgress.style.width = `${ratio * 100}%`;
+        }
+        if(showMoreButton){
+          const hasMore = shown < total;
+          showMoreButton.hidden = !hasMore;
+          showMoreButton.disabled = !hasMore;
+        }
+      }
+
+      function renderVisibleDeals(){
+        if(!cardsEl || !emptyState) return;
+        if(filteredDeals.length === 0){
+          cardsEl.innerHTML = '';
+          emptyState.style.display = '';
+          updatePaginationControls(0);
+          return;
+        }
+        emptyState.style.display = 'none';
+        const shown = Math.min(visibleCount, filteredDeals.length);
+        const visible = filteredDeals.slice(0, shown);
+        cardsEl.innerHTML = visible.map(renderDealCard).join('');
+        updatePaginationControls(filteredDeals.length);
+      }
+      function filePathFor(store, branch){
+        const s = store?.slug;
+        const c = typeof branch === 'object' ? branch?.slug : branch;
+        if(!s) return null;
+        if(s === 'best-buy'){
+          return BEST_BUY_AGGREGATE_PATH;
+        }
+        if(s === 'amazon'){
+          if(c === 'canada') return AMAZON_DAILY_PATH;
+          if(!c) return null;
+          return `data/${s}/${c}.json`;
+        }
+        if(!c) return null;
+        return `data/${s}/${c}.json`;
+      }
+
+      function branchHasDeals(store, branch){
+        if(!branch) return false;
+        if(store?.slug === 'best-buy') return true;
+        return branch.hasData !== false;
+      }
+
+      async function loadRonaDirectory(){
+        const store = STORES.find(entry => entry.slug === 'rona');
+        if(!store) return;
+        try{
+          const res = await fetchDataJson('data/rona/stores.json');
+          if(!res) return;
+          const json = await res.json();
+          if(!Array.isArray(json)) return;
+          const seen = new Map();
+          for(const branch of store.branches ?? []){
+            if(!branch?.slug) continue;
+            seen.set(branch.slug, {...branch, hasData: branch.hasData !== false});
+          }
+          for(const entry of json){
+            if(!entry || typeof entry !== 'object') continue;
+            const rawSlug = typeof entry.slug === 'string' && entry.slug ? entry.slug : slugify(entry.label || entry.city || entry.storeNumber);
+            if(!rawSlug) continue;
+            const label = (entry.label || entry.city || rawSlug).trim();
+            const city = (entry.city || label).trim();
+            const province = entry.province || '';
+            const storeNumber = entry.storeNumber || '';
+            const hasData = entry.hasData === true;
+            const previous = seen.get(rawSlug) || {};
+            seen.set(rawSlug, {
+              ...previous,
+              label,
+              slug: rawSlug,
+              city,
+              province,
+              storeNumber,
+              hasData: previous.hasData === true || hasData
+            });
+          }
+          store.branches = Array.from(seen.values()).sort((a,b)=>a.label.localeCompare(b.label,'fr'));
+        }catch(err){
+          console.warn('Impossible de charger les succursales Rona', err);
+        }
+      }
+
+      async function fetchAmazonFallback(storeLabel, branch){
+        try{
+          const res = await fetchDataJson(AMAZON_FALLBACK_PATH);
+          if(!res) return {entries:[], updatedAt:null};
+          let updatedAt = null;
+          const lastModified = res.headers?.get?.('Last-Modified');
+          if(lastModified){
+            const parsed = Date.parse(lastModified);
+            if(Number.isFinite(parsed)) updatedAt = parsed;
+          }
+          const json = await res.json();
+          if(!Array.isArray(json)) return {entries:[], updatedAt};
+          return {
+            entries: json.map(item => normalizeDeal(item, storeLabel, branch)),
+            updatedAt
+          };
+        }catch(error){
+          console.warn('Amazon fallback fetch fail', error);
+          return {entries:[], updatedAt:null};
+        }
+      }
+
+      async function fetchOne(path, storeLabel, branch){
+        try{
+          const res = await fetchDataJson(path);
+          if(!res) return {entries:[], updatedAt:null};
+          let updatedAt = null;
+          const lastModified = res.headers?.get?.('Last-Modified');
+          if(lastModified){
+            const parsed = Date.parse(lastModified);
+            if(Number.isFinite(parsed)) updatedAt = parsed;
+          }
+          const json = await res.json();
+          if(!Array.isArray(json)) return {entries:[], updatedAt};
+          const entries = json.map(item => normalizeDeal(item, storeLabel, branch));
+          const needsFallback =
+            (entries.length === 0 || entries.every(deal => !hasRealImage(deal))) && path === AMAZON_DAILY_PATH;
+          if(needsFallback){
+            const fallback = await fetchAmazonFallback(storeLabel, branch);
+            if(fallback.entries.length && fallback.entries.some(hasRealImage)){
+              const fallbackUpdated = fallback.updatedAt;
+              const mergedUpdated =
+                fallbackUpdated && updatedAt ? Math.max(updatedAt, fallbackUpdated) : (fallbackUpdated ?? updatedAt);
+              return {entries: fallback.entries, updatedAt: mergedUpdated ?? null};
+            }
+          }
+          return {
+            entries,
+            updatedAt
+          };
+        }catch(error){
+          console.warn('fetch fail', path, error);
+          return {entries:[], updatedAt:null};
+        }
+      }
+
+      let allDeals = [];
+      let filteredDeals = [];
+      let visibleCount = 0;
+
+      function render(options = {}){
+        const {resetVisible = false} = options;
+        const filter = storeFilter.value;
+        const subset = filter ? allDeals.filter(deal => deal.store === filter) : allDeals;
+        const sorted = subset
+          .map(deal => ({...deal, discountPct: discount(deal.price, deal.salePrice)}))
+          .filter(deal => deal.discountPct > 0)
+          .sort((a,b) => {
+            if(b.discountPct !== a.discountPct) return b.discountPct - a.discountPct;
+            return (a.salePrice ?? Number.POSITIVE_INFINITY) - (b.salePrice ?? Number.POSITIVE_INFINITY);
+          });
+        filteredDeals = sorted.slice(0, MAX_TOP_DEALS);
+        dealCount.textContent = filteredDeals.length.toString();
+        if(filteredDeals.length === 0){
+          visibleCount = 0;
+          renderVisibleDeals();
+          return;
+        }
+        const initialVisible = Math.min(PAGE_SIZE, filteredDeals.length);
+        if(resetVisible || visibleCount === 0){
+          visibleCount = initialVisible;
+        }else{
+          visibleCount = Math.min(filteredDeals.length, Math.max(visibleCount, initialVisible));
+        }
+        renderVisibleDeals();
+      }
+
+      async function fetchAllDeals(){
+        statusBanner.classList.remove('error');
+        statusText.textContent = 'Analysing the latest crawls...';
+        const tasks = [];
+        for(const store of STORES){
+          const branches = store.branches ?? [];
+          for(const branch of branches){
+            if(!branchHasDeals(store, branch)) continue;
+            const path = filePathFor(store, branch);
+            if(path) tasks.push({store, branch, path});
+          }
+        }
+        const seen = new Set();
+        const aggregated = [];
+        let latestUpdated = 0;
+        for(const task of tasks){
+          if(seen.has(task.path)) continue;
+          seen.add(task.path);
+          const {entries, updatedAt} = await fetchOne(task.path, task.store.label, task.branch);
+          for(const entry of entries){ aggregated.push(entry); }
+          if(updatedAt && updatedAt > latestUpdated){ latestUpdated = updatedAt; }
+        }
+        return {deals: aggregated, lastUpdated: latestUpdated || null};
+      }
+
+      function populateStoreFilter(){
+        const options = ['<option value="">All retailers</option>'];
+        for(const store of STORES){
+          options.push(`<option value="${store.label}">${store.label}</option>`);
+        }
+        storeFilter.innerHTML = options.join('');
+      }
+
+      populateStoreFilter();
+      storeFilter.addEventListener('change', () => render({resetVisible:true}));
+
+      if(showMoreButton){
+        showMoreButton.addEventListener('click', () => {
+          if(filteredDeals.length === 0) return;
+          const total = filteredDeals.length;
+          const nextVisible = Math.min(total, visibleCount + PAGE_SIZE);
+          if(nextVisible === visibleCount) return;
+          visibleCount = nextVisible;
+          renderVisibleDeals();
+        });
+      }
+
+      await loadRonaDirectory();
+      try{
+        const result = await fetchAllDeals();
+        allDeals = result.deals;
+        let displayDate;
+        if(result.lastUpdated){
+          displayDate = new Date(result.lastUpdated);
+        }else{
+          displayDate = new Date();
+        }
+        statusText.textContent = `Last crawl analysed on ${displayDate.toLocaleString('en-CA', {dateStyle:'medium', timeStyle:'short'})}`;
+      }catch(err){
+        console.error('Unable to fetch deals', err);
+        statusText.textContent = "Erreur lors du chargement des liquidations.";
+        statusBanner.classList.add('error');
+      }
+      render({resetVisible:true});
+    });
+  </script>
+</body>
+</html>

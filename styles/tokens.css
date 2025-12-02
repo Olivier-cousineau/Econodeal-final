@@ -1,0 +1,46 @@
+:root {
+  /* Palette */
+  --color-bg-primary: #020617;
+  --color-surface-primary: #0b1120;
+  --color-surface-secondary: #111c33;
+  --color-surface-elevated: #101b2d;
+  --color-bg-alt: #0f172a;
+  --color-surface-neutral: #111827;
+  --color-surface-overlay: #1f2937;
+  --color-surface-article: #182538;
+  --color-text-primary: #e5e7eb;
+  --color-text-muted: #94a3b8;
+  --color-accent-primary: #22c55e;
+  --color-accent-secondary: #3b82f6;
+  --color-accent-tertiary: #f472b6;
+  --color-accent-info: #38bdf8;
+  --color-danger: #ef4444;
+  --color-danger-soft: #fca5a5;
+  --color-warning: #f59e0b;
+
+  /* Surfaces & borders */
+  --border-strong: rgba(45, 69, 110, 0.6);
+  --border-soft: rgba(59, 130, 246, 0.18);
+  --border-accent: rgba(59, 130, 246, 0.35);
+  --overlay-backdrop: rgba(15, 23, 42, 0.95);
+
+  /* Lighting */
+  --glow-green: rgba(34, 197, 94, 0.25);
+  --glow-blue: rgba(59, 130, 246, 0.25);
+  --glow-pink: rgba(244, 114, 182, 0.25);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* Typography */
+  --font-family-base: Inter, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-family-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+
+  /* Shadows */
+  --shadow-soft: 0 12px 24px rgba(34, 197, 94, 0.25);
+  --shadow-medium: 0 16px 34px rgba(15, 23, 42, 0.45);
+  --shadow-strong: 0 24px 60px rgba(2, 6, 23, 0.6);
+}

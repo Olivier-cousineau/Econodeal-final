@@ -1,0 +1,339 @@
+id	name	address
+271	St. Jerome, QC	700, boul. Monseigneur-Dubois, St. Jerome, QC, J7Y 4Y9
+649	Blainville, QC	500, boul. de la Seigneurie Ouest, Blainville, QC, J7C 5T7
+418	Rosemere, QC	10, boul. Bouthillier, Rosemere, QC, J7A 4B4
+641	La Plaine, QC	4785, boul. Laurier, Terrebonne, QC, J7M 1C3
+218	St. Eustache, QC	500, boul. Arthur-Sauve, Saint-Eustache, QC, J7R 4Z3
+690	Laval Fabreville, QC	544, boul. Cure-Labelle, Fabreville, QC, H7P 2P4
+312	Terrebonne, QC	1250, boul. Moody, Terrebonne, QC, J6W 3K9
+231	Laval Vimont, QC	4975, boul. Robert-Bourassa, Laval, QC, H7E 0A4
+262	Lachute, QC	505, avenue Bethany, Lachute, QC, J8H 4A6
+300	Laval, Bl. Le Corbusier, QC	1450, boul. Le Corbusier, Laval, QC, H7N 6J5
+155	Laval, Ste-Dorothee, QC	500 Chomedey (A-13) Ouest, Laval, QC, H7X 3S9
+454	Rivieres des Prairies, QC	7555, boul. Maurice-Duplessis, Montreal, QC, H1E 7N2
+267	Montreal Nord, QC	6000, boul. Henri-Bourassa Est, Unit Z1, Montreal-nord, QC, H1G 2T6
+234	Dollard des Ormeaux, QC	3079, boul. des Sources, Dollard-Des-Ormeaux, QC, H9B 1Z6
+257	Ste. Agathe des Monts, QC	50, boul. Morin, Sainte-Agathe-des-Monts, QC, J8C 2V6
+149	Kirkland, QC	16821, Route Transcanadienne, Kirkland, QC, H9H 5J1
+64	Montreal Cremazie & Papineau, QC	2225, boul. Cremazie Est, Montreal, QC, H1Z 4N4
+235	Ville St. Laurent, QC	11200, boul. Cavendish, Ville Saint-Laurent, QC, H4R 2J7
+292	Marche Central, QC	9050, boul. de l'Acadie, Montreal, QC, H4N 2S5
+9	Langelier, QC	6565, rue Jean-Talon Est, St. Leonard, QC, H1S 1N2
+247	St. Leonard, QC	4250, rue Jean-Talon Est, St. Leonard, QC, H1S 1J7
+303	Pointe aux Trembles, QC	3500, boul. du Tricentenaire, Montreal, QC, H1B 0A3
+928	Place Versailles, QC	7275, rue Sherbrooke Est, Suite 140, Montreal, QC, H1N 1E9
+343	Montreal Bellechasse, QC	6275, boul. St. Laurent, Montreal, QC, H2S 3C3
+401	Cote des Neiges, QC	6700, chemin de la Cote-des-Neiges, Montreal, QC, H3S 2B2
+646	Vaudreuil, QC	50, boul. de la Cite-des-Jeunes, Vaudreuil-Dorion, QC, J7V 9L5
+222	Repentigny, QC	115, boul. Brien, Repentigny, QC, J6A 8J3
+400	Montreal Maisonneuve, QC	3025, rue Sherbrooke Est, Montreal, QC, H1W 1B2
+181	Ile Perrot, QC	101, boul. Cardinal-Leger, Pincourt, QC, J7W 3Y3
+435	Montreal Downtown, QC	1500, avenue Atwater, Place Alexis Nihon, Montreal, QC, H3Z 1X5
+627	St. Jacques - Montreal, QC	7200, boul. de Sainte-Anne-de-Bellevue, Montreal, QC, H4B 1T4
+230	Ville La Salle, QC	2221, boul. Angrignon, LaSalle, QC, H8N 3E3
+117	Verdun, QC	3180, rue Wellington, Verdun, QC, H4G 1T3
+332	Boucherville, QC	1055, boul. de Montarville, Boucherville, QC, J4B 6P5
+256	Longueuil, QC	2211, boul. Roland-Therrien, Longueuil, QC, J4N 1P2
+147	Chateauguay, QC	140, boul. d'Anjou, Chateauguay, QC, J6K 1C4
+157	Hawkesbury, ON	1525 Cameron Street, Hawkesbury, ON, K6A 3R3
+190	Greenfield Park, QC	4909, boul. Taschereau, Greenfield Park, QC, J4V 3K3
+200	Joliette, QC	1475, boul. Firestone, Joliette, QC, J6E 9E5
+396	Delson, QC	65 132 Route, Delson, QC, J5B 1H1
+484	St. Bruno, QC	900, rue de l'Etang, Saint-Bruno-de-Montarville, QC, J3V 6K8
+643	Brossard, QC	9900, boul. Leduc, Quartier DIX30, Brossard, QC, J4Y 0B4
+115	Valleyfield, QC	1770, boul. Monseigneur-Langlois, Salaberry-de-valleyfield, QC, J6S 5R1
+461	Mont-Tremblant, QC	370 Route 117, Mont-Tremblant, QC, J8E 2X3
+228	Beloeil, QC	600, boul. Sir-Wilfrid-Laurier, Beloeil, QC, J3G 4J2
+626	Chambly, QC	3400, boul. Frechette, Chambly, QC, J3L 6Z6
+238	Alexandria, ON	400 Main Street South, Alexandria, ON, K0C 1A0
+148	Sorel & Tracy, QC	280, boul. Fiset, Sorel-Tracy, QC, J3P 5X7
+153	St. Jean-sur-Richelieu, QC	855, boul. du Seminaire Nord, Saint-Jean-sur-Richelieu, QC, J3A 1J2
+151	St. Hyacinthe, QC	5930, rue Martineau, Saint-Hyacinthe, QC, J2R 2H6
+625	Casselman, ON	95 Lafleche Blvd., Casselman, ON, K0A 1M0
+26	Cornwall, ON	201 Ninth Street East, Cornwall, ON, K6H 2V1
+138	Granby, QC	70, rue Simonds Nord, Granby, QC, J2J 2L1
+623	Rockland, ON	9040 County Road 17, Rockland, ON, K4K 1V5
+15	Buckingham, QC	170, avenue Lepine, Gatineau, QC, J8L 4M4
+158	Drummondville, QC	715, boul. St-Joseph, Drummondville, QC, J2C 7V2
+274	Cowansville, QC	145, rue de Salaberry, Cowansville, QC, J2K 5G9
+686	Nicolet, QC	2000, boul. Louis-Frechette, Nicolet, QC, J3T 1M9
+422	Ottawa Orleans, ON	3910 Innes Road, Orleans, ON, K1W 1K9
+308	Trois-Rivieres, QC	3525, boul. des Forges, Trois-Rivieres, QC, G8Y 4P2
+131	Shawinigan, QC	1555, rue Trudel, Shawinigan, QC, G9N 8K8
+109	Cap-de-la-Madeleine, QC	350, rue Barkoff, Trois-Rivieres, QC, G8T 9P5
+297	Ottawa Gloucester, ON	2010 Ogilvie Road, Gloucester, ON, K1J 8X3
+659	Leitrim, ON	4776 Bank Street, Gloucester, ON, K1T 0K8
+174	Ottawa East, ON	330 Coventry Road, Ottawa, ON, K1K 4S3
+191	Gatineau, QC	700, boul Maloney Ouest, Gatineau, QC, J8T 8K7
+120	Morrisburg, ON	12329 County Road 2, Morrisburg, ON, K0C 1X0
+210	Ottawa South, ON	1170 Heron Road, Ottawa, ON, K1V 6B2
+176	Hull, QC	355, boul. de la Carriere, Gatineau, QC, J8Y 6W4
+648	Mont-Laurier, QC	1675, boul. Albiny-Paquette, Mont-Laurier, QC, J9L 1M8
+258	Ottawa Merivale, ON	1820 Merivale Road, Nepean, ON, K2G 1E6
+318	Gatineau Le Plateau, QC	213, boul. des Grives, Gatineau, QC, J9A 0C7
+290	Ottawa Carling Ave, ON	2165 Carling Avenue, Ottawa, ON, K2A 1H2
+442	Barrhaven, ON	2501 Greenbank Road, Nepean, ON, K2J 4Y6
+272	Ottawa Bells Cnrs, ON	2135 Robertson Road, Nepean, ON, K2H 5Z2
+227	Kemptville, ON	311 Ryans Well Drive, Kemptville, ON, K0G 1J0
+240	Magog, QC	2135, rue Sherbrooke, Magog, QC, J1X 2T5
+457	Kanata, ON	8181 Campeau Drive, Kanata, ON, K2T 1B7
+243	Victoriaville, QC	571, boul Jutras Est, Victoriaville, QC, G6P 7H4
+96	Sherbrooke, QC	4100, boul. Josaphat-Rancourt, Sherbrooke, QC, J1L 3C6
+196	Maniwaki, QC	250, boul. Desjardins, Maniwaki, QC, J9E 3G4
+85	Prescott, ON	140 Prescott Centre Drive, Prescott, ON, K0E 1T0
+348	Sherbrooke Fleurimont, QC	1645, rue King Est, Sherbrooke, QC, J1G 5G7
+18	Carleton Place, ON	485 McNeely Avenue, at Hwy 7, Carleton Place, ON, K7C 4S6
+14	Brockville, ON	2360 Parkedale Avenue, Brockville, ON, K6V 7J5
+98	Smiths Falls, ON	10 Ferrara Drive, Smiths Falls, ON, K7A 5K4
+4	Arnprior, ON	375 Daniel Street South, Arnprior, ON, K7S 3K6
+99	Shawville, QC	431 148 Route, Shawville, QC, J0X 2Y0
+423	Donnacona, QC	223 138 Route, Donnacona, QC, G3M 1C1
+80	Perth, ON	45 Dufferin Street, Perth, ON, K7H 3A5
+352	La Tuque, QC	1200, boul. Ducharme, La Tuque, QC, G9X 3Z9
+86	Renfrew, ON	1050 O'Brien Road, Renfrew, ON, K7V 0B4
+156	Thetford Mines, QC	70, boul. Frontenac Est, Thetford Mines, QC, G6G 1N4
+692	Ancienne Lorette, QC	1233, autoroute Duplessis, L'Ancienne-Lorette, QC, G2G 2B4
+37	Gananoque, ON	705 King Street East, Gananoque, ON, K7G 1H4
+624	St. Romuald, QC	600, rue de la Concorde, St. Romuald, QC, G6W 8A8
+342	Quebec Les Saules, QC	4500, rue Armand-Viau, Quebec, QC, G2C 2B9
+245	Quebec Ste. Foy, QC	1170, route de l'Eglise, Quebec, QC, G1V 3W7
+79	Pembroke, ON	1104 Pembroke Street East, Pembroke, ON, K8A 8S2
+405	Lebourgneuf, QC	5500, boul. des Gradins, Quebec, QC, G2J 1A1
+101	Quebec Vanier, QC	630, boul. Wilfrid-Hamel, Quebec, QC, G1M 3P9
+416	Ste. Marie De Beauce, QC	980, boul. Vachon Nord, Sainte-Marie, QC, G6E 1M2
+225	Lac Megantic, QC	3642, rue Laval, Lac-Megantic, QC, G6B 1A4
+165	Levis, QC	100 Route du President-Kennedy, Levis, QC, G6V 6C9
+184	Beauport, QC	705, rue Clemenceau, Quebec, QC, G1C 7T9
+173	St. Georges, QC	500, 107e Rue, Saint-Georges, QC, G5Y 8K1
+694	Kingston Division St., ON	1040 Division Street, Kingston, ON, K7K 0C3
+195	Kingston, ON	59 Bath Road, Kingston, ON, K7L 5G3
+417	Kingston Township, ON	2560 Princess Street, Kingston, ON, K7P 2S8
+253	Deep River, ON	33277 Hwy 17 West, Deep River, ON, K0J 1P0
+65	Napanee, ON	476 Centre Street North, Napanee, ON, K7R 1P8
+180	Montmagny, QC	488, avenue Saint-David, Montmagny, QC, G5V 4P9
+5	Bancroft, ON	341 Hastings Street North, Bancroft, ON, K0L 1C0
+82	Picton, ON	13321 Loyalist Parkway, Picton, ON, K0K 2T0
+7	Belleville, ON	101 Bell Blvd., Belleville, ON, K8P 4V2
+458	Roberval, QC	1056, boul. Olivier-Vien, Roberval, QC, G8H 3G3
+112	Trenton, ON	285 Dundas Street East, Trenton, ON, K8V 1M1
+17	Campbellford, ON	130 Grand Road, Campbellford, ON, K0L 1L0
+633	La Pocatiere, QC	175 230 Route Ouest, La Pocatiere, QC, G0R 1Z0
+298	Alma, QC	50, boul. St. Luc, Alma, QC, G8B 6K1
+306	La Malbaie, QC	375, boul. de Comporte, La Malbaie, QC, G5A 1H9
+221	Jonquiere, QC	2290, boul. Rene-Levesque, Jonquiere, QC, G7S 5Y5
+268	Chicoutimi, QC	1257, boul. Talbot, Chicoutimi, QC, G7H 4C1
+335	La Baie, QC	2300, rue Bagot, La Baie, QC, G7B 3Z3
+284	Dolbeau-Mistassini, QC	1751, boul. Vezina, Dolbeau-Mistassini, QC, G8L 3S4
+660	Peterborough North, ON	1050 Chemong Road, Peterborough, ON, K9H 7S2
+81	Peterborough, ON	1200 Lansdowne Street West, Peterborough, ON, K9J 2A1
+682	Minden, ON	92 Water Street, Minden, ON, K0M 2K0
+23	Cobourg, ON	1125 Elgin Street West, Cobourg, ON, K9A 5T9
+114	Val d'Or, QC	1806, 3rd Avenue, Val-d'Or, QC, J9P 7A9
+38	Fenelon Falls, ON	160 Lindsay Street, PO Box 208, Fenelon Falls, ON, K0M 1N0
+56	Lindsay, ON	377 Kent Street West, Lindsay, ON, K9V 2Z7
+323	Riviere du Loup, QC	237, boul. de l'Hotel de Ville, Riviere-du-Loup, QC, G5R 4E5
+47	Huntsville, ON	77 King William Street, Huntsville, ON, P1H 1E5
+206	Bracebridge, ON	450 Muskoka Road, Bracebridge, ON, P1L 1V4
+170	Bowmanville, ON	2000 Green Road, Bowmanville, ON, L1C 0K5
+72	North Bay, ON	890 McKeown Avenue, North Bay, ON, P1B 8M1
+62	Gravenhurst, ON	431 Talisman Drive, Gravenhurst, ON, P1P 0A7
+226	Port Perry, ON	14325 Simcoe Street, Port Perry, ON, L9L 2C8
+336	Oshawa North, ON	1333 Wilson Road North, Oshawa, ON, L1K 2B8
+75	Oshawa Mid, ON	441 Gibb Street, Oshawa, ON, L1J 1Z4
+285	Amos, QC	281 Route 111 Est, Amos, QC, J9T 3A2
+460	Whitby North, ON	4100 Garden Street at Taunton Road, Whitby, ON, L1R 3K5
+187	Whitby South, ON	155 Consumers Drive, Whitby, ON, L1N 1C4
+74	Orillia, ON	1029 Brodie Drive, Orillia, ON, L3V 0V2
+127	Uxbridge, ON	327 Toronto Street South, Uxbridge, ON, L9P 1Z7
+160	Ajax, ON	250 Kingston Road East, Ajax, ON, L1Z 1G1
+324	Pickering, ON	1735 Pickering Parkway, Pickering, ON, L1V 7C7
+102	Sturgeon Falls, ON	12011 Hwy 17 East, Sturgeon Falls, ON, P2B 2S7
+134	Keswick, ON	24270 Woodbine Avenue, Keswick, ON, L4P 0L3
+427	Scarborough East, ON	111 Rylander Blvd., Scarborough, ON, M1B 4X3
+280	Stouffville, ON	1090 Hoover Park Drive, Stouffville, ON, L4A 0K2
+399	Markham East, ON	7650 Markham Road, Markham, ON, L3S 4S1
+93	Edmundston, NB	590 Victoria Street, Edmundston, NB, E3V 3N1
+687	Innisfil, ON	1455 Innisfil Beach Road, Innisfil, ON, L9S 4B2
+175	Scarborough, ON	3553 Lawrence Avenue East, Scarborough, ON, M1H 1B2
+89	Rouyn, QC	245, boul. Rideau, Rouyn-Noranda, QC, J9X 5Y6
+78	Parry Sound, ON	30 Pine Drive, Parry Sound, ON, P2A 3B8
+264	Agincourt, ON	4630 Sheppard Avenue East, Scarborough, ON, M1S 3V5
+189	Aurora, ON	15400 Bayview Avenue, Aurora, ON, L4G 7J1
+69	Newmarket, ON	17750 Yonge Street, Newmarket, ON, L3Y 8P4
+209	Kingston Rd, ON	2850 Kingston Road, Scarborough, ON, M1M 1M7
+164	Markham, ON	2900 Major Mackenzie Drive East, Markham, ON, L6C 0G6
+6	Barrie, ON	320 Bayfield Street, Barrie, ON, L4M 3C1
+68	New Liskeard, ON	997431 Hwy 11 North, New Liskeard, ON, P0J 1P0
+444	Barrie South, ON	75 Mapleview Drive West, Barrie, ON, L4N 9H7
+30	Warden & Eglinton, ON	1901 Eglinton Avenue East, Scarborough, ON, M1L 2L8
+61	Midland, ON	9303 County Road 93, Hugel Avenue, Midland, ON, L4R 4K4
+446	Bradford, ON	430 Holland Street West, Bradford, ON, L3Z 0G1
+697	Richmond Hill North, ON	11720 Yonge Street, Richmond Hill, ON, L4E 0K4
+87	Richmond Hill, ON	250 Silver Linden Drive, Richmond Hill, ON, L4B 4W7
+273	Toronto Main & Danforth, ON	2681 Danforth Avenue, Toronto, ON, M4C 1L4
+192	Sheppard Ave., ON	1019 Sheppard Avenue East, Toronto, ON, M2K 1C2
+126	Yonge & Steeles, ON	6310 Yonge Street, Toronto, ON, M2M 3X4
+459	Eglinton & Laird, ON	825 Eglinton Avenue East, Toronto, ON, M4G 4G9
+654	Leslie & Lake Shore, ON	1025 Lake Shore Blvd. East, Toronto, ON, M4M 1B4
+321	Dufferin & 407, ON	8081 Dufferin Street, Thornhill, ON, L4J 8R9
+150	Toronto, Yonge & Church, ON	839 Yonge Street, Toronto, ON, M4W 2H2
+485	Dufferin & Finch Auto Ctr, ON	4400 Dufferin Street, North York, ON, M3H 6A8
+600	Toronto Eaton Centre, ON	65 Dundas Street West, Toronto, ON, M5G 2C3
+19	Lawrence & Allen Expwy, ON	700 Lawrence Avenue West, Toronto, ON, M6A 3B4
+653	Maple, ON	3200 Rutherford Road, Vaughan, ON, L4K 5R3
+621	Liberty Village, ON	5 Joe Shuster Way, Toronto, ON, M6K 0C7
+214	Eglinton & Caledonia, Toronto, ON	2360 Eglinton Avenue West, Toronto, ON, M6M 1S6
+237	Woodbridge, ON	3850 Highway 7, Woodbridge, ON, L4L 9C3
+182	West Toronto (Stockyards), ON	2129 St. Clair Avenue West, Toronto, ON, M6N 5B4
+119	Weston Road & 401, ON	2625B Weston Road, North York, ON, M9N 3W1
+137	Woodstock, NB	388 Connell Street, Woodstock, NB, E7M 5G9
+294	Etobicoke, Albion & Kipling, ON	1530 Albion Road, Etobicoke, ON, M9V 1B4
+242	Rexdale, ON	2025 Kipling Avenue, Etobicoke, ON, M9W 4J8
+1	Alliston, ON	110 Young Street, Alliston, ON, L9R 1P8
+652	Wasaga Beach, ON	75 - 45th Street South, Wasaga Beach, ON, L9Z 1A7
+197	Bolton, ON	99 McEwan Drive East, Bolton, ON, L7E 2Z7
+219	Grand Falls, NB	383, chemin Madawaska, Grand Falls, NB, E3Y 1A4
+70	The Queensway, ON	1608 The Queensway, Etobicoke, ON, M8Z 1V1
+152	Miss. Dixie & Dundas, ON	1156 Dundas Street East, Mississauga, ON, L4Y 2C1
+71	Niagara Falls North, ON	7190 Morrison Street, Niagara Falls, ON, L2E 7K5
+305	Brampton Bramalea, ON	2850 Queen Street East, Brampton, ON, L6S 6E8
+162	St. Catharines N., ON	459 Welland Avenue, St. Catharines, ON, L2M 5V2
+33	Fort Erie, ON	240 Garrison Road, Fort Erie, ON, L2A 1M7
+145	St. Catharines S., ON	300 Glendale Avenue, St. Catharines, ON, L2T 2L5
+411	Brampton Trinity Common, ON	10 Great Lakes Drive, Brampton, ON, L6R 2K7
+346	Miss.Mavis & Dundas, ON	3050 Mavis Road at Dundas, Mississauga, ON, L5C 1T8
+108	Collingwood, ON	89 Balsam Street, Collingwood, ON, L9Y 3Y6
+90	St. Catharines, ON	431 Louth Street, St. Catharines, ON, L2S 4A2
+320	Rimouski, QC	419, boul. Jessop, Local 1, Rimouski, QC, G5L 7Y5
+10	Brampton Shoppers World, ON	499 Main Street South, Brampton, ON, L6Y 1N7
+497	Mississauga Heartland, ON	5970 Mavis Road, Mississauga, ON, L5V 2P5
+241	Mississauga Southdown, ON	900 Southdown Road, Mississauga, ON, L5J 2Y4
+675	Brampton McLaughlin Road, ON	10031 McLaughlin Road, Brampton, ON, L7A 2X5
+424	Oak., Winston Churchill, ON	2510 Hyde Park Gate, Oakville, ON, L6H 6M2
+233	La Sarre, QC	91, 2ieme rue Est, La Sarre, QC, J9Z 3J9
+118	Welland, ON	158 Primeway Drive, Welland, ON, L3B 0A1
+169	Meadowvale, ON	6670 Meadowvale Town Centre Circle, Mississauga, ON, L5N 4B7
+429	Oakville North, ON	400 Dundas Street East, Oakville, ON, L6H 6Z9
+143	Oakville, ON	1100 Kerr Street, Oakville, ON, L6M 0L4
+159	Georgetown, ON	315 Guelph Street, Georgetown, ON, L7G 4B3
+73	Orangeville, ON	99 First Street, Orangeville, ON, L9W 2E8
+128	Port Colborne, ON	287 West Side Road, Port Colborne, ON, L3K 5L2
+140	Milton, ON	1210 Steeles Avenue East, Milton, ON, L9T 6R1
+40	Grimsby, ON	44 Livingston Avenue, Grimsby, ON, L3M 1L1
+232	St. Stephen, NB	250 King Street, St. Stephen, NB, E3L 2E5
+52	Kirkland Lake, ON	146 Government Road West, Kirkland Lake, ON, P2N 2E9
+412	Burlington North, ON	2070 Appleby Line, Unit J, Burlington, ON, L7L 6M6
+122	Burlington Fairview, ON	777 Guelph Line, Burlington, ON, L7R 3N2
+154	Hamilton East, ON	686 Queenston Road, Hamilton, ON, L8G 1A3
+129	Hamilton Centre, ON	1283 Barton Street East, Hamilton, ON, L8H 2V4
+278	Sudbury North, ON	1485 Lasalle Blvd., Sudbury, ON, P3A 5H7
+220	Waterdown, ON	11 Clappison Avenue, Waterdown, ON, L8B 0Y2
+45	Hamilton Main, ON	304 Main Street East, Hamilton, ON, L8N 1H9
+194	Hamilton Mt.East, ON	2160 Rymal Road East, Hannon, ON, L0R 1P0
+445	Sudbury South, ON	2259 Regent Street, Sudbury, ON, P3E 5M9
+177	Hamilton Mt.West, ON	777 Upper James Street, Hamilton, ON, L9C 3A1
+657	Hanmer, ON	5206 Highway 69 North, Hanmer, ON, P3P 1Z3
+27	Dundas, ON	119 Osler Drive, Dundas, ON, L9H 6X4
+29	Dunnville, ON	1002 Broad Street East, Dunnville, ON, N1A 2Z2
+42	Guelph Stone Rd, ON	127 Stone Road West, Guelph, ON, N1G 5G4
+31	Centre Wellington, ON	950 Tower Street South, Fergus, ON, N1M 3N7
+260	Guelph North, ON	10 Woodlawn Road East, Guelph, ON, N1H 1G7
+639	Ancaster, ON	1060 Wilson Street West, Ancaster, ON, L9G 3K9
+77	Owen Sound, ON	1605 - 16th Street East, Owen Sound, ON, N4K 5N3
+244	Chelmsford, ON	1 - 3595 Highway 144, Chelmsford, ON, P0M 1L0
+49	Caledonia, ON	365 Argyle Street South, Caledonia, ON, N3W 1Z2
+168	Cambridge Hespeler, ON	65 Pinebush Road, Cambridge, ON, N1R 8P3
+36	Cambridge, ON	75 Dundas Street, Cambridge, ON, N1R 6G5
+35	Fredericton, NB	1110 Smythe Street, Fredericton, NB, E3B 3H6
+66	Mount Forest, ON	101 Mount Forest Drive, Mount Forest, ON, N0G 2L2
+337	Fredericton North, NB	75 Two Nations Crossing, Fredericton, NB, E3A 0T3
+139	Kitchener East, ON	1080 Victoria Street North, Kitchener, ON, N2B 3C4
+616	Elmira, ON	325 Arthur Street South, Elmira, ON, N3B 3L5
+53	Kitchener South, ON	385 Fairway Road South, Kitchener, ON, N2C 2N9
+664	Brantford North, ON	30 Lynden Road, Brantford, ON, N3R 8A4
+265	Baie-Comeau, QC	650, rue de Parfondeval, Baie-Comeau, QC, G5C 3R3
+251	Waterloo, ON	400 Weber Street North, Waterloo, ON, N2J 3J3
+420	Kitchener West, ON	1400 Ottawa Street South, Kitchener, ON, N2E 4E2
+46	Hanover, ON	896 - 10th Street, Hanover, ON, N4N 3P2
+674	Waterloo West, ON	656 Erb Street West, Waterloo, ON, N2T 2Z7
+309	Oromocto, NB	345 Miramichi Road, Oromocto, NB, E2V 4T4
+43	Paris, ON	300 Grand River Street North, Paris, ON, N3L 3R7
+315	Matane, QC	145, rue Piuze, Matane, QC, G4W 0H7
+57	Listowel, ON	500 Mitchell Road South, Listowel, ON, N4W 3G7
+97	Simcoe, ON	142 Queensway East, Simcoe, ON, N3Y 4Y7
+269	Port Elgin, ON	5116 Hwy 21, Port Elgin, ON, N0H 2C0
+22	Espanola, ON	801 Centre Street, Espanola, ON, P5E 1N2
+16	Atholville, NB	384 Old Val D'Amour Road, Atholville, NB, E3N 4E3
+193	Delhi, ON	308 James Street, Delhi, ON, N4B 2B4
+124	Woodstock, ON	465 Norwich Avenue, Woodstock, ON, N4S 9A2
+103	Stratford, ON	1093 Ontario Street, Stratford, ON, N5A 6W6
+349	Saint John Fairville, NB	885 Fairville Blvd., Saint John, NB, E2M 5T9
+254	Saint John - Westmorland Road, NB	400 Westmorland Road, Saint John, NB, E2J 2G4
+476	Rothesay, NB	160 Hampton Road, Rothesay, NB, E2E 2R3
+51	Kincardine, ON	811 Durham Street, Kincardine, ON, N2Z 3B8
+48	Ingersoll, ON	98 Mutual Street South, Ingersoll, ON, N5C 1S5
+110	Tillsonburg, ON	248 Broadway Street, Tillsonburg, ON, N4G 3R4
+91	St. Marys, ON	84 Wellington Street South, St. Marys, ON, N4X 1C3
+111	Timmins, ON	2199 Riverside Drive, Timmins, ON, P4R 0A1
+24	Cochrane, ON	201 Highway 11 West, Cochrane, ON, P0L 1C0
+130	London East, ON	1975 Dundas Street, London, ON, N5V 4Y5
+142	Aylmer, ON	605 John Street North, Aylmer, ON, N5H 2B6
+39	Goderich, ON	35430 Huron Road, Goderich, ON, N7A 3X8
+141	Exeter, ON	100 Thames Road East, Exeter, ON, N0M 1S3
+494	London Auto Centre, ON	378 Horton Street East, London, ON, N6B 1L7
+58	London South, ON	1125 Wellington Road, London, ON, N6E 1M1
+106	Sussex, NB	138 Main Street, Sussex, NB, E4E 3E1
+25	Digby, NS	112 Warwick Street, Digby, NS, B0V 1A0
+125	Yarmouth, NS	120 Starrs Road, Yarmouth, NS, B5A 4T3
+425	London North, ON	1875 Hyde Park Road, London, ON, N6H 0A3
+208	London West, ON	3100 Wonderland Road South, London, ON, N6L 1A6
+92	St. Thomas, ON	1063 Talbot Street, St. Thomas, ON, N5P 1G4
+136	Miramichi, NB	2491 King George Highway, Miramichi, NB, E1V 6W3
+11	Bathurst, NB	520 St. Peter Avenue, Bathurst, NB, E2A 2Y7
+167	Elliot Lake, ON	50 Hillside Drive South, Elliot Lake, ON, P5A 1M7
+104	Strathroy, ON	24614 Adelaide Road, Strathroy, ON, N7G 2P8
+32	Forest, ON	84 Union Street, Forest, ON, N0N 1J0
+249	Moncton Mountain Rd, NB	1380 Mountain Road, Unit 1, Moncton, NB, E1C 2T8
+463	Paspebiac, QC	49, boul. Gerard-D-Levesque Est, Paspebiac, QC, G0C 2K0
+691	Riverview, NB	525 Pinewood Road, Riverview, NB, E1B 0K3
+261	Greenwood, NS	730 Central Avenue, Greenwood, NS, B0P 1N0
+63	Moncton Dieppe, NB	500 Regis Street, Dieppe, NB, E1A 5T2
+491	Tracadie - Sheila, NB	450, rue du Moulin, Tracadie-Sheila, NB, E1X 1A4
+647	Shediac, NB	173 Main Street, Shediac, NB, E4P 2A5
+94	Sarnia, ON	1380 London Road, Sarnia, ON, N7S 1P8
+8	Blenheim, ON	20215 Chatham Street North, Blenheim, ON, N0P 1A0
+54	New Minas, NS	9212 Commercial Street, New Minas, NS, B4N 5J5
+178	Kapuskasing, ON	25 Brunetville Road, Kapuskasing, ON, P5N 2E9
+307	Sept-Iles, QC	402, boul. Laure, Sept-Iles, QC, G4R 1X5
+21	Chatham, ON	575 Grand Avenue West, Chatham, ON, N7L 1C5
+135	Wallaceburg, ON	74 McNaughton Avenue, Wallaceburg, ON, N8A 1R9
+13	Bridgewater, NS	16 Pine Grove Road, RR 2, Unit 1, Cookville, NS, B4V 4H5
+3	Amherst, NS	152 Albion Street South, Amherst, NS, B4H 4H4
+215	Tilbury, ON	37 Mill Street East, PO Box 280, Tilbury, ON, N0P 2L0
+132	Summerside, PEI 474 Granville Street	Summerside, PE, C1N 4K6
+456	Gaspe, QC	39, Montee de Sandy Beach, Gaspe, QC, G4X 2A9
+95	Sault Ste. Marie, ON	200 McNabb Street, Sault Ste. Marie, ON, P6B 1Y4
+618	Tantallon, NS	5130 St. Margarets Bay Road, Upper Tantallon, NS, B3Z 1E2
+55	Leamington, ON	262 Erie Street South, Leamington, ON, N8H 3C5
+199	Windsor East, ON	8505 Tecumseh Road East, Windsor, ON, N8R 1A1
+172	Essex, ON	300 Maidstone Avenue West, Essex, ON, N8M 2X6
+289	Halifax - Lwr. Sackville, NS	796 Sackville Drive, Lower Sackville, NS, B4E 1R7
+236	Windsor South, ON	4150 Walker Road, Windsor, ON, N8W 3T5
+224	Halifax - Bedford, NS	150 Damascus Road, Bedford, NS, B4A 0E5
+465	Halifax - Bayers Lake, NS	194 Chain Lake Drive, Halifax, NS, B3S 1C5
+121	Windsor University Plaza, ON	2650 Tecumseh Road West, Windsor, ON, N9B 3R1
+186	Halifax - Spryfield, NS	16 Dentith Road, Halifax, NS, B3R 2H9
+619	Elmsdale, NS	269 Highway 214, Unit 100, Elmsdale, NS, B2S 1K1
+44	Halifax, NS	6203 Quinpool Road, Halifax, NS, B3L 4P6
+41	Dartmouth Crossing, NS	30 Lamont Terrace, Dartmouth, NS, B3B 0B5
+436	Halifax - Cole Harbour, NS	24 Forest Hills Parkway, Dartmouth, NS, B2W 6E4
+113	Truro, NS	90 Robie Street, Truro, NS, B2N 1L1
+281	Amherstburg, ON	380 Sandwich Street South, Amherstburg, ON, N9V 3B5
+20	Charlottetown, PEI 20 Babineau Avenue	Charlottetown, PE, C1A 0G1
+406	Hearst, ON	1330 Front Street, Hearst, ON, P0L 1N0
+279	Wawa, ON	54 Broadway Avenue, Wawa, ON, P0S 1K0
+67	New Glasgow, NS	699 Westville Road, New Glasgow, NS, B2H 2J6
+2	Antigonish, NS	133 Church Street, Antigonish, NS, B2G 2E3
+901	Labrador City, NL	500 Vanier Avenue, Labrador City, NL, A2V 2W7
+213	Port Hawkesbury, NS	625 Reeves Street, Port Hawkesbury, NS, B9A 2R8
+451	Marathon, ON	3 Peninsula Road, PO Box 1660, Marathon, ON,

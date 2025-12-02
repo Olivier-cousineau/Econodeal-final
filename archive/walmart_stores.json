@@ -1,0 +1,20 @@
+[
+  {
+    "id_store": "7147",
+    "ville": "St. Jerome",
+    "adresse": "1045 boul du grand heron, St. Jerome, QC, J7Y 3P2",
+    "slug": "saint-jerome"
+  },
+  {
+    "id_store": "3103",
+    "ville": "Blainville",
+    "adresse": "1313 boul Michèle-Bohec, Blainville, QC, J7C 0M4",
+    "slug": "blainville"
+  },
+  {
+    "id_store": "3022",
+    "ville": "Lachute",
+    "adresse": "540 Rue Berry, Lachute, QC, J8H 4N5",
+    "slug": "lachute"
+  }
+]

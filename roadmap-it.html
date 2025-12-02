@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it" data-page="roadmap">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EconoDeal — Roadmap</title>
+  <link rel="stylesheet" href="dist/assets/main.css" />
+</head>
+<body>
+  <header>
+    <div class="container row" style="justify-content:space-between">
+      <div class="row" style="gap:10px;align-items:center">
+        <a class="brand" href="index-it.html">
+          <img src="assets/logo.svg" alt="EconoDeal – acceleratore per rivenditori" />
+          <span class="brand-text">
+            <span class="brand-title">EconoDeal</span>
+            <span class="brand-tagline">Rivenditore vincente</span>
+          </span>
+        </a>
+      </div>
+      <div class="row" style="gap:12px;align-items:center">
+        <a class="nav-button" href="best-deals-it.html" style="white-space:nowrap">Migliori offerte</a>
+        <a class="nav-button" href="pricing-it.html" style="white-space:nowrap">Piani / prezzi</a>
+        <a class="nav-button current" href="roadmap-it.html" style="white-space:nowrap">Roadmap / visione</a>
+        <div class="lang-switch" aria-label="Selettore lingua">
+          <a href="roadmap.html">FR</a>
+          <a href="roadmap-en.html">EN</a>
+          <a href="roadmap-es.html">ES</a>
+          <a href="roadmap-de.html">DE</a>
+          <span class="active" aria-current="true">IT</span>
+        </div>
+        <div class="muted">© <span id="year"></span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2 style="margin:0 0 10px">La nostra roadmap</h2>
+      <p class="muted" style="max-width:640px">Una visione triennale per spingere EconoDeal a livello internazionale, integrando progressivamente l'intelligenza artificiale al centro dei nostri servizi.</p>
+      <div class="roadmap">
+        <div class="roadmap-grid">
+          <article class="roadmap-card">
+            <div class="roadmap-year"><strong>Anno 1</strong> Canada</div>
+            <ul>
+              <li>Rafforzare la copertura dei rivenditori nazionali.</li>
+              <li>Ottimizzare gli avvisi di sconto in tempo reale.</li>
+              <li>Lanciare dashboard regionali bilingui.</li>
+            </ul>
+          </article>
+          <article class="roadmap-card">
+            <div class="roadmap-year"><strong>Anno 2</strong> Stati Uniti</div>
+            <ul>
+              <li>Ampliare il catalogo ai principali marchi statunitensi.</li>
+              <li>Implementare il monitoraggio delle scorte multi-stato.</li>
+              <li>Introdurre l'analisi predittiva delle tendenze d'acquisto.</li>
+            </ul>
+          </article>
+          <article class="roadmap-card roadmap-ai">
+            <div class="roadmap-year"><strong>Anno 3</strong> Europa</div>
+            <ul>
+              <li>Localizzare l'esperienza per i principali mercati europei.</li>
+              <li>Attivare un motore di raccomandazioni IA multilingue.</li>
+              <li>Affinare le strategie di pricing con apprendimento continuo.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="container footer">
+    © <span id="yearFooter"></span> EconoDeal · Tutti i diritti riservati
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = new Date().getFullYear();
+      document.getElementById('year').textContent = y;
+      document.getElementById('yearFooter').textContent = y;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,2511 @@
+<!DOCTYPE html>
+<html lang="es" data-page="landing">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EconoDeal — Canadá</title>
+  <link rel="stylesheet" href="dist/assets/main.css" />
+</head>
+<body class="overlay-active">
+  <div class="bg-visuals" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb--one"></div>
+    <div class="bg-orb bg-orb--two"></div>
+    <div class="bg-orb bg-orb--three"></div>
+  </div>
+  <div id="registrationOverlay" role="dialog" aria-modal="true" aria-labelledby="registrationTitle">
+    <div class="registration-card">
+      <button type="button" class="registration-close" data-overlay-dismiss aria-label="Cerrar la ventana de registro">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h2 id="registrationTitle">Acceso exclusivo para miembros</h2>
+      <p class="muted" style="margin:0">Únete a <strong><span data-client-count>0</span></strong> revendedores de Amazon y cazadores de ofertas para desbloquear todo el catálogo.</p>
+      <form id="registrationForm">
+        <div>
+          <label for="fullName">Nombre completo</label>
+          <input id="fullName" name="fullName" type="text" placeholder="Ingresa tu nombre" autocomplete="name" required />
+        </div>
+        <div>
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" placeholder="nombre@ejemplo.com" autocomplete="email" required />
+        </div>
+        <div class="checkbox-row">
+          <input id="regulationCheckbox" name="regulation" type="checkbox" required />
+          <label for="regulationCheckbox" style="margin:0">Confirmo que he leído y aceptado las directrices de uso del sitio.</label>
+        </div>
+        <button id="registrationSubmit" type="submit" disabled>Regístrate y desbloquea el acceso</button>
+      </form>
+    </div>
+  </div>
+  <header>
+    <div class="container header-layout">
+      <div class="row header-top">
+        <div class="row" style="gap:16px;align-items:center;flex-wrap:wrap">
+          <a class="brand" href="index-es.html">
+            <img src="assets/logo.svg" alt="EconoDeal – acelerador para vendedores de Amazon" />
+            <span class="brand-text">
+              <span class="brand-title">EconoDeal</span>
+              <span class="brand-tagline">Tu hub de Amazon</span>
+            </span>
+          </a>
+          <div class="country-toggle country-toggle--header" role="group" aria-label="Seleccionar país">
+            <button type="button" class="country-button active" data-country="canada" aria-pressed="true">Canadá</button>
+            <button type="button" class="country-button" data-country="usa" aria-pressed="false">Estados Unidos</button>
+            <button type="button" class="country-button" data-country="europe" aria-pressed="false">Europa</button>
+          </div>
+        </div>
+        <div class="row" style="gap:12px;align-items:center">
+          <a class="nav-button" href="best-deals-es.html" style="white-space:nowrap">Mejores ofertas</a>
+          <a class="nav-button" href="pricing-es.html" style="white-space:nowrap">Planes / precios</a>
+          <a class="nav-button" href="roadmap-es.html" style="white-space:nowrap">Hoja de ruta / visión</a>
+          <a class="nav-button" href="#faq" style="white-space:nowrap">FAQ para miembros</a>
+          <div class="lang-switch" aria-label="Selector de idioma">
+            <a href="index.html">FR</a>
+            <a href="index-en.html">EN</a>
+            <span class="active" aria-current="true">ES</span>
+            <a href="index-de.html">DE</a>
+            <a href="index-it.html">IT</a>
+          </div>
+          <span class="header-region" data-exchange-indicator aria-live="polite" aria-label="Tipo de cambio 1 CAD por 1 CAD">1 CAD = 1 CAD</span>
+          <div class="muted" style="white-space:nowrap">Clientes registrados:&nbsp; <span data-client-count>0</span></div>
+          <div class="muted">© <span id="year"></span></div>
+        </div>
+      </div>
+      <aside id="storeAds" class="store-ads" aria-live="polite" aria-label="Tiendas destacadas" aria-hidden="true"></aside>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-content">
+        <span class="hero-kicker">Plataforma de arbitraje de Amazon</span>
+        <h1 id="heroTitle">Desbloquea las mejores liquidaciones para hacer crecer tus listings</h1>
+        <p>Centraliza tu abastecimiento, conecta a tus proveedores clave y deja que nuestras señales de IA destaquen los descuentos más rentables para Amazon.ca, Amazon.com y Europa.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#search">Explorar inventarios</a>
+          <a class="btn btn-secondary" href="#amazon-sellers">Ver beneficios</a>
+        </div>
+        <ul class="hero-stats">
+          <li class="hero-stat"><strong>+4 500</strong><span>Ofertas activas</span></li>
+          <li class="hero-stat"><strong>97 %</strong><span>Listings de Amazon validados</span></li>
+          <li class="hero-stat"><strong>12 h</strong><span>Horas ahorradas cada semana</span></li>
+        </ul>
+      </div>
+      <div class="hero-preview" aria-hidden="true">
+        <article class="hero-preview-card">
+          <header>
+            <span>Instantánea</span>
+            <div class="badge" style="margin:0">Feed de Canadá</div>
+          </header>
+          <h2>Oportunidades destacadas</h2>
+          <p>Sigue en tiempo real las brechas de precio accionables entre tus comercios favoritos y la Buy Box de Amazon.</p>
+          <ul class="hero-preview-list">
+            <li class="hero-preview-item"><span>1</span> Alertas prioritarias cuando el margen supera el 28&nbsp;%.</li>
+            <li class="hero-preview-item"><span>2</span> Estados de inventario consolidados de Best Buy, Walmart y otros socios.</li>
+            <li class="hero-preview-item"><span>3</span> Exportación instantánea a tus plantillas FBA y FBM.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="section value-section" id="investors">
+      <div class="value-header">
+        <h2>Señales que tranquilizan a los inversores</h2>
+        <p class="muted">EconoDeal combina indicadores de uso tangibles con una ambiciosa hoja de ruta de IA que demuestra su capacidad para crear valor recurrente en múltiples mercados.</p>
+      </div>
+      <div class="value-grid">
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">📊</span>
+          <h3>Posicionamiento sólido basado en datos</h3>
+          <ul>
+            <li><span class="value-metric">Más de 4&nbsp;500 ofertas activas</span> consolidadas en un único catálogo listo para el arbitraje.</li>
+            <li><span class="value-metric">97&nbsp;% de los listings validados</span>, demostrando la calidad de los datos y exportaciones fiables a Amazon.</li>
+            <li><span class="value-metric">12 horas ahorradas</span> por semana en promedio al centralizar el abastecimiento.</li>
+          </ul>
+        </article>
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">🌐</span>
+          <h3>Tecnología escalable</h3>
+          <ul>
+            <li><span class="value-metric">2,4&nbsp;M de ASIN monitorizados</span> en Amazon.ca, Amazon.com y Amazon EU.</li>
+            <li>Detección promedio de <span class="value-metric">18 segundos</span> entre un nuevo descuento y su alerta prioritaria.</li>
+            <li>Insights de IA que recuperan una <span class="value-metric">margen mediana de +32&nbsp;%</span> en los escenarios monitorizados.</li>
+          </ul>
+        </article>
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">🗺️</span>
+          <h3>Visión de crecimiento a tres años</h3>
+          <ul>
+            <li>Expansión secuenciada: Canadá → Estados Unidos → Europa con localización completa.</li>
+            <li>Despliegue de alertas en tiempo real, analítica predictiva y un motor de recomendaciones IA multilingüe.</li>
+            <li>Monetización progresiva que añade exportaciones a Seller Central, escenarios de IA e insights de mercado avanzados.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="section" id="search">
+      <h2 style="margin:0 0 10px">Encuentra inventario en liquidación para tus listings de Amazon</h2>
+      <p class="muted">Los archivos se cargan desde <span class="kbd">data/&lt;store&gt;/&lt;city&gt;.json</span> para mostrar rápidamente oportunidades de arbitraje.</p>
+
+      <!-- ✅ Les éléments requis existent et leurs IDs correspondent au script -->
+      <div class="row" style="gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px">
+        <span class="muted" data-country-label>País cubierto: Canadá · Moneda: CAD</span>
+      </div>
+
+      <div class="filters" style="margin-top:12px">
+        <div>
+          <label for="searchInput">Búsqueda rápida</label>
+          <input id="searchInput" name="search" type="text" inputmode="search" placeholder="Ej. Nintendo Switch, Lego..." autocomplete="off" />
+        </div>
+        <div>
+          <label for="storeSelect">Tienda</label>
+          <select id="storeSelect">
+            <option value="">(Todas)</option>
+          </select>
+        </div>
+        <div>
+          <label for="citySelect">Ciudad</label>
+          <select id="citySelect">
+            <option value="">(Todas)</option>
+          </select>
+        </div>
+        <div>
+          <label for="postalInput">Código postal</label>
+          <input id="postalInput" name="postal" type="text" inputmode="text" placeholder="Ej. H2X 1Y4" autocomplete="postal-code" />
+          <p id="postalHelper" class="field-helper">Introduce los tres primeros caracteres del código postal para encontrar sucursales a 50 km (p. ej., H2X).</p>
+        </div>
+        <div>
+          <label for="discountRange">Descuento mínimo: <span id="discountValue" class="kbd">0%</span></label>
+          <input id="discountRange" type="range" min="0" max="90" step="5" value="0" />
+        </div>
+        <div style="align-self:end">
+          <button id="btnClear">Restablecer filtros</button>
+        </div>
+      </div>
+
+      <div id="devError" class="dev-banner"></div>
+
+      <div class="section">
+        <div class="row" style="justify-content:space-between;align-items:center">
+          <h3 style="margin:0">Resultados</h3>
+          <div class="muted"><span id="resultCount">0</span> resultados</div>
+        </div>
+        <div id="cards" class="grid" style="margin-top:12px"></div>
+      </div>
+    </section>
+    <section class="section value-section" id="client-value">
+      <div class="value-header">
+        <h2>Por qué nuestros clientes de pago se quedan</h2>
+        <p class="muted">La plataforma reduce el esfuerzo de abastecimiento, se alinea con las necesidades críticas de los revendedores de Amazon y escala de forma coherente a medida que las operaciones se vuelven más complejas.</p>
+      </div>
+      <div class="value-grid">
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">⚡</span>
+          <h3>Eficiencia operativa inmediata</h3>
+          <ul>
+            <li>Filtros multicriterio (tienda, ciudad, código postal, umbral de descuento) para centralizar las búsquedas de productos.</li>
+            <li>Vista de inventario consolidada y brechas de precio accionables sin hojas de cálculo.</li>
+            <li>Flujos de trabajo listos para exportar a Seller Central en solo unos clics.</li>
+          </ul>
+        </article>
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">🛒</span>
+          <h3>Diseñado para revendedores de Amazon</h3>
+          <ul>
+            <li>Onboarding guiado a FBA, cálculo de tarifas simplificado y escenarios FBM integrados.</li>
+            <li>Supervisión multiproveedor (Best Buy, Walmart, etc.) para asegurar la Buy Box.</li>
+            <li>Comunidad privada, talleres tácticos y asistencia dedicada que mantienen la ventaja competitiva.</li>
+          </ul>
+        </article>
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">💡</span>
+          <h3>Monetización clara y gradual</h3>
+          <ul>
+            <li>Plan Essential: acceso rápido a las mejores liquidaciones y alertas semanales.</li>
+            <li>Plan Advanced: alertas en tiempo real, exportaciones a Seller Central y colaboración entre equipos.</li>
+            <li>Oferta Premium: análisis con IA, pronósticos de tendencias y acompañamiento multicanal ilimitado.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="amazon-section" id="amazon-sellers">
+      <div>
+        <h2>Una experiencia diseñada para revendedores de Amazon</h2>
+        <p class="amazon-intro">Aprovecha un hub de abastecimiento creado para operaciones FBA y FBM: detecta liquidaciones rentables en segundos, protege tus márgenes y estructura las rutinas de sourcing para Amazon.ca y Amazon.com.</p>
+      </div>
+      <div class="seller-metrics">
+        <div class="seller-metric">
+          <strong>2,4&nbsp;M</strong>
+          <span>ASIN monitorizados</span>
+          <p>Mapeo dinámico de los catálogos de Amazon.ca, Amazon.com y Amazon EU.</p>
+        </div>
+        <div class="seller-metric">
+          <strong>18&nbsp;s</strong>
+          <span>Tiempo medio de detección</span>
+          <p>Latencia entre importar un descuento y alertar a tu equipo.</p>
+        </div>
+        <div class="seller-metric">
+          <strong>+32&nbsp;%</strong>
+          <span>Margen recuperado</span>
+          <p>Ganancia mediana observada entre los vendedores que usan nuestros escenarios de IA.</p>
+        </div>
+      </div>
+      <div class="seller-grid">
+        <article class="seller-card">
+          <div class="seller-icon" aria-hidden="true">🚀</div>
+          <h3>Onboarding FBA simplificado</h3>
+          <p>Plantillas listas para usar que calculan tarifas FBA, estiman la rotación y sincronizan tus listings de Amazon sin hojas de cálculo complejas.</p>
+        </article>
+        <article class="seller-card">
+          <div class="seller-icon" aria-hidden="true">📦</div>
+          <h3>Supervisión de inventario multiproveedor</h3>
+          <p>Combina inventarios de Best Buy, Walmart y otros socios para detectar brechas de precio aprovechables antes que otros vendedores de Amazon.</p>
+        </article>
+        <article class="seller-card">
+          <div class="seller-icon" aria-hidden="true">🤝</div>
+          <h3>Comunidad dedicada</h3>
+          <p>Accede a un lounge privado para revendedores de Amazon, comparte estrategias de repricing y aprovecha comparativas validadas por la comunidad.</p>
+        </article>
+        <article class="seller-card">
+          <div class="seller-icon" aria-hidden="true">🧭</div>
+          <h3>Acompañamiento operativo</h3>
+          <ul class="seller-list">
+            <li><span aria-hidden="true">✔</span>Alertas cuando la Buy Box cae por debajo de tu objetivo.</li>
+            <li><span aria-hidden="true">✔</span>Exportaciones compatibles con Seller Central y herramientas de análisis FBA.</li>
+            <li><span aria-hidden="true">✔</span>Sugerencias de IA para reempaquetar o arbitrar según la temporada.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="pricing" style="padding-top:10px">
+      <h2 style="margin:0 0 10px">Planes adaptados a tus necesidades</h2>
+      <p class="muted" style="max-width:620px">Elige la opción que mejor se adapte a cómo monitorizas descuentos, alimentas tus listings de Amazon y proteges tus márgenes. Todos los planes incluyen una prueba de 7 días.</p>
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <div class="pricing-tag">Essential</div>
+          <h4>Acceso esencial</h4>
+          <div class="pricing-price">9,99&nbsp;$</div>
+          <ul class="pricing-features">
+            <li>Acceso a las liquidaciones populares listas para Amazon</li>
+            <li>3 alertas por correo a la semana</li>
+            <li>Historial de precios de 30 días</li>
+          </ul>
+        </article>
+        <article class="pricing-card pricing-highlight">
+          <div class="pricing-tag">Más popular</div>
+          <h4>Plan Advanced</h4>
+          <div class="pricing-price">19,99&nbsp;$</div>
+          <ul class="pricing-features">
+            <li>Acceso ilimitado al catálogo optimizado para Amazon</li>
+            <li>Alertas personalizadas en tiempo real</li>
+            <li>Exportaciones a Seller Central y listas compartidas con el equipo</li>
+          </ul>
+        </article>
+        <article class="pricing-card">
+          <div class="pricing-tag">Premium</div>
+          <h4>Análisis completo con IA</h4>
+          <div class="pricing-price">29,99&nbsp;$</div>
+          <ul class="pricing-features">
+            <li>Alertas multicanal ilimitadas</li>
+            <li>Análisis de precios asistido por IA para Amazon</li>
+            <li>Pronósticos de tendencias del mercado y simulación FBA</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap" style="padding-top:0">
+      <h2 style="margin:0 0 10px">Nuestra hoja de ruta</h2>
+      <p class="muted" style="max-width:640px">Una visión de tres años para impulsar a EconoDeal internacionalmente, integrando de forma progresiva la inteligencia artificial en el corazón de nuestros servicios.</p>
+      <div class="roadmap">
+        <div class="roadmap-grid">
+          <article class="roadmap-card">
+            <div class="roadmap-year"><strong>Año 1</strong> Canadá</div>
+            <ul>
+              <li>Reforzar la cobertura de los minoristas nacionales.</li>
+              <li>Optimizar las alertas de descuentos en tiempo real.</li>
+              <li>Lanzar paneles regionales bilingües.</li>
+            </ul>
+          </article>
+          <article class="roadmap-card">
+            <div class="roadmap-year"><strong>Año 2</strong> Estados Unidos</div>
+            <ul>
+              <li>Ampliar el catálogo a las principales cadenas de EE. UU.</li>
+              <li>Desplegar la supervisión de inventario en múltiples estados.</li>
+              <li>Introducir análisis predictivo de tendencias de compra.</li>
+            </ul>
+          </article>
+          <article class="roadmap-card roadmap-ai">
+            <div class="roadmap-year"><strong>Año 3</strong> Europa</div>
+            <ul>
+              <li>Localizar la experiencia para los principales mercados europeos.</li>
+              <li>Activar un motor de recomendaciones de IA multilingüe.</li>
+              <li>Perfeccionar las estrategias de precios con aprendizaje continuo.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="faq-header">
+        <h2>Preguntas frecuentes</h2>
+        <p class="muted">Reunimos las respuestas a las dudas más comunes que plantean los vendedores de Amazon y eBay antes de unirse a EconoDeal.</p>
+      </div>
+      <div class="faq-grid" role="list">
+        <details class="faq-item" role="listitem">
+          <summary>¿Con qué frecuencia actualizan los descuentos?</summary>
+          <p>Nuestro equipo y los recolectores automatizados renuevan más de 4.500 ofertas varias veces al día. Recibirás una alerta en cuanto detectemos un diferencial rentable en Amazon o eBay.</p>
+        </details>
+        <details class="faq-item" role="listitem">
+          <summary>¿Cómo funciona la prueba de 7 días?</summary>
+          <p>Puedes activar la prueba directamente desde el formulario de registro. No hay compromiso: cancela con un solo clic antes de que termine el período si la plataforma no se adapta a tu negocio.</p>
+        </details>
+        <details class="faq-item" role="listitem">
+          <summary>¿Puedo invitar a mi equipo?</summary>
+          <p>Los planes Avanzado y Premium incluyen asientos adicionales. Comparte listas de productos, sigue los análisis de IA y asigna alertas personalizadas a cada colaborador.</p>
+        </details>
+        <details class="faq-item" role="listitem">
+          <summary>¿Qué integraciones hay disponibles hoy?</summary>
+          <p>Ofrecemos exportaciones listas para Seller Central, Seller Hub y la mayoría de herramientas de análisis FBA. Los conectores para Amazon.com y eBay.com están incluidos sin coste adicional.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <div class="container footer">
+    <p style="margin:0 0 8px">EconoDeal no se hace responsable de la disponibilidad del inventario mostrado y no almacena ninguna información personal de los visitantes.</p>
+    <div>© <span id="yearFooter"></span> EconoDeal · Todos los derechos reservados</div>
+  </div>
+
+  <script>
+  // === Safe initialisation ===
+  document.addEventListener('DOMContentLoaded', async () => {
+    const overlay = document.getElementById('registrationOverlay');
+    const form = document.getElementById('registrationForm');
+    const submitBtn = document.getElementById('registrationSubmit');
+    const regulationCheckbox = document.getElementById('regulationCheckbox');
+    const clientCountDisplays = Array.from(document.querySelectorAll('[data-client-count]'));
+    const overlayDismissTriggers = Array.from(document.querySelectorAll('[data-overlay-dismiss]'));
+    const OVERLAY_DISMISSED_KEY = 'econodealOverlayDismissed';
+    const storeAdsContainer = document.getElementById('storeAds');
+    function parseJson(value){
+      if(!value) return null;
+      try{
+        return JSON.parse(value);
+      }catch(err){
+        console.warn('Unable to read existing data', err);
+        return null;
+      }
+    }
+
+    const memoryStorage = new Map();
+
+    function safeGet(key){
+      if(!key) return null;
+      try{
+        const value = localStorage.getItem(key);
+        if(value !== null && value !== undefined){
+          memoryStorage.set(key, value);
+        }
+        return value;
+      }catch(err){
+        console.warn('Almacenamiento local no disponible', err);
+        return memoryStorage.has(key) ? memoryStorage.get(key) : null;
+      }
+    }
+
+    function safeSet(key, value){
+      if(!key) return false;
+      try{
+        localStorage.setItem(key, value);
+        memoryStorage.set(key, value);
+        return true;
+      }catch(err){
+        console.warn('No se pueden guardar los datos', err);
+        memoryStorage.set(key, value);
+        return false;
+      }
+    }
+
+    function cleanText(value){
+      return typeof value === 'string' ? value.trim() : '';
+    }
+
+    function getRegistrations(){
+      const parsed = parseJson(safeGet('econodealRegistrations'));
+      if(!Array.isArray(parsed)) return [];
+      return parsed
+        .filter(item => item && typeof item === 'object')
+        .map(item => ({
+          name: cleanText(item.name),
+          email: cleanText(item.email).toLowerCase(),
+          registeredAt: cleanText(item.registeredAt)
+        }))
+        .filter(item => item.email);
+    }
+
+    function saveRegistrations(items){
+      safeSet('econodealRegistrations', JSON.stringify(items));
+    }
+
+    function upsertRegistration(entry){
+      const collection = getRegistrations();
+      const email = cleanText(entry.email).toLowerCase();
+      if(!email) return;
+
+      const normalized = {
+        name: cleanText(entry.name),
+        email,
+        registeredAt: cleanText(entry.registeredAt)
+      };
+
+      const existingIndex = collection.findIndex(item => item.email === email);
+      if(existingIndex >= 0){
+        collection[existingIndex] = {
+          ...collection[existingIndex],
+          ...normalized
+        };
+      }else{
+        collection.push(normalized);
+      }
+
+      saveRegistrations(collection);
+    }
+
+    function parseCount(value){
+      const parsed = parseInt(value ?? '0', 10);
+      return Number.isFinite(parsed) && parsed >= 0 ? parsed : 0;
+    }
+
+    function setClientCount(value){
+      const normalized = Math.max(0, value);
+      safeSet('econodealClientCount', String(normalized));
+      return normalized;
+    }
+
+    function deriveClientCountFromRegistrations(){
+      const registrations = getRegistrations();
+      if(!registrations.length) return 0;
+      const uniqueEmails = new Set();
+      registrations.forEach(item => {
+        if(item?.email) uniqueEmails.add(item.email);
+      });
+      return uniqueEmails.size;
+    }
+
+    function resolveClientCount(){
+      const stored = parseCount(safeGet('econodealClientCount'));
+      const derived = deriveClientCountFromRegistrations();
+      const resolved = Math.max(stored, derived);
+      if(resolved !== stored){
+        setClientCount(resolved);
+      }
+      return resolved;
+    }
+
+    function updateClientCountDisplays(){
+      const formatter = new Intl.NumberFormat('es-CA');
+      const count = resolveClientCount();
+      clientCountDisplays.forEach(el => {
+        el.textContent = formatter.format(count);
+      });
+    }
+
+    function hideOverlay(){
+      if(!overlay) return;
+      overlay.classList.add('hidden');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('overlay-active');
+    }
+
+    function showOverlay(){
+      if(!overlay) return;
+      overlay.classList.remove('hidden');
+      overlay.removeAttribute('aria-hidden');
+      document.body.classList.add('overlay-active');
+      updateClientCountDisplays();
+    }
+
+    resolveClientCount();
+    updateClientCountDisplays();
+
+    const alreadyRegistered = safeGet('econodealClientRegistered') === 'true';
+    const overlayDismissed = safeGet(OVERLAY_DISMISSED_KEY) === 'true';
+    if(alreadyRegistered || overlayDismissed){
+      hideOverlay();
+    }else{
+      showOverlay();
+    }
+
+    if(submitBtn && regulationCheckbox){
+      submitBtn.disabled = !regulationCheckbox.checked;
+      regulationCheckbox.addEventListener('change', () => {
+        submitBtn.disabled = !regulationCheckbox.checked;
+      });
+    }
+
+    if(form){
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const rawName = (form.fullName?.value ?? '').trim();
+        const rawEmail = (form.email?.value ?? '').trim();
+        const hasReport = typeof form.reportValidity === 'function';
+        const hasCheck = typeof form.checkValidity === 'function';
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const nameValid = rawName.length > 0;
+        const emailValid = emailPattern.test(rawEmail);
+
+        if(hasReport){
+          if(!form.reportValidity()) return;
+        }else if(hasCheck){
+          if(!form.checkValidity()){
+            alert('Proporcione un nombre completo y un correo electrónico válidos.');
+            return;
+          }
+        }else if(!nameValid || !emailValid){
+          alert('Proporcione un nombre completo y un correo electrónico válidos.');
+          return;
+        }
+
+        const payload = {
+          name: rawName,
+          email: rawEmail,
+          consent: true,
+          registeredAt: new Date().toISOString()
+        };
+
+        safeSet('econodealUser', JSON.stringify(payload));
+        upsertRegistration(payload);
+        resolveClientCount();
+        safeSet('econodealClientRegistered', 'true');
+        safeSet(OVERLAY_DISMISSED_KEY, 'true');
+        updateClientCountDisplays();
+        hideOverlay();
+      });
+    }
+
+    overlayDismissTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        safeSet(OVERLAY_DISMISSED_KEY, 'true');
+        hideOverlay();
+      });
+    });
+
+    window.addEventListener('storage', (event) => {
+      if(!event) return;
+      if(event.key === 'econodealRegistrations' || event.key === 'econodealClientCount'){
+        updateClientCountDisplays();
+      }
+      if(event.key === 'econodealClientRegistered' || event.key === OVERLAY_DISMISSED_KEY){
+        const registered = safeGet('econodealClientRegistered') === 'true';
+        const dismissed = safeGet(OVERLAY_DISMISSED_KEY) === 'true';
+        if(registered || dismissed){
+          hideOverlay();
+        }else{
+          showOverlay();
+        }
+      }
+    });
+
+    function baseBranches(){
+      return [
+        {label:'Montréal', slug:'montreal', city:'Montréal'},
+        {label:'Laval', slug:'laval', city:'Laval'},
+        {label:'Saint-Jérôme', slug:'saint-jerome', city:'Saint-Jérôme'},
+        {label:'Sainte-Agathe-des-Monts', slug:'sainte-agathe-des-monts', city:'Sainte-Agathe-des-Monts'},
+        {label:'Blainville', slug:'blainville', city:'Blainville'},
+        {label:'Sainte-Thérèse', slug:'sainte-therese', city:'Sainte-Thérèse'},
+        {label:'Mascouche', slug:'mascouche', city:'Mascouche'}
+      ];
+    }
+
+    function sportingLifeBranches(){
+      return [
+        {label:'Laval', slug:'laval', city:'Laval'}
+      ];
+    }
+    function patrickMorinBranches(){
+      return [
+        {label:'Prévost', slug:'prevost', city:'Prévost'},
+        {label:'Laval', slug:'laval', city:'Laval'}
+      ];
+    }
+
+    function fullBestBuyBranches(){
+      return [
+        {label:'En ligne (Canada)', slug:'en-ligne', city:'En ligne', hasData:true},
+        {label:'St. Jerome', slug:'st-jerome', city:'Saint-Jerome', address:'1040 Boul. du Grand-Heron, Saint-Jerome, QC', storeNumber:'658', hasData:true},
+        {label:'Rosemere', slug:'rosemere-978', city:'Rosemere', address:'401 Boul. Labelle, Unit M-20, Rosemere, QC', storeNumber:'978', hasData:false},
+        {label:'Mascouche', slug:'mascouche-663', city:'Mascouche', address:'113 Monte Masson, Bldg. C Unit 2, Mascouche, QC', storeNumber:'663', hasData:false},
+        {label:'Best Buy Mobile Kiosk Laval', slug:'best-buy-mobile-kiosk-laval-543', city:'Laval', address:'3035 Boul. Le Carrefour, Unit ZD03, Laval, QC', storeNumber:'543', hasData:false},
+        {label:'Laval', slug:'laval-968', city:'Laval', address:'1450 Boul. le Corbusier, Laval, QC', storeNumber:'968', hasData:false},
+        {label:'Pointe Claire', slug:'pointe-claire-970', city:'Pointe-Claire', address:'6815 Autoroute Transcanadienne, Local #Y009, Pointe-Claire, QC', storeNumber:'970', hasData:false},
+        {label:'Best Buy Mobile Kiosk Fairview Pointe-Claire', slug:'best-buy-mobile-kiosk-fairview-pointe-claire-541', city:'Pointe-Claire', address:'6815 Trans Canada Hwy, Unit Z040, Pointe-Claire, QC', storeNumber:'541', hasData:false},
+        {label:'Marche Central', slug:'marche-central-962', city:'Montreal', address:'8871 Boul de L\'acadie, Montreal, QC', storeNumber:'962', hasData:false},
+        {label:'Best Buy Express Kiosk Montreal-Pierre Elliott Trudeau International Airport', slug:'best-buy-express-kiosk-montreal-pierre-elliott-trudeau-international-airport-857', city:'Dorval', address:'975 Romeo-Vachon Blvd N, Dorval, QC', storeNumber:'857', hasData:false},
+        {label:'Best Buy Express Kiosk Montreal-Pierre Elliott Trudeau International Airport', slug:'best-buy-express-kiosk-montreal-pierre-elliott-trudeau-international-airport-855', city:'Dorval', address:'975 Romeo-Vachon Blvd N, Dorval, QC', storeNumber:'855', hasData:false},
+        {label:'Best Buy Express Kiosk Montreal-Pierre Elliott Trudeau International Airport', slug:'best-buy-express-kiosk-montreal-pierre-elliott-trudeau-international-airport-856', city:'Dorval', address:'975 Romeo-Vachon Blvd N, Dorval, QC', storeNumber:'856', hasData:false},
+        {label:'Best Buy Mobile Place Versailles', slug:'best-buy-mobile-place-versailles-251', city:'Montreal', address:'7275 Rue Sherbrooke E, Unit 121, Montreal, QC', storeNumber:'251', hasData:false},
+        {label:'Vaudreuil', slug:'vaudreuil-674', city:'Vaudreuil-Dorion', address:'3090 Boul. de la Gare, Vaudreuil-Dorion, QC', storeNumber:'674', hasData:false},
+        {label:'Centreville', slug:'centreville-651', city:'Montreal', address:'470 Rue Ste. Catherine O, Montreal, QC', storeNumber:'651', hasData:false},
+        {label:'Best Buy Mobile Montreal Eaton Centre', slug:'best-buy-mobile-montreal-eaton-centre-252', city:'Montreal', address:'705 Rue Sainte-Catharine O, Unit 2114A, Montreal, QC', storeNumber:'252', hasData:false},
+        {label:'LaSalle', slug:'lasalle-967', city:'LaSalle', address:'7077 Boul. Newman, LaSalle, QC', storeNumber:'967', hasData:true},
+        {label:'Taschereau', slug:'taschereau-82', city:'Greenfield Park', address:'1800 Rue Auguste, Greenfield Park, QC', storeNumber:'82', hasData:false},
+        {label:'Brossard', slug:'brossard-969', city:'Brossard', address:'8480 Boul. Leduc, Unit 100, Brossard, QC', storeNumber:'969', hasData:false},
+        {label:'St. Bruno', slug:'st-bruno-971', city:'Saint-Bruno', address:'1235 Boul. des Promenades, Saint-Bruno, QC', storeNumber:'971', hasData:false},
+        {label:'Saint Jean', slug:'saint-jean-681', city:'Saint-Jean-sur-Richelieu', address:'600 Rue Pierre-Caisse, Unit 4000, Saint-Jean-sur-Richelieu, QC', storeNumber:'681', hasData:false},
+        {label:'Cornwall', slug:'cornwall-637', city:'Cornwall', address:'501 Tollgate Rd. W, Unit 6, Cornwall, ON', storeNumber:'637', hasData:false},
+        {label:'Granby', slug:'granby-673', city:'Granby', address:'90 Rue Simonds N, Granby, QC', storeNumber:'673', hasData:false},
+        {label:'Drummondville', slug:'drummondville-680', city:'Drummondville', address:'850 Rue Hains, Drummondville, QC', storeNumber:'680', hasData:false},
+        {label:'Orleans', slug:'orleans-627', city:'Orleans', address:'2020 Mer Bleue Rd., Unit C2, Orleans, ON', storeNumber:'627', hasData:false},
+        {label:'Best Buy Mobile Place d\'Orleans', slug:'best-buy-mobile-place-d-orleans-224', city:'Ottawa', address:'110 Place d\' Orleans Dr., Unit 0200, Ottawa, ON', storeNumber:'224', hasData:false},
+        {label:'Trois-Rivieres', slug:'trois-rivieres-668', city:'Trois-Rivieres', address:'4520 Boul. des Recollets, Unit 900A, Trois-Rivieres, QC', storeNumber:'668', hasData:false},
+        {label:'Ottawa East', slug:'ottawa-east-940', city:'Ottawa', address:'380 Coventry Rd., Ottawa, ON', storeNumber:'940', hasData:false},
+        {label:'Gatineau', slug:'gatineau-972', city:'Gatineau', address:'920 Maloney Blvd. W, Gatineau, QC', storeNumber:'972', hasData:false},
+        {label:'Best Buy Express Kiosk Ottawa International Airport', slug:'best-buy-express-kiosk-ottawa-international-airport-858', city:'Ottawa', address:'1000 Airport Parkway Private, Ottawa, ON', storeNumber:'858', hasData:false},
+        {label:'Best Buy Express Kiosk Ottawa International Airport', slug:'best-buy-express-kiosk-ottawa-international-airport-859', city:'Ottawa', address:'1000 Airport Parkway Private, Ottawa, ON', storeNumber:'859', hasData:false},
+        {label:'Ottawa West', slug:'ottawa-west-928', city:'Nepean', address:'1701 Merivale Rd., Nepean, ON', storeNumber:'928', hasData:false},
+        {label:'Barrhaven', slug:'barrhaven-639', city:'Nepean', address:'3777 Strandherd Dr., Nepean, ON', storeNumber:'639', hasData:false},
+        {label:'Kanata', slug:'kanata-975', city:'Kanata', address:'745 Kanata Ave., Kanata, ON', storeNumber:'975', hasData:false},
+        {label:'Sherbrooke', slug:'sherbrooke-659', city:'Sherbrooke', address:'3450 Boul. de Portland, Sherbrooke, QC', storeNumber:'659', hasData:false},
+        {label:'Place Laurier', slug:'place-laurier-906', city:'Quebec', address:'2700 Boul. Laurier, Unit 2290, Quebec, QC', storeNumber:'906', hasData:false},
+        {label:'La Capitale', slug:'la-capitale-907', city:'Quebec', address:'5401 Boul. des Galeries, Quebec, QC', storeNumber:'907', hasData:false},
+        {label:'Best Buy Mobile Cataraqui Town Centre', slug:'best-buy-mobile-cataraqui-town-centre-236', city:'Kingston', address:'945 Gardiners Rd., Unit L30A, Kingston, ON', storeNumber:'236', hasData:false},
+        {label:'Kingston', slug:'kingston-964', city:'Kingston', address:'A009-770 Gardiners Rd., Kingston, ON', storeNumber:'964', hasData:false},
+        {label:'Best Buy Mobile Quinte', slug:'best-buy-mobile-quinte-210', city:'Belleville', address:'390 North Front St., Unit P6, Belleville, ON', storeNumber:'210', hasData:false},
+        {label:'Belleville', slug:'belleville-989', city:'Belleville', address:'202 Bell Blvd., Belleville, ON', storeNumber:'989', hasData:false},
+        {label:'Chicoutimi', slug:'chicoutimi-653', city:'Chicoutimi', address:'1401 Boul. Talbot, Chicoutimi, QC', storeNumber:'653', hasData:false},
+        {label:'Best Buy Mobile Lansdowne Place', slug:'best-buy-mobile-lansdowne-place-218', city:'Peterborough', address:'645 Lansdowne St. W, Unit 136B, Peterborough, ON', storeNumber:'218', hasData:false},
+        {label:'Peterborough', slug:'peterborough-621', city:'Peterborough', address:'1101 Lansdowne St. W, Peterborough, ON', storeNumber:'621', hasData:false},
+        {label:'North Bay', slug:'north-bay-632', city:'North Bay', address:'1500 Fisher St., North Bay, ON', storeNumber:'632', hasData:false},
+        {label:'Oshawa', slug:'oshawa-613', city:'Oshawa', address:'1421 Harmony Rd. N, Oshawa, ON', storeNumber:'613', hasData:false},
+        {label:'Whitby', slug:'whitby-959', city:'Whitby', address:'1751 Victoria St. E, Whitby, ON', storeNumber:'959', hasData:false},
+        {label:'Orillia', slug:'orillia-626', city:'Orillia', address:'3200 Monarch Dr., Unit 1, Orillia, ON', storeNumber:'626', hasData:false},
+        {label:'Ajax', slug:'ajax-925', city:'Ajax', address:'20 Kingston Rd. W, Ajax, ON', storeNumber:'925', hasData:false},
+        {label:'Best Buy Mobile Pickering', slug:'best-buy-mobile-pickering-223', city:'Pickering', address:'1355 Kingston Rd., Unit 78, Pickering, ON', storeNumber:'223', hasData:false},
+        {label:'Markham', slug:'markham-937', city:'Markham', address:'5000 Hwy 7 E, Unit 2070L, Markham, ON', storeNumber:'937', hasData:false},
+        {label:'Aurora', slug:'aurora-985', city:'Aurora', address:'52 First Commerce Dr., Unit 2, Aurora, ON', storeNumber:'985', hasData:false},
+        {label:'Scarborough', slug:'scarborough-943', city:'Scarborough', address:'480 Progress Ave., Scarborough, ON', storeNumber:'943', hasData:false},
+        {label:'Newmarket', slug:'newmarket-949', city:'East Gwillimbury', address:'175 Green Lane E, East Gwillimbury, ON', storeNumber:'949', hasData:false},
+        {label:'Best Buy Mobile Georgian Mall', slug:'best-buy-mobile-georgian-mall-225', city:'Barrie', address:'509 Bayfield St., Unit B005, Barrie, ON', storeNumber:'225', hasData:false},
+        {label:'Barrie', slug:'barrie-953', city:'Barrie', address:'80 Concert Way, Unit 2, Barrie, ON', storeNumber:'953', hasData:false},
+        {label:'Warden', slug:'warden-965', city:'Scarborough', address:'50 Ashtonbee Rd., Unit 2, Scarborough, ON', storeNumber:'965', hasData:false},
+        {label:'Richmond Hill', slug:'richmond-hill-956', city:'Richmond Hill', address:'225 High Tech Rd., Unit 3, Richmond Hill, ON', storeNumber:'956', hasData:false},
+        {label:'Best Buy Mobile Centrepoint Mall', slug:'best-buy-mobile-centrepoint-mall-237', city:'North York', address:'6464 Yonge St., Unit 106, North York, ON', storeNumber:'237', hasData:false},
+        {label:'Leaside', slug:'leaside-931', city:'East York', address:'147 Laird Dr., East York, ON', storeNumber:'931', hasData:false},
+        {label:'Yonge & Eglinton', slug:'yonge-eglinton-62', city:'Toronto', address:'2400 Yonge St., Toronto, ON', storeNumber:'62', hasData:false},
+        {label:'Bay & Dundas', slug:'bay-dundas-977', city:'Toronto', address:'65 Dundas St. W, Toronto, ON', storeNumber:'977', hasData:false},
+        {label:'Downsview', slug:'downsview-927', city:'North York', address:'695 Wilson Ave., North York, ON', storeNumber:'927', hasData:false},
+        {label:'Best Buy Mobile Vaughan Mills', slug:'best-buy-mobile-vaughan-mills-200', city:'Vaughan', address:'1 Bass Pro Mills Dr., Unit 327, Vaughan, ON', storeNumber:'200', hasData:false},
+        {label:'Best Buy Mobile Dufferin Mall', slug:'best-buy-mobile-dufferin-mall-203', city:'Toronto', address:'900 Dufferin St., Unit 0455, Toronto, ON', storeNumber:'203', hasData:false},
+        {label:'Woodbridge', slug:'woodbridge-932', city:'Woodbridge', address:'7850 Weston Rd. , Bldg. E Unit 1, Woodbridge, ON', storeNumber:'932', hasData:false},
+        {label:'Keele & St. Clair', slug:'keele-st-clair-617', city:'Toronto', address:'10 Old Stock Yards Rd., Toronto, ON', storeNumber:'617', hasData:false},
+        {label:'Weston & HWY 401', slug:'weston-hwy-401-57', city:'North York', address:'2625A Weston Rd., North York, ON', storeNumber:'57', hasData:false},
+        {label:'Sherway', slug:'sherway-938', city:'Etobicoke', address:'167 North Queen St., Etobicoke, ON', storeNumber:'938', hasData:false},
+        {label:'Best Buy Express Kiosk Niagara Falls', slug:'best-buy-express-kiosk-niagara-falls-823', city:'Niagara Falls', address:'6455 Fallsview Blvd., Niagara Falls, ON', storeNumber:'823', hasData:false},
+        {label:'Distribution Centre East', slug:'distribution-centre-east-795', city:'Brampton', address:'9250 Airport Road, Brampton, ON', storeNumber:'795', hasData:false},
+        {label:'Appliance Clearance Centre Brampton', slug:'appliance-clearance-centre-brampton-916', city:'Brampton', address:'9200 Airport Rd, Brampton, ON', storeNumber:'916', hasData:false},
+        {label:'Brampton Distribution Centre', slug:'brampton-distribution-centre-544', city:'Brampton', address:'9250 Airport Road, Brampton, ON', storeNumber:'544', hasData:false},
+        {label:'Brampton Warehouse Pick-up', slug:'brampton-warehouse-pick-up-910', city:'Brampton', address:'Door # 22 - 9200 Airport Rd, Brampton, ON', storeNumber:'910', hasData:false},
+        {label:'Brampton', slug:'brampton-954', city:'Brampton', address:'25 Peel Centre Dr., Unit 451, Brampton, ON', storeNumber:'954', hasData:false},
+        {label:'Best Buy Mobile Bramalea City Centre', slug:'best-buy-mobile-bramalea-city-centre-207', city:'Brampton', address:'25 Peel Centre Dr., Unit 506, Brampton, ON', storeNumber:'207', hasData:false},
+        {label:'Best Buy Mobile Square One', slug:'best-buy-mobile-square-one-202', city:'Mississauga', address:'100 City Centre Dr., Unit 1-839, Mississauga, ON', storeNumber:'202', hasData:false},
+        {label:'Best Buy Mobile Pen Centre', slug:'best-buy-mobile-pen-centre-208', city:'St. Catharines', address:'221 Glendale Ave., Unit 146, St. Catharines, ON', storeNumber:'208', hasData:false},
+        {label:'St Catharines', slug:'st-catharines-950', city:'St Catharines', address:'420 Vansickle Rd. Unit L1, St Catharines, ON', storeNumber:'950', hasData:false},
+        {label:'Heartland', slug:'heartland-926', city:'Mississauga', address:'6075 Mavis Rd., Unit 1, Mississauga, ON', storeNumber:'926', hasData:false},
+        {label:'Best Buy Mobile Woodbine Centre', slug:'best-buy-mobile-woodbine-centre-233', city:'Etobicoke', address:'500 Rexdale Blvd., Unit F006, Etobicoke, ON', storeNumber:'233', hasData:false},
+        {label:'Oakville', slug:'oakville-930', city:'Oakville', address:'2500 Winston Park Dr., Unit A, Oakville, ON', storeNumber:'930', hasData:false},
+        {label:'Winston Churchill', slug:'winston-churchill-622', city:'Mississauga', address:'2975 Argentia Rd., Mississauga, ON', storeNumber:'622', hasData:false},
+        {label:'Best Buy Mobile Oakville Place', slug:'best-buy-mobile-oakville-place-245', city:'Oakville', address:'240 Leighland Ave., Unit 210A, Oakville, ON', storeNumber:'245', hasData:false},
+        {label:'Orangeville', slug:'orangeville-615', city:'Orangeville', address:'95 First St., Orangeville, ON', storeNumber:'615', hasData:false},
+        {label:'Milton', slug:'milton-990', city:'Milton', address:'1195 Maple Ave., Milton, ON', storeNumber:'990', hasData:false},
+        {label:'Best Buy Mobile Burlington Mall', slug:'best-buy-mobile-burlington-mall-206', city:'Burlington', address:'777 Guelph Line, Unit H7A, Burlington, ON', storeNumber:'206', hasData:false},
+        {label:'Burlington', slug:'burlington-942', city:'Burlington', address:'1200 Brant St., Unit 1, Burlington, ON', storeNumber:'942', hasData:false},
+        {label:'Sudbury', slug:'sudbury-901', city:'Sudbury', address:'1099 Marcus Dr., Sudbury, ON', storeNumber:'901', hasData:false},
+        {label:'Hamilton', slug:'hamilton-984', city:'Stoney Creek', address:'1779 Stone Church Rd. E, Stoney Creek, ON', storeNumber:'984', hasData:false},
+        {label:'Best Buy Mobile Lime Ridge', slug:'best-buy-mobile-lime-ridge-213', city:'Hamilton', address:'999 Upper Wentworth St., Unit 0450, Hamilton, ON', storeNumber:'213', hasData:false},
+        {label:'Ancaster', slug:'ancaster-982', city:'Ancaster', address:'14 Martindale Cres., Unit 1, Ancaster, ON', storeNumber:'982', hasData:false},
+        {label:'Guelph', slug:'guelph-631', city:'Guelph', address:'151 Stone Rd. West, Guelph, ON', storeNumber:'631', hasData:false},
+        {label:'Cambridge', slug:'cambridge-995', city:'Cambridge', address:'28 Pinebush Rd., Cambridge, ON', storeNumber:'995', hasData:false},
+        {label:'Best Buy Mobile Cambridge Centre', slug:'best-buy-mobile-cambridge-centre-247', city:'Cambridge', address:'355 Hespeler Rd., Unit 301, Cambridge, ON', storeNumber:'247', hasData:false},
+        {label:'Fredericton', slug:'fredericton-669', city:'Fredericton', address:'1220 Prospect St., Fredericton, NB', storeNumber:'669', hasData:false},
+        {label:'Best Buy Mobile Fairview Park', slug:'best-buy-mobile-fairview-park-235', city:'Kitchener', address:'2960 Kingsway Dr., Unit G005A, Kitchener, ON', storeNumber:'235', hasData:false},
+        {label:'Kitchener', slug:'kitchener-935', city:'Kitchener', address:'215 Fairway Rd. S, Kitchener, ON', storeNumber:'935', hasData:false},
+        {label:'Brantford', slug:'brantford-620', city:'Brantford', address:'61 Lynden Rd., Unit A, Brantford, ON', storeNumber:'620', hasData:false},
+        {label:'Best Buy Mobile Conestoga', slug:'best-buy-mobile-conestoga-219', city:'Waterloo', address:'550 King St. N, Unit H16, Waterloo, ON', storeNumber:'219', hasData:false},
+        {label:'Waterloo', slug:'waterloo-608', city:'Waterloo', address:'580 King St. N, Bldg. B, Waterloo, ON', storeNumber:'608', hasData:false},
+        {label:'Saint John', slug:'saint-john-661', city:'Saint John', address:'80 Consumers Dr., Saint John, NB', storeNumber:'661', hasData:false},
+        {label:'Timmins', slug:'timmins-634', city:'Timmins', address:'1390 Riverside Dr., Timmins, ON', storeNumber:'634', hasData:false},
+        {label:'Best Buy Mobile Masonville Place', slug:'best-buy-mobile-masonville-place-246', city:'London', address:'1680 Richmond St. N, Unit L027A, London, ON', storeNumber:'246', hasData:false},
+        {label:'North London', slug:'north-london-980', city:'London', address:'1735 Richmond St., Unit 1, London, ON', storeNumber:'980', hasData:false},
+        {label:'London (South)', slug:'london-south-936', city:'London', address:'1080 Wellington Rd., London, ON', storeNumber:'936', hasData:false},
+        {label:'Moncton', slug:'moncton-81', city:'Moncton', address:'50 Plaza Blvd., Moncton, NB', storeNumber:'81', hasData:false},
+        {label:'Sarnia', slug:'sarnia-610', city:'Sarnia', address:'1380 Exmouth St., Sarnia, ON', storeNumber:'610', hasData:false},
+        {label:'Chatham', slug:'chatham-624', city:'Chatham', address:'802 St. Claire St., Chatham, ON', storeNumber:'624', hasData:false},
+        {label:'Sault Ste. Marie', slug:'sault-ste-marie-625', city:'Sault Ste. Marie', address:'548 Great Northern Rd., Sault Ste. Marie, ON', storeNumber:'625', hasData:false},
+        {label:'Windsor', slug:'windsor-944', city:'Windsor', address:'4379 Walker Rd., Windsor, ON', storeNumber:'944', hasData:false},
+        {label:'Best Buy Mobile Devonshire', slug:'best-buy-mobile-devonshire-211', city:'Windsor', address:'3100 Howard Ave., Unit SS7, Windsor, ON', storeNumber:'211', hasData:false},
+        {label:'Halifax', slug:'halifax-912', city:'Halifax', address:'11 Washmill Lake Dr., Halifax, NS', storeNumber:'912', hasData:false},
+        {label:'Best Buy Express Kiosk Dalhousie University Bookstore', slug:'best-buy-express-kiosk-dalhousie-university-bookstore-820', city:'Halifax', address:'6136 University Ave, Halifax, NS', storeNumber:'820', hasData:false},
+        {label:'Best Buy Express Kiosk Halifax Stanfield International Airport', slug:'best-buy-express-kiosk-halifax-stanfield-international-airport-833', city:'Enfield', address:'1 Bell Blvd., Enfield, NS', storeNumber:'833', hasData:false},
+        {label:'Dartmouth', slug:'dartmouth-979', city:'Dartmouth', address:'119 Gale Terrace, Bldg. 1K-4, Dartmouth, NS', storeNumber:'979', hasData:false},
+        {label:'Charlottetown', slug:'charlottetown-660', city:'Charlottetown', address:'191 Buchanan Dr., Charlottetown, PE', storeNumber:'660', hasData:false},
+        {label:'Best Buy Mobile Mayflower Mall', slug:'best-buy-mobile-mayflower-mall-238', city:'Sydney', address:'800 Grand Lake Rd., Unit E63, Sydney, NS', storeNumber:'238', hasData:false},
+        {label:'Sydney', slug:'sydney-672', city:'Sydney', address:'800 Grand Lake Rd., Unit E60, Sydney, NS', storeNumber:'672', hasData:false},
+        {label:'Thunder Bay', slug:'thunder-bay-79', city:'Thunder Bay', address:'767 Memorial Ave., Unit 1, Thunder Bay, ON', storeNumber:'79', hasData:false},
+        {label:'St. Johns', slug:'st-johns-909', city:'St. Johns', address:'3 Stavanger Dr., St. Johns, NL', storeNumber:'909', hasData:false},
+        {label:'Regent', slug:'regent-948', city:'Winnipeg', address:'1580 Regent Ave. W, Unit 10, Winnipeg, MB', storeNumber:'948', hasData:false},
+        {label:'Pembina', slug:'pembina-32', city:'Winnipeg', address:'1910 Pembina Hwy., Unit 6, Winnipeg, MB', storeNumber:'32', hasData:false},
+        {label:'St James', slug:'st-james-946', city:'Winnipeg', address:'810 St. James St., Unit A, Winnipeg, MB', storeNumber:'946', hasData:false},
+        {label:'Best Buy Express Kiosk Winnipeg James Armstrong Richardson International Airport', slug:'best-buy-express-kiosk-winnipeg-james-armstrong-richardson-international-airport-824', city:'Winnipeg', address:'9070 Wellington Ave., Winnipeg, MB', storeNumber:'824', hasData:false},
+        {label:'Brandon', slug:'brandon-744', city:'Brandon', address:'901A 18th St. N, Brandon, MB', storeNumber:'744', hasData:false},
+        {label:'Regina', slug:'regina-955', city:'Regina', address:'2125 Prince of Wales Dr., Regina, SK', storeNumber:'955', hasData:false},
+        {label:'Best Buy Express Kiosk Regina International Airport', slug:'best-buy-express-kiosk-regina-international-airport-861', city:'Regina', address:'5201 Regina Av., Regina, SK', storeNumber:'861', hasData:false},
+        {label:'Prince Albert', slug:'prince-albert-742', city:'Prince Albert', address:'800 15th St. E, Unit 300, Prince Albert, SK', storeNumber:'742', hasData:false},
+        {label:'Saskatoon', slug:'saskatoon-974', city:'Saskatoon', address:'3310 8th St. E, Unit 20A, Saskatoon, SK', storeNumber:'974', hasData:false},
+        {label:'Preston Crossing', slug:'preston-crossing-39', city:'Saskatoon', address:'1723 Preston Ave. N, Unit 221, Saskatoon, SK', storeNumber:'39', hasData:false},
+        {label:'Best Buy Express Kiosk Saskatoon International Airport', slug:'best-buy-express-kiosk-saskatoon-international-airport-822', city:'Saskatoon', address:'2625 Airport Fr., Saskatoon, SK', storeNumber:'822', hasData:false},
+        {label:'Best Buy Express Kiosk Pharmasave Swift Current', slug:'best-buy-express-kiosk-pharmasave-swift-current-816', city:'Swift Current', address:'390 Central Ave. N, Swift Current, SK', storeNumber:'816', hasData:false},
+        {label:'Lloydminster', slug:'lloydminster-749', city:'Lloydminster', address:'7501 44th St., Unit 101, Lloydminster, AB', storeNumber:'749', hasData:false},
+        {label:'Medicine Hat', slug:'medicine-hat-23', city:'Medicine Hat', address:'3292 Dunmore Rd. SE, Unit 600, Medicine Hat, AB', storeNumber:'23', hasData:false},
+        {label:'Best Buy Express Kiosk Fort McMurray Airport', slug:'best-buy-express-kiosk-fort-mcmurray-airport-864', city:'Fort McMurray', address:'100 Snowbird Way, Unit 300, Fort McMurray, AB', storeNumber:'864', hasData:false},
+        {label:'Lethbridge', slug:'lethbridge-904', city:'Lethbridge', address:'3734 Mayor Magrath Dr. S, Unit 1C, Lethbridge, AB', storeNumber:'904', hasData:false},
+        {label:'SE Edmonton', slug:'se-edmonton-988', city:'Edmonton', address:'2040 38 Ave. NW, Edmonton, AB', storeNumber:'988', hasData:false},
+        {label:'NE Edmonton', slug:'ne-edmonton-34', city:'Edmonton', address:'4250 137 Ave., Edmonton, AB', storeNumber:'34', hasData:false},
+        {label:'Best Buy Mobile Londonderry', slug:'best-buy-mobile-londonderry-214', city:'Edmonton', address:'149 - 1 Londonderry Mall NW, Edmonton, AB', storeNumber:'214', hasData:false},
+        {label:'Best Buy Mobile Kiosk West Ed Mall', slug:'best-buy-mobile-kiosk-west-ed-mall-545', city:'Edmonton', address:'2172 - 8882 170 Street NW, Edmonton, AB', storeNumber:'545', hasData:false},
+        {label:'Edmonton South', slug:'edmonton-south-934', city:'Edmonton', address:'9931 19 Ave. NW, Edmonton, AB', storeNumber:'934', hasData:false},
+        {label:'Downtown Edmonton', slug:'downtown-edmonton-33', city:'Edmonton', address:'10304 109th St. NW, Edmonton, AB', storeNumber:'33', hasData:false},
+        {label:'Edmonton North', slug:'edmonton-north-951', city:'Edmonton', address:'13924 137 Ave. NW, Edmonton, AB', storeNumber:'951', hasData:false},
+        {label:'Best Buy Express Kiosk Edmonton International Airport', slug:'best-buy-express-kiosk-edmonton-international-airport-863', city:'Edmonton', address:'1000 Airport Rd., Edmonton, AB', storeNumber:'863', hasData:false},
+        {label:'Best Buy Mobile West Ed Mall', slug:'best-buy-mobile-west-ed-mall-249', city:'Edmonton', address:'1340 - 8882 170 Street NW, Edmonton, AB', storeNumber:'249', hasData:false},
+        {label:'Edmonton West', slug:'edmonton-west-933', city:'Edmonton', address:'17539 Stony Plain Rd. NW, Edmonton, AB', storeNumber:'933', hasData:false},
+        {label:'Best Buy Mobile Parkland Mall', slug:'best-buy-mobile-parkland-mall-230', city:'Red Deer', address:'4747 67th St., Unit 221, Red Deer, AB', storeNumber:'230', hasData:false},
+        {label:'Red Deer', slug:'red-deer-960', city:'Red Deer', address:'5001 19th St., Unit 800, Red Deer, AB', storeNumber:'960', hasData:false},
+        {label:'Best Buy Mobile Marlborough', slug:'best-buy-mobile-marlborough-209', city:'Calgary', address:'3800 Memorial Drive NE, Unit 1237, Calgary, AB', storeNumber:'209', hasData:false},
+        {label:'Best Buy Mobile Sunridge Mall', slug:'best-buy-mobile-sunridge-mall-205', city:'Calgary', address:'2525 36th St. NE, Unit 120, Calgary, AB', storeNumber:'205', hasData:false},
+        {label:'Sunridge', slug:'sunridge-945', city:'Calgary', address:'3319-26th Avenue NE, Calgary, AB', storeNumber:'945', hasData:false},
+        {label:'Best Buy Express Kiosk Calgary International Airport', slug:'best-buy-express-kiosk-calgary-international-airport-862', city:'Calgary', address:'2000 Airport Rd. NE, Calgary, AB', storeNumber:'862', hasData:false},
+        {label:'Deerfoot Meadows', slug:'deerfoot-meadows-947', city:'Calgary', address:'8180 11th St. SE,Unit 300, Calgary, AB', storeNumber:'947', hasData:false},
+        {label:'Best Buy Mobile Southcentre Mall', slug:'best-buy-mobile-southcentre-mall-231', city:'Calgary', address:'100 Anderson Rd. SE, Unit 346, Calgary, AB', storeNumber:'231', hasData:false},
+        {label:'Best Buy Mobile Chinook Centre', slug:'best-buy-mobile-chinook-centre-204', city:'Calgary', address:'6455 Macleod Trail SW, Unit 0155, Calgary, AB', storeNumber:'204', hasData:false},
+        {label:'Shawnessy', slug:'shawnessy-741', city:'Calgary', address:'350R Shawville Blvd. SE, Unit 110, Calgary, AB', storeNumber:'741', hasData:false},
+        {label:'Calgary 17th Avenue', slug:'calgary-17th-avenue-998', city:'Calgary', address:'901 17th Ave. SW, Calgary, AB', storeNumber:'998', hasData:false},
+        {label:'Northland', slug:'northland-976', city:'Calgary', address:'5111 Northland Dr. NW, Unit 350, Calgary, AB', storeNumber:'976', hasData:false},
+        {label:'Beacon Hill', slug:'beacon-hill-746', city:'Calgary', address:'11810 Sarcee Trail NW, Calgary, AB', storeNumber:'746', hasData:false},
+        {label:'Best Buy Mobile Kiosk Market Mall', slug:'best-buy-mobile-kiosk-market-mall-542', city:'Calgary', address:'3625 Shaganappi Trail NW, Unit Z029, Calgary, AB', storeNumber:'542', hasData:false},
+        {label:'Westhills Calgary', slug:'westhills-calgary-902', city:'Calgary', address:'350 Stewart Green SW, Calgary, AB', storeNumber:'902', hasData:false},
+        {label:'Grande Prairie', slug:'grande-prairie-986', city:'Grande Prairie', address:'9817 116th St., Grande Prairie, AB', storeNumber:'986', hasData:false},
+        {label:'Vernon', slug:'vernon-704', city:'Vernon', address:'5600 24th St., Vernon, BC', storeNumber:'704', hasData:false},
+        {label:'Best Buy Mobile Village Green Mall', slug:'best-buy-mobile-village-green-mall-232', city:'Vernon', address:'4900 27th St., Unit 205, Vernon, BC', storeNumber:'232', hasData:false},
+        {label:'Best Buy Express Kiosk Kelowna International Airport', slug:'best-buy-express-kiosk-kelowna-international-airport-832', city:'Kelowna', address:'5533 Airport Way, Unit 1, Kelowna, BC', storeNumber:'832', hasData:false},
+        {label:'Kelowna', slug:'kelowna-914', city:'Kelowna', address:'2271 Harvey Ave., Unit 1403, Kelowna, BC', storeNumber:'914', hasData:false},
+        {label:'Kamloops', slug:'kamloops-14', city:'Kamloops', address:'1320 West Trans Canada Hwy., Unit Y700, Kamloops, BC', storeNumber:'14', hasData:false},
+        {label:'Best Buy Mobile Aberdeen', slug:'best-buy-mobile-aberdeen-215', city:'Kamloops', address:'1320 Trans Canada Hwy. W, Unit 261A, Kamloops, BC', storeNumber:'215', hasData:false},
+        {label:'Prince George', slug:'prince-george-700', city:'Prince George', address:'3900 Walls Ave., Unit 201, Prince George, BC', storeNumber:'700', hasData:false},
+        {label:'Chilliwack', slug:'chilliwack-703', city:'Chilliwack', address:'45805 Luckakuck Way, Unit 109, Chilliwack, BC', storeNumber:'703', hasData:false},
+        {label:'Abbotsford', slug:'abbotsford-992', city:'Abbotsford', address:'32900 South Fraser Way, Unit 4, Abbotsford, BC', storeNumber:'992', hasData:false},
+        {label:'Distribution Centre West', slug:'distribution-centre-west-796', city:'Langley', address:'19890 92A Ave, Langley, BC', storeNumber:'796', hasData:false},
+        {label:'Appliance Clearance Centre Langley', slug:'appliance-clearance-centre-langley-915', city:'Langley', address:'Door # 19 - 19890 92A Ave, Langley, BC', storeNumber:'915', hasData:false},
+        {label:'Langley', slug:'langley-929', city:'Langley', address:'20202 66th Ave., Unit F3, Langley, BC', storeNumber:'929', hasData:false},
+        {label:'Coquitlam', slug:'coquitlam-958', city:'Coquitlam', address:'2929 Barnet Hwy., Unit 2140, Coquitlam, BC', storeNumber:'958', hasData:false},
+        {label:'South Surrey', slug:'south-surrey-701', city:'Surrey', address:'2267 160th St., Surrey, BC', storeNumber:'701', hasData:false},
+        {label:'Best Buy Mobile Central City', slug:'best-buy-mobile-central-city-226', city:'Surrey', address:'13450 102nd Ave., Unit 142, Surrey, BC', storeNumber:'226', hasData:false},
+        {label:'Surrey', slug:'surrey-961', city:'Surrey', address:'10153 King George Boulevard, Unit 3200, Surrey, BC', storeNumber:'961', hasData:false},
+        {label:'Scott Road', slug:'scott-road-600', city:'Surrey', address:'12048 80th Ave., Surrey, BC', storeNumber:'600', hasData:false},
+        {label:'Station Square', slug:'station-square-973', city:'Burnaby', address:'6200 McKay Ave., Unit 200, Burnaby, BC', storeNumber:'973', hasData:false},
+        {label:'Best Buy Mobile Pacific Centre', slug:'best-buy-mobile-pacific-centre-242', city:'Vancouver', address:'PO Box 10306 701 West Georgia St., Unit D038C, Vancouver, BC', storeNumber:'242', hasData:false},
+        {label:'Robson & Granville', slug:'robson-granville-705', city:'Vancouver', address:'798 Granville St. , Suite 200, Vancouver, BC', storeNumber:'705', hasData:false},
+        {label:'Cambie', slug:'cambie-952', city:'Vancouver', address:'2220 Cambie St., Vancouver, BC', storeNumber:'952', hasData:false},
+        {label:'West Vancouver', slug:'west-vancouver-13', city:'West Vancouver', address:'2100 Park Royal S, West Vancouver, BC', storeNumber:'13', hasData:false},
+        {label:'South Vancouver', slug:'south-vancouver-994', city:'Vancouver', address:'8133 Ontario St., Vancouver, BC', storeNumber:'994', hasData:false},
+        {label:'Richmond', slug:'richmond-941', city:'Richmond', address:'5300 No. 3 Rd., Unit 700, Richmond, BC', storeNumber:'941', hasData:false},
+        {label:'Best Buy Mobile Richmond Centre', slug:'best-buy-mobile-richmond-centre-228', city:'Richmond', address:'6551 No. 3 Rd., Unit 1111B, Richmond, BC', storeNumber:'228', hasData:false},
+        {label:'Best Buy Express Kiosk Vancouver International Airport', slug:'best-buy-express-kiosk-vancouver-international-airport-850', city:'Richmond', address:'3211 Grant McConachie Way, Richmond, BC', storeNumber:'850', hasData:false},
+        {label:'Best Buy Express Kiosk Vancouver International Airport', slug:'best-buy-express-kiosk-vancouver-international-airport-852', city:'Richmond', address:'3211 Grant McConachie Way, Richmond, BC', storeNumber:'852', hasData:false},
+        {label:'Best Buy Express Kiosk Vancouver International Airport', slug:'best-buy-express-kiosk-vancouver-international-airport-853', city:'Richmond', address:'3211 Grant McConachie Way, Richmond, BC', storeNumber:'853', hasData:false},
+        {label:'Best Buy Express Kiosk Vancouver International Airport', slug:'best-buy-express-kiosk-vancouver-international-airport-854', city:'Richmond', address:'3211 Grant McConachie Way, Richmond, BC', storeNumber:'854', hasData:false},
+        {label:'Best Buy Express Kiosk Tsawwassen Marketplace', slug:'best-buy-express-kiosk-tsawwassen-marketplace-826', city:'Delta', address:'1 Ferry Causeway, Delta, BC', storeNumber:'826', hasData:false},
+        {label:'Best Buy Express Kiosk BC Ferries - Spirit of BC', slug:'best-buy-express-kiosk-bc-ferries-spirit-of-bc-829', city:'Delta', address:'1 Ferry Causeway, Delta, BC', storeNumber:'829', hasData:false},
+        {label:'Best Buy Express Kiosk UBC AMS Student Nest', slug:'best-buy-express-kiosk-ubc-ams-student-nest-825', city:'Vancouver', address:'6133 University Blvd., Vancouver, BC', storeNumber:'825', hasData:false},
+        {label:'UBC Best Buy Mobile Pop-Up', slug:'ubc-best-buy-mobile-pop-up-911', city:'Vancouver', address:'6200 University Boulevard, Vancouver, BC', storeNumber:'911', hasData:false},
+        {label:'Best Buy Express Kiosk BC Ferries - Spirit of Vancouver Island', slug:'best-buy-express-kiosk-bc-ferries-spirit-of-vancouver-island-828', city:'North Saanich', address:'Patricia Bay Highway, North Saanich, BC', storeNumber:'828', hasData:false},
+        {label:'Best Buy Mobile Mayfair Shopping Centre', slug:'best-buy-mobile-mayfair-shopping-centre-239', city:'Victoria', address:'3147 Douglas St., Unit 344, Victoria, BC', storeNumber:'239', hasData:false},
+        {label:'Victoria', slug:'victoria-10', city:'Victoria', address:'3450 Uptown Blvd., Suite 200, Victoria, BC', storeNumber:'10', hasData:false},
+        {label:'Langford', slug:'langford-702', city:'Victoria', address:'779 McCallum Dr., Victoria, BC', storeNumber:'702', hasData:false},
+        {label:'Cowichan', slug:'cowichan-708', city:'Duncan', address:'2900 Drinkwater Rd. , Unit 101, Duncan, BC', storeNumber:'708', hasData:false},
+        {label:'Nanaimo', slug:'nanaimo-9', city:'Nanaimo', address:'3200 North Island Hwy, Unit 87, Nanaimo, BC', storeNumber:'9', hasData:false},
+        {label:'Best Buy Mobile Woodgrove Centre', slug:'best-buy-mobile-woodgrove-centre-240', city:'Nanaimo', address:'6631 Island Hwy. N, Unit 52, Nanaimo, BC', storeNumber:'240', hasData:false},
+        {label:'Courtenay', slug:'courtenay-706', city:'Courtenay', address:'3245 Cliffe Ave., Bldg. D Unit 1, Courtenay, BC', storeNumber:'706', hasData:false}
+      ];
+    }
+
+    const WALMART_QUEBEC_BRANCHES = [
+      {label: 'ST JEROME — Walmart #7147', slug: 'saint-jerome', city: 'St. Jerome', address: '1045 boul du grand heron, St. Jerome, QC, J7Y 3P2', distanceKm: 3.0, hasData: true},
+      {label: 'SAINTE-AGATHE-DES-MONTS — Walmart Supercentre', slug: 'sainte-agathe-des-monts', city: 'Sainte-Agathe-des-Monts', address: '50 Rue Pépin, Sainte-Agathe-des-Monts, QC, J8C 1S1', distanceKm: 52.0, hasData: true},
+      {label: 'BLAINVILLE — Walmart Supercentre', slug: 'blainville', city: 'Blainville', address: '1313 boul Michèle-Bohec, Blainville, QC, J7C 0M4', distanceKm: 0.0, hasData: true},
+      {label: 'LAVAL — Walmart Supercentre (2075 Boul. Chomedey)', slug: 'laval-2075-bd-chomedey', city: 'Laval', address: '2075 Boul. Chomedey, Laval, QC, H7T 0G5', distanceKm: 12.0, hasData: true},
+      {label: 'MONTRÉAL (VILLE ST-LAURENT) — Walmart Supercentre', slug: 'montreal', city: 'Montréal', address: '5400 Rue Jean-Talon O, Montréal, QC, H4P 2M2', distanceKm: 46.0, hasData: true},
+      {label: 'POINTE-CLAIRE — Walmart Supercentre', slug: 'pointe-claire', city: 'Pointe-Claire', address: '195 Hymus Blvd, Pointe-Claire, QC, H9R 1E9', distanceKm: 32.0, hasData: true},
+      {label: 'LACHUTE — Walmart Supercentre', slug: 'lachute', city: 'Lachute', address: '540 Rue Berry, Lachute, QC, J8H 4N5', distanceKm: 34.0, hasData: true},
+      {label: 'VAUDREUIL-DORION — Walmart Supercentre', slug: 'vaudreuil', city: 'Vaudreuil-Dorion', address: '3090 Boul. de la Gare, Vaudreuil-Dorion, QC', distanceKm: 45.0, hasData: true},
+      {label: 'SALABERRY-DE-VALLEYFIELD — Walmart Supercentre', slug: 'valleyfield', city: 'Salaberry-de-Valleyfield', address: '40 Boul. Monseigneur-Langlois, Salaberry-de-Valleyfield, QC, J6S 1C1', distanceKm: 72.0, hasData: true}
+    ];
+
+    const HOME_DEPOT_CANADA_BRANCHES = WALMART_QUEBEC_BRANCHES.filter(branch => branch.slug !== 'online-7274').map(branch => {
+      const hasData = ['saint-jerome'].includes(branch.slug);
+      return {
+        ...branch,
+        label: branch.label.replace('Walmart', 'Home Depot'),
+        hasData
+      };
+    });
+
+    const CANADIAN_TIRE_BRANCHES = [];
+
+    const STORES = [
+      {label:'Walmart', slug:'walmart', branches: WALMART_QUEBEC_BRANCHES},
+      {label:'Best Buy', slug:'best-buy', branches: fullBestBuyBranches()},
+      {label:'Canadian Tire', slug:'canadian-tire', branches: CANADIAN_TIRE_BRANCHES},
+      {label:'Patrick Morin', slug:'patrick-morin', branches: patrickMorinBranches()},
+      {label:'Home Depot', slug:'home-depot', branches: HOME_DEPOT_CANADA_BRANCHES},
+      {label:'Rona', slug:'rona', branches: baseBranches()},
+      {label:'Sporting Life', slug:'sporting-life', branches: sportingLifeBranches()}
+    ];
+
+    function formatBranchCoverage(branches){
+      const count = Array.isArray(branches) ? branches.length : 0;
+      if(count <= 0) return '';
+      const suffix = count === 1 ? '' : 'es';
+      const adjective = count === 1 ? 'monitorizada' : 'monitorizadas';
+      return `${count} sucursal${suffix} ${adjective}`;
+    }
+
+    const USA_STORE_MENU = [
+      {label:'Amazon Warehouse', description:'Muchos retornos e inventario reacondicionado'},
+      {label:'Best Buy USA', description:'Electrónica, electrodomésticos y gaming'},
+      {label:'Home Depot US', description:'Mejoras del hogar y herramientas'},
+      {label:'Walmart US', description:'Retail de gran formato y abarrotes secos'},
+      {label:'Target', description:'Estilo de vida, hogar y exclusivas de marca propia'},
+      {label:'Lowe’s', description:'Suministros de renovación y jardinería'},
+      {label:'Costco Wholesale', description:'Lotes al por mayor ideales para FBA'},
+      {label:'Sam’s Club', description:'Oportunidades al mayoreo para reventa'},
+      {label:'Kohl’s', description:'Moda, hogar y artículos de temporada'},
+      {label:"BJ's Wholesale Club", description:'Inventario regional de rotación rápida'}
+    ];
+
+    let storeAdsRotationTimer = null;
+
+    function stopStoreAdsRotation(){
+      if(storeAdsRotationTimer){
+        clearInterval(storeAdsRotationTimer);
+        storeAdsRotationTimer = null;
+      }
+    }
+
+    function startStoreAdsRotation(callback){
+      stopStoreAdsRotation();
+      storeAdsRotationTimer = window.setInterval(callback, 4500);
+    }
+
+    function renderStoreAds(){
+      if(!storeAdsContainer) return;
+      stopStoreAdsRotation();
+      const items = STORES
+        .map(store => {
+          const label = store?.label;
+          if(!label) return null;
+          return {
+            label,
+            coverage: formatBranchCoverage(store?.branches)
+          };
+        })
+        .filter(Boolean);
+      if(items.length === 0){
+        storeAdsContainer.setAttribute('aria-hidden', 'true');
+        storeAdsContainer.innerHTML = '';
+        storeAdsContainer.classList.remove('store-ads--static');
+        storeAdsContainer.onmouseenter = null;
+        storeAdsContainer.onmouseleave = null;
+        storeAdsContainer.onfocusin = null;
+        storeAdsContainer.onfocusout = null;
+        return;
+      }
+      const list = items.map((item, index) => {
+        const coverage = item.coverage ? `<span class="store-ads-coverage">${item.coverage}</span>` : '';
+        const isActive = index === 0;
+        return `<div class="store-ads-item${isActive ? ' is-active' : ''}" role="group" aria-hidden="${isActive ? 'false' : 'true'}"><span class="store-ads-name">${item.label}</span>${coverage}</div>`;
+      }).join('');
+      const dots = items.length > 1
+        ? `<div class="store-ads-dots" role="presentation">${items.map((_, index) => `<span class="store-ads-dot${index === 0 ? ' is-active' : ''}" aria-hidden="true"></span>`).join('')}</div>`
+        : '';
+      storeAdsContainer.innerHTML = `
+        <div class="store-ads-header">Tiendas destacadas</div>
+        <div class="store-ads-spotlight">${list}</div>
+        ${dots}
+      `;
+      storeAdsContainer.removeAttribute('aria-hidden');
+
+      const slides = Array.from(storeAdsContainer.querySelectorAll('.store-ads-item'));
+      const dotEls = Array.from(storeAdsContainer.querySelectorAll('.store-ads-dot'));
+      if(slides.length === 0) return;
+
+      const shouldReduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if(shouldReduceMotion){
+        storeAdsContainer.classList.add('store-ads--static');
+        slides.forEach(slide => {
+          slide.classList.add('is-active');
+          slide.setAttribute('aria-hidden', 'false');
+        });
+        stopStoreAdsRotation();
+        storeAdsContainer.onmouseenter = null;
+        storeAdsContainer.onmouseleave = null;
+        storeAdsContainer.onfocusin = null;
+        storeAdsContainer.onfocusout = null;
+        return;
+      }
+
+      storeAdsContainer.classList.remove('store-ads--static');
+
+      let activeIndex = 0;
+
+      function showSlide(nextIndex){
+        activeIndex = nextIndex % slides.length;
+        slides.forEach((slide, idx) => {
+          const isActive = idx === activeIndex;
+          slide.classList.toggle('is-active', isActive);
+          slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        });
+        dotEls.forEach((dot, idx) => {
+          dot.classList.toggle('is-active', idx === activeIndex);
+        });
+      }
+
+      showSlide(0);
+
+      if(slides.length > 1){
+        const advance = () => showSlide(activeIndex + 1);
+        startStoreAdsRotation(advance);
+
+        const resume = () => startStoreAdsRotation(advance);
+
+        storeAdsContainer.onmouseenter = stopStoreAdsRotation;
+        storeAdsContainer.onfocusin = stopStoreAdsRotation;
+        storeAdsContainer.onmouseleave = resume;
+        storeAdsContainer.onfocusout = resume;
+      }else{
+        storeAdsContainer.onmouseenter = null;
+        storeAdsContainer.onfocusin = null;
+        storeAdsContainer.onmouseleave = null;
+        storeAdsContainer.onfocusout = null;
+      }
+    }
+
+    const POSTAL_DIRECTORY = [
+      {
+        branchSlug:'montreal',
+        cityLabel:'Montreal (Island)',
+        prefixes:[
+          'H1A','H1B','H1C','H1E','H1G','H1H','H1J','H1K','H1L','H1M','H1N','H1P','H1R','H1S','H1T','H1V','H1W','H1X','H1Y','H1Z',
+          'H2A','H2B','H2C','H2E','H2G','H2H','H2J','H2K','H2L','H2M','H2N','H2P','H2R','H2S','H2T','H2V','H2W','H2X','H2Y','H2Z',
+          'H3A','H3B','H3C','H3E','H3G','H3H','H3J','H3K','H3L','H3M','H3N','H3R','H3S','H3T','H3V','H3W','H3X','H3Y','H3Z',
+          'H4A','H4B','H4C','H4E','H4G','H4H','H4J','H4K','H4L','H4M','H4N','H4P','H4R','H4S','H4T','H4V','H4W','H4X',
+          'H8N','H8P','H8R','H8S','H8T','H8Y','H8Z','H9A','H9B','H9C','H9E','H9G','H9H','H9J','H9K','H9P','H9R','H9S','H9W','H9X',
+          'J0P'
+        ]
+      },
+      {
+        branchSlug:'laval',
+        cityLabel:'Laval',
+        prefixes:[
+          'H7A','H7B','H7C','H7E','H7G','H7H','H7J','H7K','H7L','H7M','H7N','H7P','H7R','H7S','H7T','H7V','H7W','H7X','H7Y','H7Z',
+          'H8N','H8P','H8R','H8T','H8Y'
+        ]
+      },
+      {
+        branchSlug:'saint-jerome',
+        cityLabel:'Saint-Jérôme',
+        prefixes:['J5L','J7Y','J7Z','J8A']
+      },
+      {
+        branchSlug:'sainte-agathe-des-monts',
+        cityLabel:'Sainte-Agathe-des-Monts',
+        prefixes:['J8C']
+      },
+      {
+        branchSlug:'blainville',
+        cityLabel:'Blainville',
+        prefixes:['J7B','J7C']
+      },
+      {
+        branchSlug:'sainte-therese',
+        cityLabel:'Sainte-Thérèse',
+        prefixes:['J7E']
+      },
+      {
+        branchSlug:'mascouche',
+        cityLabel:'Mascouche',
+        prefixes:['J7K','J7L']
+      },
+      {
+        branchSlug:'lachute',
+        cityLabel:'Lachute',
+        prefixes:['J8H','J8G']
+      }
+    ];
+
+    const searchInput = document.getElementById('searchInput');
+    const storeSelect = document.getElementById('storeSelect');
+    const citySelect  = document.getElementById('citySelect');
+    const range       = document.getElementById('discountRange');
+    const rangeLabel  = document.getElementById('discountValue');
+    const cardsEl     = document.getElementById('cards');
+    const countEl     = document.getElementById('resultCount');
+    const btnClear    = document.getElementById('btnClear');
+    const devError    = document.getElementById('devError');
+    const postalInput = document.getElementById('postalInput');
+    const postalHelper = document.getElementById('postalHelper');
+    const countryButtons = Array.from(document.querySelectorAll('.country-button[data-country]'));
+    const countryLabel = document.querySelector('[data-country-label]');
+    const exchangeIndicator = document.querySelector('[data-exchange-indicator]');
+
+    const DEFAULT_POSTAL_MESSAGE = 'Introduce los tres primeros caracteres del código postal para encontrar sucursales en un radio de 50 km (p. ej., H2X).';
+    const BASE_CURRENCY = { code:'CAD', locale:'es-CA' };
+    const PLACEHOLDER_IMAGE = 'https://via.placeholder.com/400x300?text=Liquidation';
+    const AMAZON_DAILY_PATH = 'data/amazon_ca_daily.json';
+    const AMAZON_FALLBACK_PATH = 'data/amazon/canada.json';
+    const DEFAULT_REMOTE_DATA_BASE = 'https://raw.githubusercontent.com/Olivier-cousineau/Econo-econo111/main';
+
+    function detectRemoteDataBase(){
+      const globalBase = window.ECONODEAL_DATA_BASE_URL || window.__ECONODEAL_DATA_BASE_URL__;
+      const htmlBase = document.documentElement?.getAttribute?.('data-data-base-url');
+      const bodyBase = document.body?.getAttribute?.('data-data-base-url');
+      const metaBase = document.querySelector('meta[name="econodeal-data-base"]')?.getAttribute('content');
+      const explicit = [globalBase, htmlBase, bodyBase, metaBase].find(value => typeof value === 'string' && value.trim());
+      if(explicit) return explicit.trim().replace(/\/+$/, '');
+      const host = window.location?.hostname || '';
+      if(host.endsWith('.vercel.app')) return DEFAULT_REMOTE_DATA_BASE;
+      return '';
+    }
+
+    const DATA_REMOTE_BASE = detectRemoteDataBase();
+
+    function buildDataFetchUrls(path){
+      if(!path) return [];
+      if(/^https?:\/\//i.test(path)) return [path];
+      const normalized = path.replace(/^\.?\//, '').replace(/^\/+/, '');
+      const encoded = normalized.split('/').map(segment => encodeURIComponent(segment)).join('/');
+      const urls = [];
+      if(DATA_REMOTE_BASE){
+        urls.push(`${DATA_REMOTE_BASE}/${encoded}`);
+      }
+      const original = path;
+      if(!urls.includes(original)) urls.push(original);
+      if(normalized !== original && !urls.includes(normalized)) urls.push(normalized);
+      return urls;
+    }
+
+    async function fetchDataJson(path, init){
+      const urls = buildDataFetchUrls(path);
+      if(!urls.length) return null;
+      let lastError = null;
+      for(const url of urls){
+        try{
+          const options = {...(init || {})};
+          if(options.cache === undefined) options.cache = 'no-store';
+          const res = await fetch(url, options);
+          if(res && res.ok) return res;
+          lastError = new Error(`Solicitud fallida (${res?.status}) para ${url}`);
+        }catch(err){
+          lastError = err;
+        }
+      }
+      if(lastError) throw lastError;
+      return null;
+    }
+      const CANADIAN_TIRE_LOCATIONS_PATH = 'data/canadian-tire/branches.json';
+      const CANADIAN_TIRE_FALLBACK_PATH = 'data/canadian-tire/stores_raw.txt';
+      const CANADIAN_TIRE_DATA_AVAILABILITY_PATH = 'data/canadian-tire/stores_with_data.json';
+      const CANADIAN_TIRE_SLUG_OVERRIDES = {
+        '271':'saint-jerome',
+        '649':'blainville',
+        '300':'laval',
+        '231':'laval-robert-bourassa',
+        '155':'laval-chomedey'
+      };
+      const CANADIAN_TIRE_LABEL_OVERRIDES = {
+        '271':'Saint-Jérôme — 700, boul. Monseigneur-Dubois',
+        '649':'Blainville — 500, boul. de la Seigneurie Ouest',
+        '300':'Laval — 1450, boul. le Corbusier',
+        '231':'Laval — 4975, boul. Robert-Bourassa',
+        '155':'Laval — 500, Chomedey (A-13) Ouest'
+      };
+      const CANADIAN_TIRE_CITY_OVERRIDES = {
+        '271':'Saint-Jérôme',
+        '649':'Blainville',
+        '300':'Laval',
+        '231':'Laval',
+        '155':'Laval'
+      };
+      async function loadCanadianTireDataAvailability(){
+        if(window.__ECONODEAL_CANADIAN_TIRE_DATA_AVAILABILITY__){
+          return window.__ECONODEAL_CANADIAN_TIRE_DATA_AVAILABILITY__;
+        }
+        let entries = [];
+        try{
+          const response = await fetchDataJson(CANADIAN_TIRE_DATA_AVAILABILITY_PATH);
+          if(response){
+            const parsed = await response.clone().json();
+            if(Array.isArray(parsed)){
+              entries = parsed;
+            }
+          }
+        }catch(err){
+          console.warn('Failed to load Canadian Tire data availability', err);
+        }
+        const normalized = Array.isArray(entries) ? entries.map(entry => {
+          if(!entry) return null;
+          if(typeof entry === 'string'){
+            const slug = canonicalizeCanadianTireSlug(entry);
+            return slug ? { slug, storeNumber: '' } : null;
+          }
+          const slugSource = entry.slug ?? entry.city ?? entry.label ?? entry;
+          const slug = canonicalizeCanadianTireSlug(slugSource);
+          if(!slug) return null;
+          const storeNumber = String(entry.storeNumber ?? entry.store ?? entry.id ?? '').trim();
+          return { slug, storeNumber };
+        }).filter(Boolean) : [];
+        const slugSet = new Set(normalized.map(entry => entry.slug));
+        const storeToSlug = new Map();
+        normalized.forEach(entry => {
+          if(entry.storeNumber){
+            storeToSlug.set(entry.storeNumber, entry.slug);
+          }
+        });
+        const availability = { entries: normalized, slugSet, storeToSlug };
+        window.__ECONODEAL_CANADIAN_TIRE_DATA_AVAILABILITY__ = availability;
+        return availability;
+      }
+
+      function canonicalizeCanadianTireSlug(value){
+        if(value === undefined || value === null) return '';
+        return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').replace(/--+/g,'-');
+      }
+
+      async function loadCanadianTireLocations(){
+        if(window.__ECONODEAL_CANADIAN_TIRE_LOCATIONS__){
+          return window.__ECONODEAL_CANADIAN_TIRE_LOCATIONS__;
+        }
+        let entries = [];
+        try{
+          const response = await fetchDataJson(CANADIAN_TIRE_LOCATIONS_PATH);
+          if(response){
+            try{
+              const parsed = await response.clone().json();
+              if(Array.isArray(parsed)){
+                entries = parsed;
+              }
+            }catch(err){
+              console.warn('Failed to parse Canadian Tire locations JSON', err);
+            }
+          }
+        }catch(err){
+          console.warn('Failed to load Canadian Tire locations', err);
+        }
+        if(!entries.length){
+          try{
+            const fallbackResponse = await fetchDataJson(CANADIAN_TIRE_FALLBACK_PATH);
+            if(fallbackResponse){
+              const text = await fallbackResponse.clone().text();
+              const lines = text.split(/\r?\n/);
+              const parsedEntries = [];
+              for(const rawLine of lines.slice(1)){
+                const line = rawLine.trim();
+                if(!line) continue;
+                const parts = line.split(/\t+/);
+                if(parts.length < 2) continue;
+                const [idPart, namePart, addressPart=''] = parts;
+                const normalizedId = (idPart || '').trim();
+                const normalizedName = (namePart || '').trim();
+                const normalizedAddress = (addressPart || '').trim();
+                if(!normalizedId || !normalizedName) continue;
+                parsedEntries.push({ id: normalizedId, name: normalizedName, address: normalizedAddress });
+              }
+              if(parsedEntries.length){
+                entries = parsedEntries;
+              }
+            }
+          }catch(err){
+            console.warn('Failed to parse fallback Canadian Tire locations', err);
+          }
+        }
+        const normalized = Array.isArray(entries) ? entries.map(entry => ({
+          id: String(entry.id ?? '').trim(),
+          name: String(entry.name ?? entry.city ?? '').trim(),
+          address: String(entry.address ?? '').trim()
+        })).filter(entry => entry.id && entry.name) : [];
+        window.__ECONODEAL_CANADIAN_TIRE_LOCATIONS__ = normalized;
+        return normalized;
+      }
+
+      function buildCanadianTireBranchesFromLocations(locations, availability){
+        if(!Array.isArray(locations)) return [];
+        const seen = new Set();
+        const branches = [];
+        const slugSet = availability?.slugSet instanceof Set ? availability.slugSet : new Set();
+        const storeToSlug = availability?.storeToSlug instanceof Map ? availability.storeToSlug : new Map();
+        for(const entry of locations){
+          if(!entry) continue;
+          const id = String(entry.id ?? '').trim();
+          const name = String(entry.name ?? '').trim();
+          const address = String(entry.address ?? '').trim();
+          if(!id || !name) continue;
+          const availabilitySlug = storeToSlug.get(id);
+          const slug = availabilitySlug || CANADIAN_TIRE_SLUG_OVERRIDES[id] || canonicalizeCanadianTireSlug(name);
+          const label = CANADIAN_TIRE_LABEL_OVERRIDES[id] || `${name} (#${id})`;
+          const citySource = CANADIAN_TIRE_CITY_OVERRIDES[id] || name.split(',')[0] || name;
+          const city = String(citySource).trim();
+          const key = `${slug}#${id}`;
+          if(seen.has(key)) continue;
+          seen.add(key);
+          branches.push({
+            label,
+            slug,
+            city,
+            address,
+            storeNumber: id,
+            hasData: slug ? slugSet.has(slug) : false
+          });
+        }
+        return branches;
+      }
+
+      const CANADIAN_TIRE_LOCATIONS = await loadCanadianTireLocations();
+      const CANADIAN_TIRE_AVAILABILITY = await loadCanadianTireDataAvailability();
+      const BUILT_CANADIAN_TIRE_BRANCHES = buildCanadianTireBranchesFromLocations(CANADIAN_TIRE_LOCATIONS, CANADIAN_TIRE_AVAILABILITY);
+      CANADIAN_TIRE_BRANCHES.splice(0, CANADIAN_TIRE_BRANCHES.length, ...BUILT_CANADIAN_TIRE_BRANCHES);
+      renderStoreAds();
+
+    // currency.cadToLocalRate indique la conversion d'un dollar canadien vers la devise locale.
+    const COUNTRY_CONFIG = {
+      canada: {
+        titleSuffix: 'Canadá',
+        postalMessage: DEFAULT_POSTAL_MESSAGE,
+        emptyNotice: 'Selecciona una tienda para ver las liquidaciones disponibles ahora mismo en Canadá.',
+        hideStoreMenu: true,
+        currency: {
+          code: 'CAD',
+          locale: 'es-CA',
+          cadToLocalRate: 1
+        },
+        amazonDomain: 'www.amazon.ca'
+      },
+      usa: {
+        titleSuffix: 'Estados Unidos',
+        postalMessage: 'Los filtros se activarán en cuanto lancemos la plataforma estadounidense.',
+        emptyNotice: 'Estamos finalizando nuestro catálogo para EE. UU. Vuelve pronto para descubrir las mejores ofertas americanas.',
+        storeMenuTitle: 'Tiendas previstas para el lanzamiento en EE. UU.',
+        storeMenuDescription: 'Estas cadenas se añadirán a nuestro radar de liquidaciones en cuanto activemos el lanzamiento oficial.',
+        storeMenu: USA_STORE_MENU,
+        currency: {
+          code: 'USD',
+          locale: 'es-US',
+          cadToLocalRate: 0.74
+        },
+        amazonDomain: 'www.amazon.com'
+      },
+      europe: {
+        titleSuffix: 'Europa',
+        postalMessage: 'Las funciones de búsqueda estarán disponibles cuando comience el despliegue europeo.',
+        emptyNotice: 'La cobertura europea está en preparación. Suscríbete para recibir el aviso del lanzamiento oficial.',
+        currency: {
+          code: 'EUR',
+          locale: 'es-ES',
+          cadToLocalRate: 0.68
+        },
+        amazonDomain: 'www.amazon.fr'
+      }
+    };
+    let activeCountry = 'canada';
+    let savedFilters = null;
+    const DEFAULT_FILTERS = Object.freeze({
+      search: '',
+      store: '',
+      city: '',
+      discount: '0'
+    });
+
+    const EXCHANGE_FORMATTER = new Intl.NumberFormat('es-CA',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+    function getCountryConfig(country){
+      return COUNTRY_CONFIG[country] ?? COUNTRY_CONFIG.canada;
+    }
+
+    function getCurrencySettings(country){
+      const fallback = COUNTRY_CONFIG.canada?.currency ?? { code: BASE_CURRENCY.code, locale: BASE_CURRENCY.locale, cadToLocalRate: 1 };
+      const config = COUNTRY_CONFIG[country];
+      if(config && config.currency){
+        return {...fallback, ...config.currency};
+      }
+      return fallback;
+    }
+
+    function formatExchange(baseCode, targetCode, rate){
+      const normalizedRate = Number.isFinite(rate) && rate > 0 ? rate : 1;
+      const direct = EXCHANGE_FORMATTER.format(normalizedRate);
+      const inverse = normalizedRate > 0 ? EXCHANGE_FORMATTER.format(1 / normalizedRate) : null;
+      const baseText = `1 ${baseCode} ≈ ${direct} ${targetCode}`;
+      const inverseText = inverse ? `1 ${targetCode} ≈ ${inverse} ${baseCode}` : '';
+      return { baseText, inverseText, directValue: direct, inverseValue: inverse };
+    }
+
+    function updateExchangeIndicator(){
+      if(!exchangeIndicator) return;
+      const settings = getCurrencySettings(activeCountry);
+      const baseCode = BASE_CURRENCY.code;
+      const targetCode = settings.code || baseCode;
+      const rate = Number(settings.cadToLocalRate);
+      const normalizedRate = Number.isFinite(rate) && rate > 0 ? rate : 1;
+      if(activeCountry === 'canada'){
+        const segments = [];
+        const ariaSegments = [];
+        const usdSettings = getCurrencySettings('usa');
+        const usdCode = usdSettings.code || 'USD';
+        const usdRate = Number(usdSettings.cadToLocalRate);
+        if(usdCode && usdCode !== baseCode && Number.isFinite(usdRate) && usdRate > 0){
+          const { baseText, inverseText, directValue, inverseValue } = formatExchange(baseCode, usdCode, usdRate);
+          segments.push(baseText);
+          if(inverseText){
+            segments.push(inverseText);
+          }
+          ariaSegments.push(`1 ${baseCode} por aproximadamente ${directValue} ${usdCode}`);
+          if(inverseText && inverseValue){
+            ariaSegments.push(`1 ${usdCode} por aproximadamente ${inverseValue} ${baseCode}`);
+          }
+        }
+        if(segments.length === 0){
+          segments.push(`1 ${baseCode} = 1 ${baseCode}`);
+          ariaSegments.push(`1 ${baseCode} por 1 ${baseCode}`);
+        }
+        exchangeIndicator.textContent = segments.join(' · ');
+        exchangeIndicator.setAttribute('aria-label', `Tasa de cambio ${ariaSegments.join(' y ')}`);
+        return;
+      }
+      if(Math.abs(normalizedRate - 1) < 1e-6){
+        exchangeIndicator.textContent = `1 ${baseCode} = 1 ${baseCode}`;
+        exchangeIndicator.setAttribute('aria-label', `Tasa de cambio 1 ${baseCode} por 1 ${baseCode}`);
+        return;
+      }
+      const { baseText, inverseText } = formatExchange(baseCode, targetCode, normalizedRate);
+      const combined = inverseText ? `${baseText} · ${inverseText}` : baseText;
+      exchangeIndicator.textContent = combined;
+      const ariaText = inverseText ? `${baseText} y ${inverseText}` : baseText;
+      exchangeIndicator.setAttribute('aria-label', `Taux de change ${ariaText}`);
+    }
+
+    function updateCountryMeta(){
+      const config = getCountryConfig(activeCountry);
+      document.title = `EconoDeal — ${config.titleSuffix}`;
+      if(countryLabel){
+        const currency = getCurrencySettings(activeCountry);
+        const currencyPart = currency?.code ? ` · Devise : ${currency.code}` : '';
+        countryLabel.textContent = `Pays couvert : ${config.titleSuffix}${currencyPart}`;
+      }
+      updateExchangeIndicator();
+    }
+
+    function updateCountryButtons(){
+      for(const button of countryButtons){
+        const isActive = button.dataset.country === activeCountry;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      }
+    }
+
+    function setFiltersDisabled(disabled){
+      const elements = [searchInput, storeSelect, citySelect, postalInput, range, btnClear];
+      for(const el of elements){
+        if(!el) continue;
+        if(disabled){
+          el.setAttribute('disabled', 'disabled');
+        }else{
+          el.removeAttribute('disabled');
+        }
+        if(el !== btnClear){
+          if(disabled){
+            el.setAttribute('aria-disabled', 'true');
+          }else{
+            el.removeAttribute('aria-disabled');
+          }
+        }
+      }
+      if(btnClear){
+        if(disabled){
+          btnClear.setAttribute('aria-disabled', 'true');
+        }else{
+          btnClear.removeAttribute('aria-disabled');
+        }
+      }
+    }
+
+    function populateStoreSelect(country){
+      if(!storeSelect) return;
+      const options = ['<option value="">(Todas)</option>'];
+      if(country === 'canada'){
+        for(const store of STORES){
+          const label = store?.label;
+          const value = store?.slug;
+          if(!label || !value) continue;
+          const option = `<option value="${value}">${label}</option>`;
+          options.push(option);
+        }
+      }else{
+        const config = getCountryConfig(country);
+        const menu = Array.isArray(config?.storeMenu) ? config.storeMenu : [];
+        for(const entry of menu){
+          const label = entry?.label;
+          if(!label) continue;
+          const value = entry?.slug || slugify(label || '');
+          const option = `<option value="${value}" disabled>${label}</option>`;
+          options.push(option);
+        }
+      }
+      storeSelect.innerHTML = options.join('');
+    }
+
+    function setCountry(country){
+      const isKnown = Object.prototype.hasOwnProperty.call(COUNTRY_CONFIG, country);
+      const next = isKnown ? country : 'canada';
+      if(next === activeCountry) return;
+
+      if(activeCountry === 'canada'){
+        savedFilters = {
+          search: searchInput?.value || '',
+          store: storeSelect?.value || '',
+          city: citySelect?.value || '',
+          discount: range?.value || '0'
+        };
+      }
+
+      activeCountry = next;
+      populateStoreSelect(activeCountry);
+      updateCountryButtons();
+      updateCountryMeta();
+
+      if(activeCountry !== 'canada'){
+        const config = getCountryConfig(activeCountry);
+        setFiltersDisabled(true);
+        resetPostalFilter();
+        postalBranchSlugs = null;
+        if(storeSelect){
+          storeSelect.value = '';
+          const hasPreviewMenu = Array.isArray(config?.storeMenu) && config.storeMenu.some(item => item && item.label);
+          if(hasPreviewMenu){
+            storeSelect.removeAttribute('disabled');
+            storeSelect.setAttribute('aria-disabled', 'true');
+            storeSelect.dataset.preview = 'true';
+          }
+        }
+        setCityOptions('', false);
+        if(citySelect){
+          citySelect.value = '';
+        }
+        if(range){
+          range.value = 0;
+        }
+        updatePostalHelper(config.postalMessage, false);
+        deals.length = 0;
+        render();
+        return;
+      }
+
+      setFiltersDisabled(false);
+      if(storeSelect){
+        delete storeSelect.dataset.preview;
+      }
+      const filters = savedFilters ?? DEFAULT_FILTERS;
+      const initialStore = getStoreByIdentifier(filters.store);
+      const storeValue = initialStore?.slug || '';
+      if(searchInput){
+        searchInput.value = filters.search || '';
+      }
+      if(storeSelect){
+        storeSelect.value = storeValue;
+      }
+      setCityOptions(storeValue, false);
+      if(citySelect){
+        const options = Array.from(citySelect.options || []);
+        const hasCity = options.some(option => option.value === (filters.city || ''));
+        citySelect.value = hasCity ? (filters.city || '') : '';
+      }
+      if(range){
+        range.value = filters.discount || 0;
+      }
+      postalBranchSlugs = null;
+      updatePostalHelper(DEFAULT_POSTAL_MESSAGE, false);
+      fetchData();
+    }
+
+    updateCountryButtons();
+    updateCountryMeta();
+    setFiltersDisabled(false);
+    populateStoreSelect(activeCountry);
+
+    for(const button of countryButtons){
+      button.addEventListener('click', () => {
+        setCountry(button.dataset.country);
+      });
+    }
+    const POSTAL_RADIUS_KM = 50;
+
+    const BRANCH_COORDINATES = {
+      'montreal': {lat:45.5019, lng:-73.5674},
+      'laval': {lat:45.6066, lng:-73.7124},
+      'saint-jerome': {lat:45.7811, lng:-74.0036},
+      'sainte-agathe-des-monts': {lat:46.0514, lng:-74.2811},
+      'blainville': {lat:45.6787, lng:-73.8736},
+      'sainte-therese': {lat:45.6393, lng:-73.8335},
+      'mascouche': {lat:45.7493, lng:-73.6002},
+      'lachute': {lat:45.6510, lng:-74.3310}
+    };
+
+    let postalBranchSlugs = null;
+
+    function toRadians(value){
+      return value * Math.PI / 180;
+    }
+
+    function haversineDistanceKm(lat1, lon1, lat2, lon2){
+      const R = 6371;
+      const dLat = toRadians(lat2 - lat1);
+      const dLon = toRadians(lon2 - lon1);
+      const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLon / 2) ** 2;
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    function findNearbyBranches(referenceSlug, radiusKm){
+      if(!referenceSlug) return [];
+      const origin = BRANCH_COORDINATES[referenceSlug];
+      if(!origin) return [];
+      const branches = baseBranches();
+      const nearby = [];
+      for(const branch of branches){
+        const coords = BRANCH_COORDINATES[branch.slug];
+        if(!coords) continue;
+        const distance = haversineDistanceKm(origin.lat, origin.lng, coords.lat, coords.lng);
+        if(distance <= radiusKm){
+          nearby.push({...branch, distance});
+        }
+      }
+      return nearby.sort((a,b) => a.distance - b.distance);
+    }
+
+    function normalizePostal(value){
+      if(!value) return '';
+      return String(value).toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Z0-9]/g,'');
+    }
+
+    function findPostalMatch(normalized){
+      if(!normalized) return null;
+      return POSTAL_DIRECTORY.find(entry => entry.prefixes.some(prefix => normalized.startsWith(prefix)));
+    }
+
+    function updatePostalHelper(message, isError){
+      if(!postalHelper) return;
+      postalHelper.textContent = message;
+      postalHelper.classList.toggle('error', Boolean(isError));
+    }
+
+    function resetPostalFilter(){
+      if(!postalInput) return;
+      postalInput.value = '';
+      postalInput.removeAttribute('aria-invalid');
+      updatePostalHelper(DEFAULT_POSTAL_MESSAGE, false);
+      const hadFilter = postalBranchSlugs && postalBranchSlugs.size > 0;
+      postalBranchSlugs = null;
+      if(hadFilter){
+        setCityOptions(storeSelect?.value ?? '', true);
+      }
+    }
+
+    async function applyPostalSearch(raw){
+      if(!postalInput) return;
+      if(activeCountry !== 'canada') return;
+      const hadFilter = postalBranchSlugs && postalBranchSlugs.size > 0;
+      const normalized = normalizePostal(raw);
+      if(!normalized){
+        postalInput.removeAttribute('aria-invalid');
+        updatePostalHelper(DEFAULT_POSTAL_MESSAGE, false);
+        if(hadFilter){
+          postalBranchSlugs = null;
+          setCityOptions(storeSelect?.value ?? '', true);
+          if(citySelect){
+            citySelect.value = '';
+          }
+          await fetchData();
+        }
+        return;
+      }
+      if(normalized.length < 3){
+        postalInput.setAttribute('aria-invalid','true');
+        updatePostalHelper('Enter at least the first three characters of the postal code.', true);
+        if(hadFilter){
+          postalBranchSlugs = null;
+          setCityOptions(storeSelect?.value ?? '', true);
+          if(citySelect){
+            citySelect.value = '';
+          }
+          await fetchData();
+        }
+        return;
+      }
+      const match = findPostalMatch(normalized);
+      if(!match){
+        postalInput.setAttribute('aria-invalid','true');
+        updatePostalHelper('Postal code non reconnu dans les succursales couvertes.', true);
+        if(hadFilter){
+          postalBranchSlugs = null;
+          setCityOptions(storeSelect?.value ?? '', true);
+          if(citySelect){
+            citySelect.value = '';
+          }
+          await fetchData();
+        }
+        return;
+      }
+      postalInput.removeAttribute('aria-invalid');
+      const nearbyBranches = findNearbyBranches(match.branchSlug, POSTAL_RADIUS_KM);
+      const nextSlugs = new Set(nearbyBranches.map(branch => branch.slug));
+      if(nextSlugs.size === 0){
+        nextSlugs.add(match.branchSlug);
+      }
+      let changed = nextSlugs.size !== (postalBranchSlugs?.size ?? 0);
+      if(!changed && postalBranchSlugs){
+        for(const slug of nextSlugs){
+          if(!postalBranchSlugs.has(slug)){
+            changed = true;
+            break;
+          }
+        }
+      }
+      postalBranchSlugs = nextSlugs;
+      if(changed){
+        setCityOptions(storeSelect?.value ?? '', true);
+        if(citySelect && citySelect.value && !postalBranchSlugs.has(citySelect.value)){
+          citySelect.value = '';
+        }
+      }
+      const helperBranches = nearbyBranches.length ? nearbyBranches : [{label: match.cityLabel}];
+      const helperList = helperBranches.map(branch => branch.label).join(', ');
+      updatePostalHelper(`Branches within ${POSTAL_RADIUS_KM} km: ${helperList}.`, false);
+      await fetchData();
+    }
+
+    if(postalInput){
+      resetPostalFilter();
+      let postalDebounce;
+      postalInput.addEventListener('input', () => {
+        clearTimeout(postalDebounce);
+        const value = postalInput.value;
+        postalDebounce = setTimeout(() => { applyPostalSearch(value); }, 300);
+      });
+      postalInput.addEventListener('blur', () => { applyPostalSearch(postalInput.value); });
+      postalInput.addEventListener('keydown', (event) => {
+        if(event.key === 'Enter'){
+          event.preventDefault();
+          applyPostalSearch(postalInput.value);
+        }
+      });
+    }
+
+    // Display the year
+    const y = new Date().getFullYear();
+    document.getElementById('year').textContent = y;
+    document.getElementById('yearFooter').textContent = y;
+
+    function toNumber(value){
+      if(typeof value === 'number' && Number.isFinite(value)) return value;
+      if(typeof value === 'string' && value.trim()){
+        const parsed = Number(value.replace(/[^0-9,.-]/g,'').replace(',','.'));
+        return Number.isFinite(parsed) ? parsed : null;
+      }
+      return null;
+    }
+
+    function collectNumbers(...values){
+      const results = [];
+      for(const value of values){
+        if(Array.isArray(value)){
+          value.forEach(entry => {
+            const parsed = toNumber(entry);
+            if(Number.isFinite(parsed) && parsed > 0) results.push(parsed);
+          });
+          continue;
+        }
+        if(value && typeof value === 'object'){
+          const objectCandidates = [value.value, value.amount, value.price, value.salePrice, value.current, value.lowest, value.highest];
+          objectCandidates.forEach(candidate => {
+            const parsed = toNumber(candidate);
+            if(Number.isFinite(parsed) && parsed > 0) results.push(parsed);
+          });
+          continue;
+        }
+        const parsed = toNumber(value);
+        if(Number.isFinite(parsed) && parsed > 0) results.push(parsed);
+      }
+      return results;
+    }
+
+    function normalizeImageCandidate(value){
+      if(!value) return null;
+      if(Array.isArray(value)){
+        for(const entry of value){
+          const normalized = normalizeImageCandidate(entry);
+          if(normalized) return normalized;
+        }
+        return null;
+      }
+      if(typeof value === 'object'){
+        const potentialKeys = ['url','href','src','image','large','medium','small','default'];
+        for(const key of potentialKeys){
+          if(value[key]){
+            const normalized = normalizeImageCandidate(value[key]);
+            if(normalized) return normalized;
+          }
+        }
+        return null;
+      }
+      const stringValue = String(value).trim();
+      if(!stringValue || stringValue === '#' || stringValue.toLowerCase() === 'null' || stringValue.toLowerCase() === 'n/a') return null;
+      if(stringValue.startsWith('//')) return `https:${stringValue}`;
+      if(/^https?:\/\//i.test(stringValue) || stringValue.startsWith('data:image')) return stringValue;
+      return null;
+    }
+
+    function resolveImage(item){
+      const candidates = [
+        item.image,
+        item.image_url,
+        item.imageUrl,
+        item.img,
+        item.primary_image,
+        item.primaryImage,
+        item.image_link,
+        item.imageLink,
+        item.thumbnail,
+        item.thumbnail_url,
+        item.thumbnailUrl,
+        item.product_image,
+        item.productImage,
+        item['product-tile__image src'],
+        item.images,
+        item.media
+      ];
+      for(const candidate of candidates){
+        const normalized = normalizeImageCandidate(candidate);
+        if(normalized) return normalized;
+      }
+      return PLACEHOLDER_IMAGE;
+    }
+
+    function resolvePrices(item){
+      const regularCandidates = collectNumbers(
+        item.original_price,
+        item.originalPrice,
+        item.regular_price,
+        item.regularPrice,
+        item.price_before,
+        item.priceBefore,
+        item.list_price,
+        item.listPrice,
+        item.compare_at_price,
+        item.compareAtPrice,
+        item.msrp,
+        item.previous_price,
+        item.previousPrice,
+        item.was_price,
+        item.wasPrice,
+        item.strike,
+        item.Strike,
+        item.price
+      );
+      const saleCandidates = collectNumbers(
+        item.salePrice,
+        item.sale_price,
+        item.discount_price,
+        item.discountPrice,
+        item.current_price,
+        item.currentPrice,
+        item.offer_price,
+        item.offerPrice,
+        item.deal_price,
+        item.dealPrice,
+        item.sale,
+        item.current,
+        item.deal,
+        item.offer,
+        item.mr1,
+        item.now_price,
+        item.nowPrice,
+        item.price
+      );
+      const ronaRegular = toNumber(item['price-box__regularPrice']);
+      const ronaSale = toNumber(item['price-box__price__amount__integer']);
+      const ronaDiscount = toNumber(item['price-box__rebate__amount']);
+      if(Number.isFinite(ronaRegular) && ronaRegular > 0){
+        regularCandidates.push(ronaRegular);
+      }
+      if(Number.isFinite(ronaSale) && ronaSale > 0){
+        saleCandidates.push(ronaSale);
+      }
+      if(Number.isFinite(ronaRegular) && Number.isFinite(ronaDiscount) && ronaRegular > 0 && ronaDiscount > 0){
+        const computed = ronaRegular - ronaDiscount;
+        if(Number.isFinite(computed) && computed > 0){
+          saleCandidates.push(computed);
+        }
+      }
+      let regular = regularCandidates.length ? Math.max(...regularCandidates) : null;
+      let sale = saleCandidates.length ? Math.min(...saleCandidates) : null;
+      if(regular === null && sale !== null){
+        regular = saleCandidates.length > 1 ? Math.max(...saleCandidates) : sale;
+      }
+      if(sale === null && regular !== null){
+        sale = regularCandidates.length > 1 ? Math.min(...regularCandidates) : regular;
+      }
+      if(regular !== null && sale !== null && sale > regular){
+        const combined = [...regularCandidates, ...saleCandidates].filter(n => Number.isFinite(n));
+        if(combined.length){
+          combined.sort((a,b) => a - b);
+          sale = combined[0];
+          regular = combined[combined.length - 1];
+        }else{
+          const swap = sale;
+          sale = regular;
+          regular = swap;
+        }
+      }
+      return {
+        regular: regular ?? 0,
+        sale: sale ?? (regular ?? 0)
+      };
+    }
+
+    function firstDefined(...values){
+      for(const value of values){
+        if(value !== undefined && value !== null && value !== '') return value;
+      }
+      return null;
+    }
+
+    function slugify(value){
+      if(value === undefined || value === null) return '';
+      const text = String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      return text.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').replace(/--+/g,'-');
+    }
+
+    function normalizeSearchText(value){
+      if(value === undefined || value === null) return '';
+      const text = String(value)
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      return text;
+    }
+
+    function buildSearchIndex(...segments){
+      return segments
+        .map(segment => normalizeSearchText(segment))
+        .filter(Boolean)
+        .join(' ');
+    }
+
+    function tokenizeSearchIndex(value){
+      if(typeof value !== 'string' || !value) return [];
+      return value.split(' ').filter(Boolean);
+    }
+
+    function ensureSearchIndex(deal){
+      if(!deal || typeof deal !== 'object') return '';
+      const existing = typeof deal.searchIndex === 'string' ? deal.searchIndex : '';
+      if(existing){
+        if(!Array.isArray(deal.searchTokens)){
+          deal.searchTokens = tokenizeSearchIndex(existing);
+        }
+        return existing;
+      }
+      const regenerated = buildSearchIndex(
+        deal.title,
+        deal.store,
+        deal.branch,
+        deal.city,
+        deal.brand,
+        deal.model,
+        deal.sku,
+        deal.asin,
+        deal.searchKeywords
+      );
+      deal.searchIndex = regenerated;
+      deal.searchTokens = tokenizeSearchIndex(regenerated);
+      return regenerated;
+    }
+
+    function ensureSearchTokens(deal){
+      if(!deal || typeof deal !== 'object') return [];
+      if(Array.isArray(deal.searchTokens)) return deal.searchTokens;
+      const index = ensureSearchIndex(deal);
+      const tokens = tokenizeSearchIndex(index);
+      deal.searchTokens = tokens;
+      return tokens;
+    }
+
+    function ensureTitleTokens(deal){
+      if(!deal || typeof deal !== 'object') return [];
+      if(Array.isArray(deal.titleTokens)) return deal.titleTokens;
+      const normalized = normalizeSearchText(deal.title);
+      const tokens = tokenizeSearchIndex(normalized);
+      deal.titleTokens = tokens;
+      return tokens;
+    }
+
+    function normalizeDeal(item, storeLabel, branch){
+      const branchLabel = typeof branch === 'object' && branch ? branch.label : branch;
+      const branchSlug = typeof branch === 'object' && branch && branch.slug ? branch.slug : slugify(branchLabel || item.city || storeLabel);
+      const cityLabel = typeof branch === 'object' && branch && branch.city ? branch.city : firstDefined(item.city, branchLabel, storeLabel);
+      const citySlug = slugify(cityLabel);
+      const {regular: finalRegular, sale: finalSale} = resolvePrices(item);
+
+      const brand = firstDefined(
+        item['product-tile__brand'],
+        item.brand,
+        item.manufacturer,
+        item.maker,
+        item.vendor,
+        item.brandName,
+        item.brand_name
+      );
+
+      const model = firstDefined(
+        item.model,
+        item.modelNumber,
+        item.model_number,
+        item.modelNo,
+        item.model_no,
+        item.partNumber,
+        item.part_number,
+        item.mpn
+      );
+
+      const sku = firstDefined(
+        item.sku,
+        item.productCode,
+        item.product_code,
+        item.productId,
+        item.product_id,
+        item.itemNumber,
+        item.item_number,
+        item.id
+      );
+
+      const asin = firstDefined(item.asin, item.ASIN);
+
+      const searchKeywords = firstDefined(
+        item.searchKeywords,
+        item.search_keywords,
+        item.keywords,
+        item.keyword
+      );
+
+      const amazonUrl = firstDefined(
+        item.amazonUrl,
+        item.amazon_url,
+        item.amazonLink,
+        item.amazon_link
+      );
+
+      const title = firstDefined(item['product-tile__title'], item.title, item.name, item.product_name, item.productName, 'Article en liquidation');
+      const cityDisplay = item.city ?? cityLabel;
+      const image = resolveImage(item);
+      const searchIndex = buildSearchIndex(
+        title,
+        storeLabel,
+        branchLabel,
+        cityDisplay,
+        brand,
+        model,
+        sku,
+        asin,
+        searchKeywords
+      );
+
+      const searchTokens = tokenizeSearchIndex(searchIndex);
+      const titleTokens = tokenizeSearchIndex(normalizeSearchText(title));
+
+      return {
+        title,
+        image,
+        price: finalRegular,
+        salePrice: finalSale,
+        store: item.store ?? storeLabel,
+        city: cityDisplay,
+        branch: branchLabel ?? cityLabel,
+        branchSlug,
+        citySlug,
+        url: firstDefined(item['product-tile__image-link href'], item['button href'], item.url, item.link, item.product_link, item.productLink, '#'),
+        brand,
+        model,
+        sku,
+        asin,
+        searchKeywords,
+        amazonUrl,
+        searchIndex,
+        searchTokens,
+        titleTokens
+      };
+    }
+
+    function hasRealImage(deal){
+      return Boolean(deal && deal.image && deal.image !== PLACEHOLDER_IMAGE);
+    }
+
+    function discount(p,s){
+      const price = Number(p);
+      const sale = Number(s);
+      if(!Number.isFinite(price) || price <= 0) return 0;
+      if(!Number.isFinite(sale)) return 0;
+      const clampedSale = Math.max(0, sale);
+      const pct = Math.round((1 - (clampedSale / price)) * 100);
+      return Number.isFinite(pct) ? Math.max(pct, 0) : 0;
+    }
+    function currency(value){
+      const numeric = Number(value);
+      if(!Number.isFinite(numeric)) return '—';
+      const settings = getCurrencySettings(activeCountry);
+      const rate = Number(settings.cadToLocalRate);
+      const normalizedRate = Number.isFinite(rate) && rate > 0 ? rate : 1;
+      const converted = numeric * normalizedRate;
+      const locale = settings.locale || BASE_CURRENCY.locale;
+      const code = settings.code || BASE_CURRENCY.code;
+      try{
+        return converted.toLocaleString(locale,{style:'currency',currency:code});
+      }catch(_err){
+        return converted.toLocaleString(BASE_CURRENCY.locale,{style:'currency',currency:BASE_CURRENCY.code});
+      }
+    }
+
+    const deals = [];
+
+    function renderStoreMenu(config){
+      if(!config || config.hideStoreMenu) return '';
+      const items = Array.isArray(config.storeMenu) ? config.storeMenu.filter(item => item && item.label) : [];
+      if(items.length === 0) return '';
+      const title = config.storeMenuTitle || 'Stores couverts';
+      const description = config.storeMenuDescription || '';
+      const list = items.map(item => {
+        const label = item.label;
+        const note = item.description ? `<span class="store-menu-note">${item.description}</span>` : '';
+        return `<li><span class="store-menu-item" role="text"><span class="store-menu-label">${label}</span>${note}</span></li>`;
+      }).join('');
+      return `
+        <nav class="store-menu" aria-label="${title}">
+          <div>
+            <h3>${title}</h3>
+            ${description ? `<p>${description}</p>` : ''}
+          </div>
+          <ul class="store-menu-list">${list}</ul>
+        </nav>
+      `;
+    }
+
+    function renderCountryPreview(config){
+      const blocks = [];
+      if(config?.emptyNotice){
+        blocks.push(`<div class="notice-card">${config.emptyNotice}</div>`);
+      }
+      const menu = renderStoreMenu(config);
+      if(menu){
+        blocks.push(menu);
+      }
+      return blocks.length ? `<div class="country-preview">${blocks.join('')}</div>` : '';
+    }
+
+    function sanitizeAmazonQuery(value){
+      if(typeof value !== 'string' || !value.trim()){
+        return 'liquidation';
+      }
+      const normalized = value
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-zA-Z0-9\s-]/g, ' ');
+      const collapsed = normalized.trim().replace(/\s+/g, ' ');
+      if(!collapsed){
+        return 'liquidation';
+      }
+      const words = collapsed.split(' ').slice(0, 8);
+      return words.join(' ');
+    }
+
+    function getAmazonDomain(country){
+      const config = getCountryConfig(country);
+      const domain = typeof config?.amazonDomain === 'string' ? config.amazonDomain.trim() : '';
+      return domain || 'www.amazon.ca';
+    }
+
+    function normalizeAsin(value){
+      if(value === undefined || value === null) return '';
+      const text = String(value).trim();
+      return /^[A-Z0-9]{8,}$/i.test(text) ? text : '';
+    }
+
+    function buildAmazonLink(deal){
+      const domain = getAmazonDomain(activeCountry);
+      if(!deal){
+        const fallbackQuery = sanitizeAmazonQuery('liquidation');
+        return `https://${domain}/s?k=${encodeURIComponent(fallbackQuery)}&ref=nb_sb_noss`;
+      }
+
+      const asin = normalizeAsin(deal.asin);
+      if(asin){
+        return `https://${domain}/dp/${encodeURIComponent(asin)}`;
+      }
+
+      const segments = [];
+      const pushSegment = (value) => {
+        if(value === undefined || value === null) return;
+        const text = String(value).trim();
+        if(text){
+          segments.push(text);
+        }
+      };
+
+      pushSegment(deal.searchKeywords);
+      pushSegment(deal.brand);
+      pushSegment(deal.model);
+      pushSegment(deal.sku);
+      pushSegment(deal.title);
+
+      const querySource = segments.join(' ').trim();
+      const query = sanitizeAmazonQuery(querySource || deal.title || 'liquidation');
+      return `https://${domain}/s?k=${encodeURIComponent(query)}&ref=nb_sb_noss`;
+    }
+
+    function render(){
+      rangeLabel.textContent = range.value + '%';
+      if(activeCountry !== 'canada'){
+        const config = getCountryConfig(activeCountry);
+        countEl.textContent = '0';
+        cardsEl.innerHTML = renderCountryPreview(config);
+        return;
+      }
+      const s = storeSelect.value;
+      const c = citySelect.value;
+      const query = normalizeSearchText(searchInput?.value || '');
+      const terms = query ? query.split(' ') : [];
+      const min = parseInt(range.value,10);
+      const filtered = deals.filter(d => {
+        const pct = discount(d.price,d.salePrice);
+        if(s && slugify(d.store || '') !== s) return false;
+        if(c && d.branchSlug !== c && d.citySlug !== c) return false;
+        const tokens = ensureSearchTokens(d);
+        if(terms.length && !terms.every(term => tokens.some(token => token.startsWith(term)))) return false;
+        if(terms.length){
+          const titleTokens = ensureTitleTokens(d);
+          let score = 0;
+          for(const term of terms){
+            if(titleTokens.some(token => token === term)){
+              score += 4;
+            }else if(titleTokens.some(token => token.startsWith(term))){
+              score += 3;
+            }else if(tokens.some(token => token === term)){
+              score += 2;
+            }else if(tokens.some(token => token.startsWith(term))){
+              score += 1;
+            }
+          }
+          d._matchScore = score;
+        }else{
+          d._matchScore = 0;
+        }
+        d._discountPct = pct;
+        return pct >= min;
+      });
+      if(terms.length){
+        filtered.sort((a,b) => {
+          const scoreDiff = (b._matchScore ?? 0) - (a._matchScore ?? 0);
+          if(scoreDiff) return scoreDiff;
+          const discountDiff = (b._discountPct ?? 0) - (a._discountPct ?? 0);
+          if(discountDiff) return discountDiff;
+          return (a.salePrice ?? Number.POSITIVE_INFINITY) - (b.salePrice ?? Number.POSITIVE_INFINITY);
+        });
+      }
+      countEl.textContent = filtered.length;
+      if(filtered.length === 0){
+        const config = getCountryConfig(activeCountry);
+        cardsEl.innerHTML = renderCountryPreview(config) || '';
+        return;
+      }
+      cardsEl.innerHTML = filtered.map(d=>{
+        const amazonLink = d.amazonUrl || buildAmazonLink(d);
+        const ebayLink = d.ebayUrl || `https://www.ebay.ca/sch/i.html?_nkw=${encodeURIComponent(d.title)}`;
+        return `
+        <article class="card">
+          <img src="${d.image}" alt="${d.title}" loading="lazy"/>
+          <div class="body">
+            <div class="badge">-${discount(d.price,d.salePrice)}% Rabais</div>
+            <h3>${d.title}</h3>
+            <div class="muted">${d.store} · ${d.branch ?? d.city}</div>
+            <div class="price"><div class="old">${currency(d.price)}</div><div>${currency(d.salePrice)}</div></div>
+            <div class="action-stack">
+              <a class="btn btn-primary" href="${d.url||'#'}" target="_blank" rel="noopener noreferrer">Voir</a>
+              <div class="comparison-links">
+                <a class="btn btn-secondary" href="${amazonLink}" target="_blank" rel="noopener noreferrer">Amazon</a>
+                <a class="btn btn-secondary" href="${ebayLink}" target="_blank" rel="noopener noreferrer">eBay</a>
+              </div>
+            </div>
+          </div>
+        </article>`;
+      }).join('');
+    }
+
+    function getStoreBySlug(slug){
+      return STORES.find(store => store.slug === slug);
+    }
+
+    function getStoreByIdentifier(identifier){
+      if(!identifier) return null;
+      return getStoreBySlug(identifier) || STORES.find(store => store.label === identifier);
+    }
+
+    const BEST_BUY_AGGREGATE_PATH = 'data/best-buy/liquidations.json';
+
+    function filePathFor(store, branch){
+      const s = store?.slug;
+      const c = branch?.slug;
+      if(!s) return null;
+      if(s === 'best-buy'){
+        return BEST_BUY_AGGREGATE_PATH;
+      }
+      if(s === 'amazon'){
+        if(c === 'canada') return AMAZON_DAILY_PATH;
+        if(!c) return null;
+        return `data/${s}/${c}.json`;
+      }
+      if(!c) return null;
+      return `data/${s}/${c}.json`;
+    }
+
+    function branchHasDeals(store, branch){
+      if(!branch) return false;
+      if(store?.slug === 'best-buy') return true;
+      return branch.hasData !== false;
+    }
+
+    async function loadRonaDirectory(){
+      const store = STORES.find(entry => entry.slug === 'rona');
+      if(!store) return;
+      try{
+        const res = await fetchDataJson('data/rona/stores.json');
+        if(!res) return;
+        const json = await res.json();
+        if(!Array.isArray(json)) return;
+        const seen = new Map();
+        for(const branch of store.branches ?? []){
+          if(!branch?.slug) continue;
+          seen.set(branch.slug, {...branch, hasData: branch.hasData !== false});
+        }
+        for(const entry of json){
+          if(!entry || typeof entry !== 'object') continue;
+          const rawSlug = typeof entry.slug === 'string' && entry.slug ? entry.slug : slugify(entry.label || entry.city || entry.storeNumber);
+          if(!rawSlug) continue;
+          const label = (entry.label || entry.city || rawSlug).trim();
+          const city = (entry.city || label).trim();
+          const province = entry.province || '';
+          const storeNumber = entry.storeNumber || '';
+          const hasData = entry.hasData === true;
+          const previous = seen.get(rawSlug) || {};
+          seen.set(rawSlug, {
+            ...previous,
+            label,
+            slug: rawSlug,
+            city,
+            province,
+            storeNumber,
+            hasData: previous.hasData === true || hasData
+          });
+        }
+        store.branches = Array.from(seen.values()).sort((a,b)=>a.label.localeCompare(b.label,'fr'));
+        renderStoreAds();
+        if(storeSelect && storeSelect.value === 'rona'){
+          setCityOptions('rona', true);
+        }
+      }catch(err){
+        console.warn('Unable to load Rona branches', err);
+      }
+    }
+
+    function setCityOptions(storeSlug, preserveSelection){
+      const previous = preserveSelection ? citySelect.value : '';
+      const store = getStoreByIdentifier(storeSlug);
+      const branches = store?.branches ?? baseBranches();
+      const options = ['<option value="">(Todas)</option>'];
+      const postalFilter = postalBranchSlugs && postalBranchSlugs.size ? postalBranchSlugs : null;
+      for(const branch of branches){
+        const available = branchHasDeals(store, branch);
+        const baseLabel = available ? branch.label : `${branch.label} (coming soon)`;
+        const isNearby = postalFilter ? postalFilter.has(branch.slug) : false;
+        const displayLabel = isNearby ? `${baseLabel} – nearby` : baseLabel;
+        const attrs = [];
+        if(!available) attrs.push('data-empty="true"');
+        if(isNearby) attrs.push('data-nearby="true"');
+        const attrString = attrs.length ? ` ${attrs.join(' ')}` : '';
+        options.push(`<option value="${branch.slug}"${attrString}>${displayLabel}</option>`);
+      }
+      citySelect.innerHTML = options.join('');
+      if(preserveSelection && branches.some(branch => branch.slug === previous)){
+        citySelect.value = previous;
+      }else{
+        citySelect.value = '';
+      }
+    }
+
+    async function fetchAmazonFallback(storeLabel, branch){
+      try{
+        const res = await fetchDataJson(AMAZON_FALLBACK_PATH);
+        if(!res) return [];
+        const json = await res.json();
+        if(!Array.isArray(json)) return [];
+        return json.map(item => normalizeDeal(item, storeLabel, branch));
+      }catch(error){
+        console.warn('Amazon fallback fetch fail', error);
+        return [];
+      }
+    }
+
+    async function fetchOne(path, storeLabel, branch){
+      try{
+        const res = await fetchDataJson(path);
+        if(!res) return [];
+        const json = await res.json();
+        if(!Array.isArray(json)) return [];
+        const normalized = json.map(item => normalizeDeal(item, storeLabel, branch));
+        const needsFallback =
+          (normalized.length === 0 || normalized.every(deal => !hasRealImage(deal))) && path === AMAZON_DAILY_PATH;
+        if(needsFallback){
+          const fallback = await fetchAmazonFallback(storeLabel, branch);
+          if(fallback.length && fallback.some(hasRealImage)){
+            return fallback;
+          }
+        }
+        return normalized;
+      }catch(e){ console.warn('fetch fail', path, e); return []; }
+    }
+
+    async function fetchData(){
+      if(activeCountry !== 'canada'){
+        render();
+        return;
+      }
+      deals.length = 0;
+      const storeFilter = storeSelect.value;
+      const branchFilter = citySelect.value;
+      const postalFilter = postalBranchSlugs && postalBranchSlugs.size ? postalBranchSlugs : null;
+      const selectedStores = storeFilter ? [storeFilter] : STORES.map(store => store.slug);
+      const tasks = [];
+      for(const storeSlug of selectedStores){
+        const store = getStoreByIdentifier(storeSlug);
+        if(!store) continue;
+        let branches = store.branches ?? [];
+        if(branchFilter){
+          branches = branches.filter(branch => branch.slug === branchFilter);
+          if(branches.length === 0) continue;
+        }else if(postalFilter){
+          const filtered = branches.filter(branch => postalFilter.has(branch.slug));
+          if(filtered.length === 0) continue;
+          branches = filtered;
+        }
+        if(branches.length === 0){
+          if(postalFilter){
+            continue;
+          }
+          branches = store.branches ?? [];
+        }
+        for(const branch of branches){
+          if(!branchHasDeals(store, branch)) continue;
+          const path = filePathFor(store, branch);
+          if(path) tasks.push({store, branch, path});
+        }
+      }
+      const seen = new Set();
+      for(const task of tasks){
+        if(seen.has(task.path)) continue;
+        seen.add(task.path);
+        const arr = await fetchOne(task.path, task.store.label, task.branch);
+        for(const d of arr){ deals.push(d); }
+      }
+      render();
+    }
+
+    storeSelect.addEventListener('change', () => {
+      if(activeCountry !== 'canada') return;
+      setCityOptions(storeSelect.value, false);
+      fetchData();
+    });
+    citySelect.addEventListener('change', () => {
+      if(activeCountry !== 'canada') return;
+      if(postalInput && !normalizePostal(postalInput.value)){
+        updatePostalHelper(DEFAULT_POSTAL_MESSAGE, false);
+      }
+      fetchData();
+    });
+    range.addEventListener('input', render);
+    if(searchInput){
+      searchInput.addEventListener('input', () => {
+        if(activeCountry !== 'canada') return;
+        render();
+      });
+    }
+    btnClear.addEventListener('click', async ()=>{
+      if(activeCountry !== 'canada') return;
+      const defaults = DEFAULT_FILTERS;
+      if(searchInput){
+        searchInput.value = defaults.search ?? '';
+      }
+      const defaultStore = getStoreByIdentifier(defaults.store);
+      const defaultStoreValue = defaultStore?.slug || '';
+      storeSelect.value = defaultStoreValue;
+      setCityOptions(defaultStoreValue, false);
+      if(citySelect){
+        if(defaults.city){
+          const options = Array.from(citySelect.options || []);
+          citySelect.value = options.some(option => option.value === defaults.city) ? defaults.city : '';
+        }else{
+          citySelect.value='';
+        }
+      }
+      range.value = defaults.discount ?? '0';
+      resetPostalFilter();
+      await fetchData();
+    });
+
+    // Startup
+    await loadRonaDirectory();
+    const defaultStore = getStoreByIdentifier(DEFAULT_FILTERS.store);
+    const defaultStoreValue = defaultStore?.slug || '';
+    if(searchInput){
+      searchInput.value = DEFAULT_FILTERS.search ?? '';
+    }
+    storeSelect.value = defaultStoreValue;
+    setCityOptions(defaultStoreValue, false);
+    citySelect.value = DEFAULT_FILTERS.city;
+    range.value = DEFAULT_FILTERS.discount; // ← 0% by default
+    await fetchData();
+  });
+  </script>
+</body>
+</html>

@@ -2,7 +2,6 @@
 
 Dépose ici tes fichiers JSON (un par magasin et/ou par ville), par ex.:
 - `walmart_laval.json`
-- `canadiantire_montreal.json`
 
 ## Format JSON attendu
 Chaque fichier est un tableau d'objets:

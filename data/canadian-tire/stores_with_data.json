@@ -1,0 +1,290 @@
+[
+  {
+    "storeNumber": "",
+    "slug": "4975-blvd-robert-bourassa"
+  },
+  {
+    "storeNumber": "1",
+    "slug": "alliston-on"
+  },
+  {
+    "storeNumber": "298",
+    "slug": "alma-qc"
+  },
+  {
+    "storeNumber": "265",
+    "slug": "baie-comeau-qc"
+  },
+  {
+    "storeNumber": "5",
+    "slug": "bancroft-on"
+  },
+  {
+    "storeNumber": "442",
+    "slug": "barrhaven-on"
+  },
+  {
+    "storeNumber": "",
+    "slug": "blainville"
+  },
+  {
+    "storeNumber": "649",
+    "slug": "blainville-qc"
+  },
+  {
+    "storeNumber": "446",
+    "slug": "bradford-on"
+  },
+  {
+    "storeNumber": "14",
+    "slug": "brockville-on"
+  },
+  {
+    "storeNumber": "122",
+    "slug": "burlington-fairview-on"
+  },
+  {
+    "storeNumber": "17",
+    "slug": "campbellford-on"
+  },
+  {
+    "storeNumber": "147",
+    "slug": "chateauguay-qc"
+  },
+  {
+    "storeNumber": "108",
+    "slug": "collingwood-on"
+  },
+  {
+    "storeNumber": "274",
+    "slug": "cowansville-qc"
+  },
+  {
+    "storeNumber": "485",
+    "slug": "dufferin-and-finch-auto-ctr-on"
+  },
+  {
+    "storeNumber": "22",
+    "slug": "espanola-on"
+  },
+  {
+    "storeNumber": "35",
+    "slug": "fredericton-nb"
+  },
+  {
+    "storeNumber": "260",
+    "slug": "guelph-north-on"
+  },
+  {
+    "storeNumber": "177",
+    "slug": "hamilton-mtwest-on"
+  },
+  {
+    "storeNumber": "47",
+    "slug": "huntsville-on"
+  },
+  {
+    "storeNumber": "181",
+    "slug": "ile-perrot-qc"
+  },
+  {
+    "storeNumber": "687",
+    "slug": "innisfil-on"
+  },
+  {
+    "storeNumber": "457",
+    "slug": "kanata-on"
+  },
+  {
+    "storeNumber": "694",
+    "slug": "kingston-division-st-on"
+  },
+  {
+    "storeNumber": "209",
+    "slug": "kingston-rd-on"
+  },
+  {
+    "storeNumber": "233",
+    "slug": "la-sarre-qc"
+  },
+  {
+    "storeNumber": "",
+    "slug": "laval"
+  },
+  {
+    "storeNumber": "",
+    "slug": "laval-chomedey"
+  },
+  {
+    "storeNumber": "",
+    "slug": "laval-robert-bourassa"
+  },
+  {
+    "storeNumber": "155",
+    "slug": "laval-ste-dorothee-qc"
+  },
+  {
+    "storeNumber": "231",
+    "slug": "laval-vimont-qc"
+  },
+  {
+    "storeNumber": "55",
+    "slug": "leamington-on"
+  },
+  {
+    "storeNumber": "659",
+    "slug": "leitrim-on"
+  },
+  {
+    "storeNumber": "654",
+    "slug": "leslie-and-lake-shore-on"
+  },
+  {
+    "storeNumber": "621",
+    "slug": "liberty-village-on"
+  },
+  {
+    "storeNumber": "208",
+    "slug": "london-west-on"
+  },
+  {
+    "storeNumber": "451",
+    "slug": "marathon-on"
+  },
+  {
+    "storeNumber": "315",
+    "slug": "matane-qc"
+  },
+  {
+    "storeNumber": "682",
+    "slug": "minden-on"
+  },
+  {
+    "storeNumber": "249",
+    "slug": "moncton-mountain-rd-nb"
+  },
+  {
+    "storeNumber": "461",
+    "slug": "mont-tremblant-qc"
+  },
+  {
+    "storeNumber": "71",
+    "slug": "niagara-falls-north-on"
+  },
+  {
+    "storeNumber": "424",
+    "slug": "oak-winston-churchill-on"
+  },
+  {
+    "storeNumber": "73",
+    "slug": "orangeville-on"
+  },
+  {
+    "storeNumber": "75",
+    "slug": "oshawa-mid-on"
+  },
+  {
+    "storeNumber": "174",
+    "slug": "ottawa-east-on"
+  },
+  {
+    "storeNumber": "258",
+    "slug": "ottawa-merivale-on"
+  },
+  {
+    "storeNumber": "463",
+    "slug": "paspebiac-qc"
+  },
+  {
+    "storeNumber": "79",
+    "slug": "pembroke-on"
+  },
+  {
+    "storeNumber": "81",
+    "slug": "peterborough-on"
+  },
+  {
+    "storeNumber": "324",
+    "slug": "pickering-on"
+  },
+  {
+    "storeNumber": "928",
+    "slug": "place-versailles-qc"
+  },
+  {
+    "storeNumber": "303",
+    "slug": "pointe-aux-trembles-qc"
+  },
+  {
+    "storeNumber": "213",
+    "slug": "port-hawkesbury-ns"
+  },
+  {
+    "storeNumber": "86",
+    "slug": "renfrew-on"
+  },
+  {
+    "storeNumber": "697",
+    "slug": "richmond-hill-north-on"
+  },
+  {
+    "storeNumber": "476",
+    "slug": "rothesay-nb"
+  },
+  {
+    "storeNumber": "",
+    "slug": "saint-jerome"
+  },
+  {
+    "storeNumber": "",
+    "slug": "sainte-therese"
+  },
+  {
+    "storeNumber": "98",
+    "slug": "smiths-falls-on"
+  },
+  {
+    "storeNumber": "173",
+    "slug": "st-georges-qc"
+  },
+  {
+    "storeNumber": "151",
+    "slug": "st-hyacinthe-qc"
+  },
+  {
+    "storeNumber": "271",
+    "slug": "st-jerome-qc"
+  },
+  {
+    "storeNumber": "91",
+    "slug": "st-marys-on"
+  },
+  {
+    "storeNumber": "102",
+    "slug": "sturgeon-falls-on"
+  },
+  {
+    "storeNumber": "445",
+    "slug": "sudbury-south-on"
+  },
+  {
+    "storeNumber": "110",
+    "slug": "tillsonburg-on"
+  },
+  {
+    "storeNumber": "115",
+    "slug": "valleyfield-qc"
+  },
+  {
+    "storeNumber": "235",
+    "slug": "ville-st-laurent-qc"
+  },
+  {
+    "storeNumber": "251",
+    "slug": "waterloo-on"
+  },
+  {
+    "storeNumber": "199",
+    "slug": "windsor-east-on"
+  }
+]

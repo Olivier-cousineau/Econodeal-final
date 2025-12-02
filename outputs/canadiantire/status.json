@@ -1,0 +1,121 @@
+[
+  {
+    "id": "271",
+    "city": "St. Jerome, QC",
+    "status": "OK",
+    "details": "6081 produits",
+    "index": 0
+  },
+  {
+    "id": "303",
+    "city": "Pointe aux Trembles, QC",
+    "status": "OK",
+    "details": "1898 produits",
+    "index": 1
+  },
+  {
+    "id": "115",
+    "city": "Valleyfield, QC",
+    "status": "OK",
+    "details": "2729 produits",
+    "index": 2
+  },
+  {
+    "id": "659",
+    "city": "Leitrim, ON",
+    "status": "OK",
+    "details": "2432 produits",
+    "index": 3
+  },
+  {
+    "id": "14",
+    "city": "Brockville, ON",
+    "status": "OK",
+    "details": "3004 produits",
+    "index": 4
+  },
+  {
+    "id": "173",
+    "city": "St. Georges, QC",
+    "status": "OK",
+    "details": "2096 produits",
+    "index": 5
+  },
+  {
+    "id": "81",
+    "city": "Peterborough, ON",
+    "status": "OK",
+    "details": "2449 produits",
+    "index": 6
+  },
+  {
+    "id": "324",
+    "city": "Pickering, ON",
+    "status": "OK",
+    "details": "3040 produits",
+    "index": 7
+  },
+  {
+    "id": "446",
+    "city": "Bradford, ON",
+    "status": "OK",
+    "details": "2779 produits",
+    "index": 8
+  },
+  {
+    "id": "242",
+    "city": "Rexdale, ON",
+    "status": "SKIPPED",
+    "details": "data.json not found at outputs/canadiantire/242-rexdale-on/data.json",
+    "index": 9
+  },
+  {
+    "id": "424",
+    "city": "Oak., Winston Churchill, ON",
+    "status": "OK",
+    "details": "2700 produits",
+    "index": 10
+  },
+  {
+    "id": "445",
+    "city": "Sudbury South, ON",
+    "status": "OK",
+    "details": "1860 produits",
+    "index": 11
+  },
+  {
+    "id": "265",
+    "city": "Baie-Comeau, QC",
+    "status": "OK",
+    "details": "1601 produits",
+    "index": 12
+  },
+  {
+    "id": "110",
+    "city": "Tillsonburg, ON",
+    "status": "OK",
+    "details": "2003 produits",
+    "index": 13
+  },
+  {
+    "id": "249",
+    "city": "Moncton Mountain Rd, NB",
+    "status": "OK",
+    "details": "2136 produits",
+    "index": 14
+  },
+  {
+    "id": "55",
+    "city": "Leamington, ON",
+    "status": "OK",
+    "details": "2378 produits",
+    "index": 15
+  },
+  {
+    "id": "213",
+    "city": "Port Hawkesbury, NS",
+    "status": "OK",
+    "details": "2088 produits",
+    "index": 16
+  }
+]

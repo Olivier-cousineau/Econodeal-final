@@ -1,0 +1,105 @@
+name: Canadian Tire - Multi Stores (Sharded)
+
+on:
+  schedule:
+    - cron: "0 12 * * *"   # 07:00 America/Toronto daily, staggered away from shard start times
+  workflow_dispatch:
+
+concurrency:
+  group: canadian-tire-shards-push
+  cancel-in-progress: false
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository (full)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync with latest main
+        run: |
+          git fetch origin main
+          if ! git rebase origin/main; then
+            git rebase --abort
+            exit 1
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright browsers (Chromium)
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright browsers (all)
+        run: npx playwright install --with-deps
+
+      - name: Run Canadian Tire scraper for this store
+        run: |
+          set -o pipefail
+          echo "Running store ${{ matrix.store }} - ${{ matrix.city }}"
+          node scraper_ct.js --store "${{ matrix.store }}" --city "${{ matrix.city }}"
+
+      - name: Prepare Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit store JSON
+        run: |
+          echo "Committing ${{ matrix.store }}..."
+          git add outputs/canadiantire/${{ matrix.store }}*/data.json
+          git add outputs/canadiantire/${{ matrix.store }}*/data.csv
+          git add outputs/canadiantire/${{ matrix.store }}*/images || true
+
+          git commit -m "CT shard: update store ${{ matrix.store }}" || echo "Nothing to commit"
+
+      - name: Push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          echo "👉 Status before push"
+          git status -sb
+
+          if git diff --quiet origin/main..HEAD; then
+            echo "No new commits to push"
+            exit 0
+          fi
+
+          attempts=0
+          max_attempts=3
+          while true; do
+            if git push origin HEAD:main; then
+              echo "Push succeeded"
+              break
+            fi
+
+            attempts=$((attempts + 1))
+            if [ "$attempts" -ge "$max_attempts" ]; then
+              echo "Push failed after ${max_attempts} attempts."
+              exit 1
+            fi
+
+            echo "Push failed (main moved). Refetching and rebasing... attempt ${attempts}/${max_attempts}"
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort
+              exit 1
+            fi
+          done
+
+    strategy:
+      fail-fast: false
+      matrix:
+        store: [271, 649, 418, 641, 218, 690] # mettre tes stores ici
+        city: ["St-Jérôme", "Blainville", "Rosemère", "La-Plaine", "St-Eustache", "Laval"]
+      max-parallel: 1

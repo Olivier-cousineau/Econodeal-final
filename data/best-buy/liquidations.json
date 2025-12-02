@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Téléviseur intelligent 4K UHD TCL Série 5 55\"",
+    "image": "https://images.bestbuy.ca/images/BestBuyCanada/en_ca/productimages/1024x1024/149/14939/14939486.jpg",
+    "price": 749.99,
+    "salePrice": 549.99,
+    "store": "Best Buy",
+    "city": "En ligne",
+    "url": "https://www.bestbuy.ca/fr-ca/produit/14939486"
+  },
+  {
+    "title": "Écouteurs à réduction de bruit Sony WH-1000XM5",
+    "image": "https://images.bestbuy.ca/images/BestBuyCanada/en_ca/productimages/1024x1024/161/16130/16130574.jpg",
+    "price": 499.99,
+    "salePrice": 399.99,
+    "store": "Best Buy",
+    "city": "En ligne",
+    "url": "https://www.bestbuy.ca/fr-ca/produit/16130574"
+  },
+  {
+    "title": "Portable de jeu ASUS TUF A15 (15,6\" · Ryzen 7 · RTX 4060)",
+    "image": "https://images.bestbuy.ca/images/BestBuyCanada/en_ca/productimages/1024x1024/173/17320/17320647.jpg",
+    "price": 1699.99,
+    "salePrice": 1399.99,
+    "store": "Best Buy",
+    "city": "En ligne",
+    "url": "https://www.bestbuy.ca/fr-ca/produit/17320647"
+  },
+  {
+    "title": "Barre de son Bose Smart Soundbar 600",
+    "image": "https://images.bestbuy.ca/images/BestBuyCanada/en_ca/productimages/1024x1024/162/16220/16220687.jpg",
+    "price": 679.99,
+    "salePrice": 529.99,
+    "store": "Best Buy",
+    "city": "En ligne",
+    "url": "https://www.bestbuy.ca/fr-ca/produit/16220687"
+  },
+  {
+    "title": "Montre intelligente Garmin Venu 2 Plus",
+    "image": "https://images.bestbuy.ca/images/BestBuyCanada/en_ca/productimages/1024x1024/154/15424/15424488.jpg",
+    "price": 599.99,
+    "salePrice": 479.99,
+    "store": "Best Buy",
+    "city": "En ligne",
+    "url": "https://www.bestbuy.ca/fr-ca/produit/15424488"
+  }
+]

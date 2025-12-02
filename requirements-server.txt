@@ -1,0 +1,7 @@
+-r api/requirements.txt
+flask>=2,<3
+flask-cors>=4,<5
+requests>=2,<3
+python-dotenv>=1.0,<2
+pydantic-settings>=2,<3
+playwright>=1.41,<2

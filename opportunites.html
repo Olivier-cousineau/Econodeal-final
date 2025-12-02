@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr" data-page="opportunites">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EconoDeal — Opportunités &amp; inventaires</title>
+  <link rel="stylesheet" href="dist/assets/main.css" />
+</head>
+<body class="overlay-active">
+  <div class="bg-visuals" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb--one"></div>
+    <div class="bg-orb bg-orb--two"></div>
+    <div class="bg-orb bg-orb--three"></div>
+  </div>
+  <div id="registrationOverlay" role="dialog" aria-modal="true" aria-labelledby="registrationTitle">
+    <div class="registration-card">
+      <button type="button" class="registration-close" data-overlay-dismiss aria-label="Fermer la fenêtre d'inscription">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h2 id="registrationTitle">Accès réservé aux membres</h2>
+      <p class="muted" style="margin:0">Rejoignez <strong><span data-client-count>0</span></strong> revendeurs Amazon et eBay ainsi que chasseurs de rabais, puis accédez au catalogue complet.</p>
+      <form id="registrationForm">
+        <div>
+          <label for="fullName">Nom complet</label>
+          <input id="fullName" name="fullName" type="text" placeholder="Entrez votre nom" autocomplete="name" required />
+        </div>
+        <div>
+          <label for="email">Courriel</label>
+          <input id="email" name="email" type="email" placeholder="nom@exemple.com" autocomplete="email" required />
+        </div>
+        <div class="checkbox-row">
+          <input id="regulationCheckbox" name="regulation" type="checkbox" required />
+          <label for="regulationCheckbox" style="margin:0">Je confirme avoir lu et accepté les réglementations d'utilisation du site.</label>
+        </div>
+        <button id="registrationSubmit" type="submit" disabled>S'inscrire et accéder</button>
+      </form>
+    </div>
+  </div>
+  <header>
+    <div class="container header-layout">
+      <div class="row header-top">
+        <div class="row" style="gap:16px;align-items:center;flex-wrap:wrap">
+          <a class="brand" href="index.html">
+            <img src="assets/logo.svg" alt="EconoDeal – accélérateur de revendeurs Amazon et eBay" />
+            <span class="brand-text">
+              <span class="brand-title">EconoDeal</span>
+              <span class="brand-tagline">Votre hub Amazon &amp; eBay</span>
+            </span>
+          </a>
+          <div class="country-toggle country-toggle--header" role="group" aria-label="Choisir le pays">
+            <button type="button" class="country-button active" data-country="canada" aria-pressed="true">Canada</button>
+            <button type="button" class="country-button" data-country="usa" aria-pressed="false">États-Unis</button>
+            <button type="button" class="country-button" data-country="europe" aria-pressed="false">Europe</button>
+          </div>
+        </div>
+        <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="headerMenu" aria-haspopup="true">
+          <span class="menu-toggle-icon" aria-hidden="true">☰</span>
+          <span class="menu-toggle-label">Menu</span>
+        </button>
+      </div>
+      <div id="headerMenu" class="header-menu" hidden aria-labelledby="menuToggle">
+        <nav class="header-menu-section header-menu-nav" aria-label="Navigation principale">
+          <a class="nav-button active" href="opportunites.html" aria-current="page" style="white-space:nowrap">Inventaires &amp; opportunités</a>
+          <a class="nav-button" href="best-deals.html" style="white-space:nowrap">Meilleurs rabais</a>
+          <a class="nav-button" href="pricing.html" style="white-space:nowrap">Forfaits / prix</a>
+          <a class="nav-button" href="roadmap.html" style="white-space:nowrap">Roadmap / vision</a>
+          <a class="nav-button" href="#vision-investors" style="white-space:nowrap">Vision &amp; investisseurs</a>
+        </nav>
+        <section class="header-menu-section header-menu-scp" aria-label="SCP – Aperçu de la plateforme">
+          <h3 class="header-menu-scp-title">Une plateforme professionnelle pour les vendeurs Amazon &amp; eBay</h3>
+          <p class="header-menu-scp-lead">EconoDeal consolide des indicateurs tangibles, une intelligence de marché constante et un accompagnement expert pour accélérer vos ventes sur Amazon et eBay.</p>
+          <div class="value-grid header-menu-scp-grid">
+            <article class="value-card value-card--compact">
+              <span class="value-icon" aria-hidden="true">📊</span>
+              <h4>Pilotage data-driven</h4>
+              <ul>
+                <li><span class="value-metric">+4&nbsp;500 rabais actifs</span> prêts à intégrer à vos catalogues Amazon &amp; eBay.</li>
+                <li><span class="value-metric">97&nbsp;% de fiches validées</span> pour fiabiliser les exports Seller Central et Seller Hub.</li>
+              </ul>
+            </article>
+            <article class="value-card value-card--compact">
+              <span class="value-icon" aria-hidden="true">🌐</span>
+              <h4>Infrastructure multicanal</h4>
+              <ul>
+                <li><span class="value-metric">2,4&nbsp;M d'ASIN &amp; SKU</span> suivis en continu pour Amazon.ca, Amazon.com et eBay.</li>
+                <li>Alertes prioritaires en <span class="value-metric">18&nbsp;secondes</span> lorsque la marge devient exploitable.</li>
+              </ul>
+            </article>
+            <article class="value-card value-card--compact">
+              <span class="value-icon" aria-hidden="true">🗺️</span>
+              <h4>Vision de croissance</h4>
+              <ul>
+                <li>Déploiement Canada → États-Unis → Europe avec localisation complète.</li>
+                <li>Monétisation graduée intégrant exports Seller Central, scénarios IA et insights avancés.</li>
+              </ul>
+            </article>
+          </div>
+          <a class="nav-button header-menu-scp-link" href="#vision-investors">Explorer la section complète</a>
+        </section>
+        <section class="header-menu-section header-menu-investors" id="vision-investors" aria-label="Vision et investisseurs">
+          <h3 class="header-menu-investors-title">Vision &amp; investisseurs</h3>
+          <p class="header-menu-investors-lead">EconoDeal consolide des indicateurs de performance tangibles, une intelligence de marché constante et un accompagnement expert pour accélérer vos ventes sur les deux marketplaces.</p>
+          <div class="header-menu-investors-grid">
+            <article class="value-card">
+              <span class="value-icon" aria-hidden="true">📊</span>
+              <h3>Pilotage data-driven de vos catalogues</h3>
+              <ul>
+                <li><span class="value-metric">+4&nbsp;500 rabais actifs</span> consolidés dans un catalogue unique prêt pour Amazon et eBay.</li>
+                <li><span class="value-metric">97&nbsp;% de fiches validées</span> garantissant la fiabilité des exports Seller Central et Seller Hub.</li>
+                <li><span class="value-metric">12&nbsp;h économisées</span> par semaine grâce à l'automatisation des tâches de sourcing.</li>
+              </ul>
+            </article>
+            <article class="value-card">
+              <span class="value-icon" aria-hidden="true">🌐</span>
+              <h3>Infrastructure prête pour le multicanal</h3>
+              <ul>
+                <li><span class="value-metric">2,4&nbsp;M d'ASIN &amp; SKU</span> suivis pour Amazon.ca, Amazon.com, eBay.com et eBay.ca.</li>
+                <li>Détection moyenne de <span class="value-metric">18&nbsp;secondes</span> entre un rabais et l'alerte envoyée à vos équipes.</li>
+                <li>Analyses IA qui récupèrent une <span class="value-metric">marge médiane de +32&nbsp;%</span> sur les scénarios multicanaux surveillés.</li>
+              </ul>
+            </article>
+            <article class="value-card">
+              <span class="value-icon" aria-hidden="true">🗺️</span>
+              <h3>Vision de croissance triennale</h3>
+              <ul>
+                <li>Expansion séquencée : Canada → États-Unis → Europe avec localisation complète Amazon &amp; eBay.</li>
+                <li>Déploiement d'alertes en temps réel, d'analyse prédictive et d'un moteur de recommandations IA multilingue.</li>
+                <li>Monétisation progressive intégrant exports Seller Central, Seller Hub, scénarios IA et insights marché avancés.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+        <div class="header-menu-section header-menu-locale" role="group" aria-label="Langues et régions">
+          <div class="lang-switch" aria-label="Sélecteur de langue">
+            <span class="active" aria-current="true">FR</span>
+            <a href="index-en.html">EN</a>
+            <a href="index-es.html">ES</a>
+            <a href="index-de.html">DE</a>
+            <a href="index-it.html">IT</a>
+          </div>
+          <span class="header-region" data-exchange-indicator aria-live="polite" aria-label="Taux de change 1 CAD pour 1 CAD">1 CAD = 1 CAD</span>
+        </div>
+        <div class="header-menu-section header-menu-meta">
+          <div>Clients inscrits&nbsp;: <span data-client-count>0</span></div>
+          <div>© <span id="year"></span></div>
+        </div>
+      </div>
+      <aside id="storeAds" class="store-ads" aria-live="polite" aria-label="Magasins en vedette" aria-hidden="true"></aside>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-content">
+        <span class="hero-kicker">Plateforme d'arbitrage Amazon &amp; eBay</span>
+        <h1 id="heroTitle">Débloquez les meilleures liquidations pour propulser vos boutiques Amazon et eBay</h1>
+        <p>Centralisez vos achats, connectez vos fournisseurs clés et laissez nos signaux IA repérer les rabais les plus rentables pour vos catalogues Amazon.ca, Amazon.com, eBay.com et eBay.ca.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#search">Explorer les inventaires</a>
+          <a class="btn btn-secondary" href="index.html#amazon-sellers">Voir les avantages</a>
+        </div>
+        <ul class="hero-stats">
+          <li class="hero-stat"><strong>+4 500</strong><span>Rabais actifs multicanal</span></li>
+          <li class="hero-stat"><strong>97 %</strong><span>Fiches Amazon &amp; eBay validées</span></li>
+          <li class="hero-stat"><strong>12 h</strong><span>Gain moyen / semaine automatisé</span></li>
+        </ul>
+      </div>
+      <div class="hero-preview" aria-hidden="true">
+        <article class="hero-preview-card">
+          <header>
+            <span>Instantané</span>
+            <div class="badge" style="margin:0">Flux Canada</div>
+          </header>
+          <h2>Opportunités en lumière</h2>
+          <p>Surveillez en temps réel les écarts de prix exploitables entre vos marchands favoris et la Buy Box Amazon ou le Top Rated eBay.</p>
+          <ul class="hero-preview-list">
+            <li class="hero-preview-item"><span>1</span> Alertes prioritaires quand la marge dépasse 28&nbsp;% sur Amazon ou eBay.</li>
+            <li class="hero-preview-item"><span>2</span> Statuts de stocks consolidés Best Buy, Walmart et grossistes eBay.</li>
+            <li class="hero-preview-item"><span>3</span> Export instantané vers vos modèles FBA, FBM et Seller Hub.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="section" id="search">
+      <h2 style="margin:0 0 10px">Trouver des liquidations pour vos listings Amazon &amp; eBay</h2>
+      <p class="muted">Les fichiers sont chargés depuis <span class="kbd">data/&lt;magasin&gt;/&lt;ville&gt;.json</span> afin de repérer rapidement les opportunités d'arbitrage et d'approvisionnement multicanal.</p>
+
+      <!-- ✅ Les éléments requis existent et leurs IDs correspondent au script -->
+      <div class="row" style="gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px">
+        <span class="muted" data-country-label>Pays couvert&nbsp;: Canada · Devise&nbsp;: CAD</span>
+      </div>
+
+      <div class="filters" style="margin-top:12px">
+        <div>
+          <label for="searchInput">Recherche rapide</label>
+          <input id="searchInput" name="search" type="text" inputmode="search" placeholder="Ex. Nintendo Switch, Lego..." autocomplete="off" />
+        </div>
+        <div>
+          <label for="storeSelect">Magasin</label>
+          <select id="storeSelect">
+            <option value="">(Tous)</option>
+          </select>
+        </div>
+        <div>
+          <label for="citySelect">Ville</label>
+          <select id="citySelect">
+            <option value="">(Toutes)</option>
+          </select>
+        </div>
+        <div>
+          <label for="postalInput">Code postal</label>
+          <input id="postalInput" name="postal" type="text" inputmode="text" placeholder="Ex. H2X 1Y4" autocomplete="postal-code" />
+          <p id="postalHelper" class="field-helper">Entrez les 3 premiers caractères du code postal pour trouver les succursales dans un rayon de 50&nbsp;km (ex. H2X).</p>
+        </div>
+        <div>
+          <label for="discountRange">% de rabais minimal : <span id="discountValue" class="kbd">0%</span></label>
+          <input id="discountRange" type="range" min="0" max="90" step="5" value="0" />
+        </div>
+        <div style="align-self:end">
+          <button id="btnClear">Réinitialiser</button>
+        </div>
+      </div>
+
+      <div id="devError" class="dev-banner"></div>
+
+      <div class="section">
+        <div class="row" style="justify-content:space-between;align-items:center">
+          <h3 style="margin:0">Résultats</h3>
+          <div class="muted"><span id="resultCount">0</span> articles</div>
+        </div>
+        <div id="cards" class="grid" style="margin-top:12px"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="container footer">
+
+    <p style="margin:0 0 8px">EconoDeal n'est pas responsable de la disponibilité des stocks affichés et n'enregistre aucun renseignement personnel des visiteurs.</p>
+    <div>© <span id="yearFooter"></span> EconoDeal · Tous droits réservés</div>
+  </div>
+
+  <script src="scripts/main.js"></script>
+
+</body>
+</html>

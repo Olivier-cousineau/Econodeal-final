@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es" data-page="pricing">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EconoDeal — Planes</title>
+  <link rel="stylesheet" href="dist/assets/main.css" />
+</head>
+<body>
+  <header>
+    <div class="container row" style="justify-content:space-between">
+      <div class="row" style="gap:10px;align-items:center">
+        <a class="brand" href="index-es.html">
+          <img src="assets/logo.svg" alt="EconoDeal – acelerador para revendedores" />
+          <span class="brand-text">
+            <span class="brand-title">EconoDeal</span>
+            <span class="brand-tagline">Tu hub de Amazon</span>
+          </span>
+        </a>
+      </div>
+      <div class="row" style="gap:12px;align-items:center">
+        <a class="nav-button" href="best-deals-es.html" style="white-space:nowrap">Mejores ofertas</a>
+        <a class="nav-button current" href="pricing-es.html" style="white-space:nowrap">Planes / precios</a>
+        <a class="nav-button" href="roadmap-es.html" style="white-space:nowrap">Hoja de ruta / visión</a>
+        <div class="lang-switch" aria-label="Selector de idioma">
+          <a href="pricing.html">FR</a>
+          <a href="pricing-en.html">EN</a>
+          <span class="active" aria-current="true">ES</span>
+          <a href="pricing-de.html">DE</a>
+          <a href="pricing-it.html">IT</a>
+        </div>
+        <div class="muted">© <span id="year"></span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2 style="margin:0 0 10px">Planes adaptados a tus necesidades</h2>
+      <p class="muted" style="max-width:620px">Elige la opción que mejor se ajuste a cómo sigues los descuentos y liquidaciones en Canadá. Todos los planes incluyen una prueba de 7 días.</p>
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <div class="pricing-tag">Essential</div>
+          <h4>Acceso esencial</h4>
+          <div class="pricing-price">9,99&nbsp;$</div>
+          <ul class="pricing-features">
+            <li>Acceso a las liquidaciones populares</li>
+            <li>3 alertas por correo a la semana</li>
+            <li>Historial de precios de 30 días</li>
+          </ul>
+          <div class="action-stack">
+            <button class="btn btn-primary" type="button" data-stripe-plan="essential" data-plan-name="Plan Essential" data-plan-description="Acceso esencial al flujo de liquidaciones">Comenzar prueba</button>
+          </div>
+        </article>
+        <article class="pricing-card pricing-highlight">
+          <div class="pricing-tag">Más popular</div>
+          <h4>Plan Advanced</h4>
+          <div class="pricing-price">19,99&nbsp;$</div>
+          <ul class="pricing-features">
+            <li>Acceso ilimitado al catálogo</li>
+            <li>Alertas personalizadas en tiempo real</li>
+            <li>Listas compartidas para tu equipo</li>
+          </ul>
+          <div class="action-stack">
+            <button class="btn btn-primary" type="button" data-stripe-plan="advanced" data-plan-name="Plan Advanced" data-plan-description="Acceso ilimitado con alertas en tiempo real">Activar prueba</button>
+          </div>
+        </article>
+        <article class="pricing-card">
+          <div class="pricing-tag">Premium</div>
+          <h4>Análisis completo con IA</h4>
+          <div class="pricing-price">29,99&nbsp;$</div>
+          <ul class="pricing-features">
+            <li>Alertas multicanal ilimitadas</li>
+            <li>Análisis de precios asistido por IA</li>
+            <li>Pronósticos de tendencias del mercado</li>
+          </ul>
+          <div class="action-stack">
+            <button class="btn btn-primary" type="button" data-stripe-plan="premium" data-plan-name="Plan Premium" data-plan-description="Optimización total con IA para revendedores">Elegir Premium</button>
+          </div>
+        </article>
+      </div>
+      <div class="checkout-message" id="checkout-message" role="status" aria-live="polite" hidden></div>
+    </section>
+    <section class="section value-section">
+      <h3 style="margin:0">Una escalera de valor planificada</h3>
+      <p class="muted" style="margin:0;max-width:680px">Cada nivel desbloquea capacidades concretas para impulsar el crecimiento de tus operaciones en Amazon, desde el sourcing manual hasta una orquestación completa impulsada por IA.</p>
+      <div class="value-grid">
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">🧭</span>
+          <h4>Inicio rápido</h4>
+          <ul>
+            <li>El plan Essential condensa las mejores liquidaciones, ideal para validar rápidamente el valor del feed.</li>
+            <li>Alertas guiadas por correo te ayudan a probar rutinas de sourcing sin complejidad adicional.</li>
+          </ul>
+        </article>
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">🤝</span>
+          <h4>Colaboración avanzada</h4>
+          <ul>
+            <li>El plan Advanced añade exportaciones a Seller Central y listas compartidas para estructurar tu equipo.</li>
+            <li>Notificaciones en tiempo real para capturar la Buy Box antes que la competencia.</li>
+          </ul>
+        </article>
+        <article class="value-card">
+          <span class="value-icon" aria-hidden="true">🤖</span>
+          <h4>Optimización avanzada con IA</h4>
+          <ul>
+            <li>El plan Premium activa escenarios de IA, pronósticos de tendencias y alertas multicanal ilimitadas.</li>
+            <li>Simulación FBA avanzada para asegurar márgenes y planificar la reposición.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div class="container footer">
+    © <span id="yearFooter"></span> EconoDeal · Todos los derechos reservados
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = new Date().getFullYear();
+      document.getElementById('year').textContent = y;
+      document.getElementById('yearFooter').textContent = y;
+    });
+  </script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="assets/js/stripe-checkout.js" defer></script>
+</body>
+</html>

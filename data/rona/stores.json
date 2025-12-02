@@ -1,0 +1,34 @@
+[
+  {
+    "storeNumber": "41320",
+    "label": "RONA Saint-Jérôme",
+    "city": "Saint-Jérôme",
+    "province": "Québec",
+    "slug": "saint-jerome",
+    "hasData": true
+  },
+  {
+    "storeNumber": "",
+    "label": "RONA Blainville",
+    "city": "Blainville",
+    "province": "Québec",
+    "slug": "blainville",
+    "hasData": true
+  },
+  {
+    "storeNumber": "",
+    "label": "RONA Mascouche",
+    "city": "Mascouche",
+    "province": "Québec",
+    "slug": "mascouche",
+    "hasData": true
+  },
+  {
+    "storeNumber": "",
+    "label": "RONA Sainte-Thérèse",
+    "city": "Sainte-Thérèse",
+    "province": "Québec",
+    "slug": "sainte-therese",
+    "hasData": true
+  }
+]

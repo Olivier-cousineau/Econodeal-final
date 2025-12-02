@@ -1,0 +1,2 @@
+stripe>=5,<6
+pydantic>=2,<3

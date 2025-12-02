@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Magasins Canadian Tire suivis par EconoDeal</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      th {
+        background-color: #f2f2f2;
+        text-align: left;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Magasins Canadian Tire suivis par EconoDeal</h1>
+
+    <table id="branches-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Adresse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Les lignes seront ajoutées ici en JavaScript -->
+      </tbody>
+    </table>
+
+    <script>
+      // On va chercher ton fichier JSON existant :
+      // data/canadian-tire/branches.json
+      fetch("data/canadian-tire/branches.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Erreur HTTP " + response.status);
+          }
+          return response.json();
+        })
+        .then((branches) => {
+          const tbody = document.querySelector("#branches-table tbody");
+
+          branches.forEach((branch) => {
+            const tr = document.createElement("tr");
+
+            const tdId = document.createElement("td");
+            tdId.textContent = branch.id;
+
+            const tdName = document.createElement("td");
+            tdName.textContent = branch.name;
+
+            const tdAddress = document.createElement("td");
+            tdAddress.textContent = branch.address;
+
+            tr.appendChild(tdId);
+            tr.appendChild(tdName);
+            tr.appendChild(tdAddress);
+
+            tbody.appendChild(tr);
+          });
+        })
+        .catch((error) => {
+          console.error("Erreur de chargement des branches :", error);
+        });
+    </script>
+  </body>
+</html>

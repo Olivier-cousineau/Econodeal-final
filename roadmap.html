@@ -1,48 +1,34 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-page="roadmap">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EconoDeal — Roadmap</title>
-  <style>
-    :root{
-      --bg:#0f172a; --panel:#111827; --panel-2:#1f2937; --text:#e5e7eb;
-      --muted:#9ca3af; --accent:#22c55e; --border:#2b3446; --radius:14px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#0b1020 50%,#0a0f1a);color:var(--text)}
-    header{position:sticky;top:0;z-index:20;background:rgba(15,23,42,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-    .container{max-width:1100px;margin:0 auto;padding:18px}
-    .row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-    h1{margin:0;font-size:18px}
-    .nav-button{display:inline-flex;align-items:center;justify-content:center;background:var(--panel-2);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:10px 12px;text-decoration:none;transition:background .2s ease,color .2s ease}
-    .nav-button:hover{background:var(--panel);color:#fff}
-    .nav-button:focus{outline:2px solid var(--accent);outline-offset:1px}
-    .nav-button.current{background:linear-gradient(120deg,rgba(34,197,94,.25),rgba(59,130,246,.25));border-color:rgba(34,197,94,.6)}
-    .section{padding:36px 0}
-    .muted{color:var(--muted)}
-    .roadmap{background:linear-gradient(180deg,var(--panel),#101b2d);border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:grid;gap:18px;margin-top:22px;position:relative;overflow:hidden}
-    .roadmap::before{content:"Roadmap stratégique";position:absolute;top:16px;right:-80px;width:220px;text-align:center;transform:rotate(45deg);background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.35);color:#86efac;padding:6px 0;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-    .roadmap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .roadmap-card{background:var(--panel-2);border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
-    .roadmap-year{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-    .roadmap-year strong{display:block;font-size:20px;color:var(--text)}
-    .roadmap-card ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px;color:var(--muted)}
-    .roadmap-ai{border-left:3px solid var(--accent);padding-left:12px;background:rgba(34,197,94,.08);border-radius:8px}
-    .footer{border-top:1px solid var(--border);padding:20px 0;color:var(--muted);text-align:center}
-    @media (max-width:600px){.roadmap::before{right:-120px}}
-  </style>
+  <link rel="stylesheet" href="dist/assets/main.css" />
 </head>
 <body>
   <header>
     <div class="container row" style="justify-content:space-between">
       <div class="row" style="gap:10px;align-items:center">
-        <a class="nav-button" href="index.html" style="padding:8px 12px">Accueil</a>
-        <h1>EconoDeal</h1>
+        <a class="brand" href="index.html">
+          <img src="assets/logo.svg" alt="EconoDeal – accélérateur de revendeurs" />
+          <span class="brand-text">
+            <span class="brand-title">EconoDeal</span>
+            <span class="brand-tagline">Revendeur gagnant</span>
+          </span>
+        </a>
       </div>
       <div class="row" style="gap:12px;align-items:center">
+        <a class="nav-button" href="best-deals.html" style="white-space:nowrap">Meilleurs rabais</a>
         <a class="nav-button" href="pricing.html" style="white-space:nowrap">Forfaits / prix</a>
         <a class="nav-button current" href="roadmap.html" style="white-space:nowrap">Roadmap / vision</a>
+        <div class="lang-switch" aria-label="Sélecteur de langue">
+          <span class="active" aria-current="true">FR</span>
+          <a href="roadmap-en.html">EN</a>
+          <a href="roadmap-es.html">ES</a>
+          <a href="roadmap-de.html">DE</a>
+          <a href="roadmap-it.html">IT</a>
+        </div>
         <div class="muted">© <span id="year"></span></div>
       </div>
     </div>
@@ -75,7 +61,7 @@
             <ul>
               <li>Localiser l'expérience pour les principaux marchés européens.</li>
               <li>Activer un moteur de recommandations IA multilingue.</li>
-              <li>Automatiser les stratégies de prix grâce à l'apprentissage continu.</li>
+              <li>Affiner les stratégies de prix grâce à l'apprentissage continu.</li>
             </ul>
           </article>
         </div>
