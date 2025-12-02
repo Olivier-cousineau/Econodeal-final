@@ -1,50 +1,10 @@
 import fs from 'fs';
 import path from 'path';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useMemo, useState } from 'react';
 
-interface RawProduct {
-  title?: string;
-  sku?: string;
-  product_sku?: string;
-  product_id?: string | number | null;
-  url?: string;
-  image?: string;
-  price?: number;
-  sale_price?: number | null;
-  regular_price?: number | null;
-  price_raw?: string;
-  sale_price_raw?: string | null;
-  regular_price_raw?: string | null;
-  liquidation?: boolean;
-  liquidation_price?: number | null;
-  liquidation_price_raw?: string | null;
-  availability?: string | null;
-  store_id?: string;
-  city?: string;
-  [key: string]: unknown;
-}
-
-interface ProductWithStore extends RawProduct {
-  storeId: string;
-  storeCity: string;
-  storeSlug: string;
-}
-
-interface StoreSummary {
-  storeId: string;
-  storeCity: string;
-  storeSlug: string;
-  label: string;
-  productCount: number;
-}
-
-export const getStaticProps: GetStaticProps<{
-  products: ProductWithStore[];
-  stores: StoreSummary[];
-}> = async () => {
+export const getStaticProps = async () => {
   const outputsRoot = path.join(process.cwd(), 'outputs', 'canadiantire');
-  let dirEntries: fs.Dirent[] = [];
+  let dirEntries = [];
 
   try {
     dirEntries = await fs.promises.readdir(outputsRoot, { withFileTypes: true });
@@ -59,8 +19,8 @@ export const getStaticProps: GetStaticProps<{
     };
   }
 
-  const products: ProductWithStore[] = [];
-  const storeCounts: Record<string, number> = {};
+  const products = [];
+  const storeCounts = {};
 
   for (const entry of dirEntries) {
     if (!entry.isDirectory()) {
@@ -72,7 +32,7 @@ export const getStaticProps: GetStaticProps<{
       continue;
     }
 
-    let rawContent: string;
+    let rawContent;
     try {
       rawContent = await fs.promises.readFile(dataPath, 'utf-8');
     } catch (error) {
@@ -80,7 +40,7 @@ export const getStaticProps: GetStaticProps<{
       continue;
     }
 
-    let storeProducts: RawProduct[];
+    let storeProducts;
     try {
       const parsed = JSON.parse(rawContent);
       storeProducts = Array.isArray(parsed) ? parsed : [];
@@ -117,7 +77,7 @@ export const getStaticProps: GetStaticProps<{
     return titleA.localeCompare(titleB);
   });
 
-  const stores: StoreSummary[] = Object.entries(storeCounts)
+  const stores = Object.entries(storeCounts)
     .map(([storeSlug, productCount]) => {
       const [storeIdFromSlug, ...citySegments] = storeSlug.split('-');
       const citySlug = citySegments.join('-');
@@ -141,11 +101,8 @@ export const getStaticProps: GetStaticProps<{
   };
 };
 
-const CanadianTirePage = ({
-  products,
-  stores,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [selectedStore, setSelectedStore] = useState<string>('all');
+const CanadianTirePage = ({ products, stores }) => {
+  const [selectedStore, setSelectedStore] = useState('all');
 
   const visibleProducts = useMemo(() => {
     if (selectedStore === 'all') {
