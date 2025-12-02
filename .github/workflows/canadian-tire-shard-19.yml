@@ -1,4 +1,4 @@
-name: Canadian Tire - Shard 19 of 21
+name: Canadian Tire - Shard 19 of 43
 
 on:
   schedule:
@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   run-shard-19:
-    name: Run shard 19 of 21
+    name: Run shard 19 of 43
     runs-on: ubuntu-latest
 
     steps:
@@ -41,11 +41,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Run Canadian Tire shard 19/21
+      - name: Run Canadian Tire shard 19/43
         run: |
           set -o pipefail
           node scripts/run_canadiantire_matrix.js \
-            --shards 21 \
+            --shards 43 \
             --shard 19 \
             --continue \
             --publish
@@ -54,7 +54,7 @@ jobs:
         if: always()
         run: |
           git add outputs/canadiantire || true
-          git commit -m "Update Canadian Tire data (shard 19/21)" || echo "Nothing to commit"
+          git commit -m "Update Canadian Tire data (shard 19/43)" || echo "Nothing to commit"
 
       - name: Push changes
         if: always()
